@@ -34,8 +34,8 @@ A luxury, mobile-first e-commerce website for a premium paint retailer in Karach
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd tawakkal-paint
+git clone https://github.com/ali-touheed123/tawakkal-paint-store.git
+cd tawakkal-paint-store
 ```
 
 2. Install dependencies:
@@ -62,60 +62,15 @@ npm run dev
 
 6. Open http://localhost:3000
 
-## Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router pages
-│   ├── page.tsx           # Homepage
-│   ├── cart/              # Cart page
-│   ├── checkout/          # Checkout page
-│   ├── profile/           # User profile
-│   └── category/[slug]/   # Category pages
-├── components/            # React components
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── ProductCard.tsx
-│   ├── PaintCalculator.tsx
-│   ├── PaintVisualizer.tsx
-│   ├── FAQ.tsx
-│   └── ...
-├── lib/                   # Utilities
-│   ├── supabase/         # Supabase clients
-│   ├── store.ts          # Zustand stores
-│   └── types/            # TypeScript types
-└── types/                # Shared types
-```
-
-## Design System
-
-### Colors
-- `--navy`: #0F1F3D (primary background)
-- `--gold`: #C9973A (accents, CTAs)
-- `--gold-light`: #E8B655 (hover states)
-- `--gold-pale`: #FDF6E9 (light backgrounds)
-- `--off-white`: #F8F6F2 (main background)
-
-### Typography
-- Headings: Playfair Display (serif)
-- Body: DM Sans (sans-serif)
-
-## WhatsApp Integration
-
-All WhatsApp links use: `https://wa.me/923475658761`
-
 ## Deployment
 
 Deploy to Vercel:
-```bash
-vercel deploy
-```
-
-Or build for production:
-```bash
-npm run build
-npm start
-```
+- Go to https://vercel.com
+- Import your GitHub repository
+- Add environment variables:
+  - `NEXT_PUBLIC_SUPABASE_URL`
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- Deploy!
 
 ## License
 
