@@ -1,0 +1,264 @@
+export type ProductCategory = 'decorative' | 'industrial' | 'auto' | 'projects';
+export type SubCategory = 'interior' | 'exterior' | 'wood_metal' | 'waterproofing' | 'accessories';
+export type OrderStatus = 'pending' | 'confirmed' | 'delivered' | 'cancelled';
+export type ItemSize = 'quarter' | 'gallon' | 'drum';
+
+export interface Product {
+  id: string;
+  name: string;
+  brand: string;
+  category: ProductCategory;
+  sub_category: SubCategory | null;
+  description: string | null;
+  image_url: string | null;
+  price_quarter: number;
+  price_gallon: number;
+  price_drum: number;
+  in_stock: boolean;
+  created_at: string;
+}
+
+export interface User {
+  id: string;
+  full_name: string;
+  phone: string | null;
+  email: string | null;
+  area: string | null;
+  created_at: string;
+}
+
+export interface CartItem {
+  id: string;
+  user_id: string;
+  product_id: string;
+  size: ItemSize;
+  quantity: number;
+  created_at: string;
+  product?: Product;
+}
+
+export interface OrderItem {
+  product_id: string;
+  name: string;
+  brand: string;
+  size: ItemSize;
+  quantity: number;
+  price: number;
+  image_url: string | null;
+}
+
+export interface Order {
+  id: string;
+  user_id: string | null;
+  items: OrderItem[];
+  subtotal: number;
+  discount_percent: number;
+  discount_amount: number;
+  total: number;
+  payment_method: string;
+  status: OrderStatus;
+  delivery_area: string;
+  delivery_address: string;
+  phone: string;
+  created_at: string;
+}
+
+export const KARACHI_AREAS = [
+  'Gulshan-e-Iqbal',
+  'DHA',
+  'Clifton',
+  'North Karachi',
+  'Korangi',
+  'Malir',
+  'Saddar',
+  'Orangi Town',
+  'F.B Area',
+  'Nazimabad',
+  'Gulistan-e-Johar',
+  'Liaquatabad',
+  'Landhi',
+  'Baldia Town',
+  'New Karachi',
+  'Shah Faisal Colony'
+] as const;
+
+export type KarachiArea = typeof KARACHI_AREAS[number];
+
+export const DISCOUNT_TIERS = [
+  { min: 0, max: 4999, discount: 0 },
+  { min: 5000, max: 9999, discount: 15 },
+  { min: 10000, max: 19999, discount: 20 },
+  { min: 20000, max: Infinity, discount: 25 }
+] as const;
+
+export function getDiscount(subtotal: number): number {
+  const tier = DISCOUNT_TIERS.find(t => subtotal >= t.min && subtotal <= t.max);
+  return tier?.discount ?? 0;
+}
+
+export function getNextDiscountTier(subtotal: number): { discount: number; amountNeeded: number } | null {
+  const currentTier = DISCOUNT_TIERS.find(t => subtotal >= t.min && subtotal <= t.max);
+  const currentIndex = DISCOUNT_TIERS.indexOf(currentTier!);
+  
+  if (currentIndex < DISCOUNT_TIERS.length - 1) {
+    const nextTier = DISCOUNT_TIERS[currentIndex + 1];
+    return {
+      discount: nextTier.discount,
+      amountNeeded: nextTier.min - subtotal
+    };
+  }
+  return null;
+}
+
+export const BRANDS = ['Gobi\'s', 'Berger', 'Diamond', 'Saasil', 'Ocean', 'Rozzilac', 'Reliance', 'Reliable'] as const;
+
+export const BRAND_LOGOS: Record<string, string> = {
+  "Gobi's": '/images/brands/gobi\'s.png',
+  'Berger': '/images/brands/berger.png',
+  'Diamond': '/images/brands/diamond.png',
+  'Saasil': '/images/brands/saasi.png',
+  'Ocean': '/images/brands/ocean.png',
+  'Rozzilac': '/images/brands/rozzi.png',
+  'Reliance': '/images/brands/reliance.png',
+  'Reliable': '/images/brands/reliable.png'
+};
+
+export type PaintType = {
+  id: string;
+  label: string;
+  coverage: number;
+};
+
+export const PAINT_TYPES: PaintType[] = [
+  { id: 'wall', label: 'Wall Paint', coverage: 50 },
+  { id: 'primer', label: 'Primer', coverage: 50 },
+  { id: 'putty', label: 'Putty', coverage: 30 },
+  { id: 'wood', label: 'Wood Paint', coverage: 50 },
+  { id: 'metal', label: 'Metal Paint', coverage: 50 }
+];
+
+export const COLOR_FAMILIES = [
+  {
+    name: 'Whites & Creams',
+    colors: [
+      { name: 'Pure White', hex: '#FFFFFF' },
+      { name: 'Ivory', hex: '#FFFFF0' },
+      { name: 'Cream', hex: '#FFFDD0' },
+      { name: 'Vanilla', hex: '#F3E5AB' },
+      { name: 'Pearl', hex: '#EAE0C8' },
+      { name: 'Champagne', hex: '#F7E7CE' }
+    ]
+  },
+  {
+    name: 'Beiges & Tans',
+    colors: [
+      { name: 'Sand', hex: '#C2B280' },
+      { name: 'Beige', hex: '#F5F5DC' },
+      { name: 'Tan', hex: '#D2B48C' },
+      { name: 'Camel', hex: '#C19A6B' },
+      { name: 'Caramel', hex: '#AA6C39' },
+      { name: 'Mocha', hex: '#6F4E37' }
+    ]
+  },
+  {
+    name: 'Blues & Navys',
+    colors: [
+      { name: 'Sky Blue', hex: '#87CEEB' },
+      { name: 'Steel Blue', hex: '#4682B4' },
+      { name: 'Ocean Blue', hex: '#006994' },
+      { name: 'Royal Blue', hex: '#4169E1' },
+      { name: 'Navy', hex: '#000080' },
+      { name: 'Midnight', hex: '#191970' }
+    ]
+  },
+  {
+    name: 'Greens',
+    colors: [
+      { name: 'Mint', hex: '#98FF98' },
+      { name: 'Sage', hex: '#9DC183' },
+      { name: 'Olive', hex: '#808000' },
+      { name: 'Forest', hex: '#228B22' },
+      { name: 'Emerald', hex: '#50C878' },
+      { name: 'Jade', hex: '#00A86B' }
+    ]
+  },
+  {
+    name: 'Greys',
+    colors: [
+      { name: 'Light Grey', hex: '#D3D3D3' },
+      { name: 'Silver', hex: '#C0C0C0' },
+      { name: 'Grey', hex: '#808080' },
+      { name: 'Charcoal', hex: '#36454F' },
+      { name: 'Slate', hex: '#708090' },
+      { name: 'Graphite', hex: '#383838' }
+    ]
+  },
+  {
+    name: 'Warm Reds',
+    colors: [
+      { name: 'Coral', hex: '#FF7F50' },
+      { name: 'Salmon', hex: '#FA8072' },
+      { name: 'Terra Cotta', hex: '#E2725B' },
+      { name: 'Brick', hex: '#CB4154' },
+      { name: 'Burgundy', hex: '#800020' },
+      { name: 'Maroon', hex: '#800000' }
+    ]
+  },
+  {
+    name: 'Earthy Oranges',
+    colors: [
+      { name: 'Peach', hex: '#FFDAB9' },
+      { name: 'Apricot', hex: '#FBCEB1' },
+      { name: 'Burnt Orange', hex: '#CC5500' },
+      { name: 'Rust', hex: '#B7410E' },
+      { name: 'Sienna', hex: '#A0522D' },
+      { name: 'Brown', hex: '#8B4513' }
+    ]
+  },
+  {
+    name: 'Soft Yellows',
+    colors: [
+      { name: 'Lemon', hex: '#FFF44F' },
+      { name: 'Butter', hex: '#F9E376' },
+      { name: 'Canary', hex: '#FFEF00' },
+      { name: 'Gold', hex: '#FFD700' },
+      { name: 'Mustard', hex: '#FFDB58' },
+      { name: 'Ochre', hex: '#CC7722' }
+    ]
+  }
+];
+
+export const FAQS = [
+  {
+    question: 'Which areas in Karachi do you deliver to?',
+    answer: 'We deliver to all areas across Karachi including Gulshan-e-Iqbal, DHA, Clifton, North Karachi, Korangi, Malir, Saddar, Orangi Town, F.B Area, Nazimabad, Gulistan-e-Johar, Liaquatabad, Landhi, Baldia Town, New Karachi, and Shah Faisal Colony.'
+  },
+  {
+    question: 'Are all products 100% original and sealed?',
+    answer: 'Absolutely! We are authorized dealers for Gobi\'s, Berger, Diamond, Saasil, Ocean, and exclusive distributor for Rozzilac. All our products are factory-sealed with no refills or fakes. Quality is guaranteed.'
+  },
+  {
+    question: 'How does Cash on Delivery work?',
+    answer: 'Simply place your order online, select Cash on Delivery, and our team will deliver your paint products to your doorstep. You pay when you receive your order. It\'s that simple!'
+  },
+  {
+    question: 'Do you offer bulk pricing for contractors?',
+    answer: 'Yes! We offer special contractor pricing for bulk orders. Contact us on WhatsApp with your project requirements and we\'ll provide you with a custom quote.'
+  },
+  {
+    question: 'How does the free colour consultation work?',
+    answer: 'Our expert color consultants help you choose the perfect shades for your space. Simply WhatsApp us or visit our store and we\'ll guide you through color selection based on your preferences and requirements.'
+  },
+  {
+    question: 'What brands do you carry?',
+    answer: 'We carry premium brands including Gobi\'s, Berger, Diamond, Saasil, Ocean, and are exclusive distributors for Rozzilac. All products are authentic and factory-sealed.'
+  },
+  {
+    question: 'How do I unlock the discount system?',
+    answer: 'Simply register an account on our website. Once logged in, you\'ll automatically unlock our discount tiers: 15% off on orders Rs. 5,000+, 20% off on Rs. 10,000+, and 25% off on Rs. 20,000+!'
+  },
+  {
+    question: 'Can I track my order after placing it?',
+    answer: 'Yes! Once your order is confirmed, you can track it by WhatsApping us with your Order ID. Our team will provide you with regular updates on your delivery status.'
+  }
+];
