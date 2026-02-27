@@ -133,7 +133,7 @@ export function Navbar() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full left-0 w-64 bg-navy border border-gold/20 shadow-2xl overflow-visible pt-1"
+                        className="absolute top-[calc(100%-2px)] left-0 w-64 z-[100] overflow-visible pt-1"
                       >
                         <div className="bg-navy border border-gold/20 shadow-2xl py-2">
                           {productData.categories.map((cat) => (
@@ -158,7 +158,7 @@ export function Navbar() {
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -10 }}
-                                    className="absolute top-0 left-full w-64 pl-1"
+                                    className="absolute top-0 left-[calc(100%-2px)] w-64 pl-1 z-[110]"
                                   >
                                     <div className="bg-navy border border-gold/20 shadow-2xl py-2">
                                       {productData.brands.map((brand) => (
@@ -183,7 +183,7 @@ export function Navbar() {
                                                 initial={{ opacity: 0, x: -10 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -10 }}
-                                                className="absolute top-0 left-full w-64 pl-1"
+                                                className="absolute top-0 left-[calc(100%-2px)] w-64 pl-1 z-[120]"
                                               >
                                                 <div className="bg-navy border border-gold/20 shadow-2xl py-2">
                                                   {productData.subs.map((sub) => (
