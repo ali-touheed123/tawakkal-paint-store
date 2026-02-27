@@ -12,6 +12,7 @@ const subCategories = [
   { id: 'interior', label: 'Interior' },
   { id: 'exterior', label: 'Exterior' },
   { id: 'wood_metal', label: 'Wood & Metal' },
+  { id: 'primers_fillers', label: 'Primers & Fillers' },
   { id: 'waterproofing', label: 'Waterproofing' },
   { id: 'accessories', label: 'Accessories' }
 ];
