@@ -322,7 +322,7 @@ export function Navbar() {
                                     onClick={() => setActiveBrand(activeBrand === cat.slug ? null : cat.slug)}
                                     className="flex items-center justify-between w-full py-2 text-sm text-white/60"
                                   >
-                                    {cat.label}
+                                    {cat.name}
                                     <ChevronDown size={12} className={`transition-transform ${activeBrand === cat.slug ? 'rotate-180' : ''}`} />
                                   </button>
 
@@ -337,11 +337,11 @@ export function Navbar() {
                                         {productData.brands.map((brand) => (
                                           <Link
                                             key={brand.slug}
-                                            href={`/category/${cat.slug}?brand=${brand.label}`}
+                                            href={`/category/${cat.slug}?brand=${brand.name}`}
                                             className="block py-2 text-xs text-white/40 hover:text-gold"
                                             onClick={() => setMobileMenuOpen(false)}
                                           >
-                                            {brand.label}
+                                            {brand.name}
                                           </Link>
                                         ))}
                                       </motion.div>
