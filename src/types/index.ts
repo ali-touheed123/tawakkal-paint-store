@@ -24,6 +24,7 @@ export interface User {
   phone: string | null;
   email: string | null;
   area: string | null;
+  is_admin: boolean;
   created_at: string;
 }
 
@@ -99,7 +100,7 @@ export function getDiscount(subtotal: number): number {
 export function getNextDiscountTier(subtotal: number): { discount: number; amountNeeded: number } | null {
   const currentTier = DISCOUNT_TIERS.find(t => subtotal >= t.min && subtotal <= t.max);
   const currentIndex = DISCOUNT_TIERS.indexOf(currentTier!);
-  
+
   if (currentIndex < DISCOUNT_TIERS.length - 1) {
     const nextTier = DISCOUNT_TIERS[currentIndex + 1];
     return {
