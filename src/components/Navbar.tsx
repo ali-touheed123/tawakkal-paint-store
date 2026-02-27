@@ -119,8 +119,8 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     className={`text-sm font-medium transition-colors duration-300 py-[25px] ${pathname === link.href
-                        ? 'text-gold'
-                        : 'text-white/80 hover:text-gold'
+                      ? 'text-gold'
+                      : 'text-white/80 hover:text-gold'
                       }`}
                   >
                     {link.label}
@@ -294,14 +294,73 @@ export function Navbar() {
             >
               <div className="px-4 py-4 space-y-4">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`block py-2 text-sm font-medium ${pathname === link.href ? 'text-gold' : 'text-white/80'
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
+                  <div key={link.label}>
+                    {link.hasDropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setActiveCategory(activeCategory === 'mobile_products' ? null : 'mobile_products')}
+                          className="flex items-center justify-between w-full py-2 text-sm font-medium text-white/80"
+                        >
+                          {link.label}
+                          <ChevronDown size={14} className={`transition-transform ${activeCategory === 'mobile_products' ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        <AnimatePresence>
+                          {activeCategory === 'mobile_products' && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden pl-4 space-y-2 mt-2 border-l border-gold/20"
+                            >
+                              {productData.categories.map((cat) => (
+                                <div key={cat.slug}>
+                                  <button
+                                    onClick={() => setActiveBrand(activeBrand === cat.slug ? null : cat.slug)}
+                                    className="flex items-center justify-between w-full py-2 text-sm text-white/60"
+                                  >
+                                    {cat.label}
+                                    <ChevronDown size={12} className={`transition-transform ${activeBrand === cat.slug ? 'rotate-180' : ''}`} />
+                                  </button>
+
+                                  <AnimatePresence>
+                                    {activeBrand === cat.slug && (
+                                      <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        className="overflow-hidden pl-4 space-y-1 mt-1 border-l border-gold/10"
+                                      >
+                                        {productData.brands.map((brand) => (
+                                          <Link
+                                            key={brand.slug}
+                                            href={`/category/${cat.slug}?brand=${brand.label}`}
+                                            className="block py-2 text-xs text-white/40 hover:text-gold"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                          >
+                                            {brand.label}
+                                          </Link>
+                                        ))}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className={`block py-2 text-sm font-medium ${pathname === link.href ? 'text-gold' : 'text-white/80'
+                          }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </div>
                 ))}
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
