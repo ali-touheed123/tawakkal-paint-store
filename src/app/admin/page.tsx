@@ -1,277 +1,186 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Users,
+  ShoppingCart,
+  TrendingUp,
+  Package,
+  AlertTriangle,
+  ArrowUpRight,
+  ArrowDownRight,
+  Clock
+} from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { BRANDS, ProductCategory, SubCategory } from '@/types';
-import { Upload, X, Loader2 } from 'lucide-react';
 
-export default function AdminPage() {
-  const [products, setProducts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [uploading, setUploading] = useState(false);
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    brand: BRANDS[0],
-    category: 'decorative' as ProductCategory,
-    sub_category: 'interior' as SubCategory,
-    description: '',
-    price_quarter: 0,
-    price_gallon: 0,
-    price_drum: 0,
-    in_stock: true
+export default function AdminDashboard() {
+  const [stats, setStats] = useState({
+    totalOrders: 0,
+    totalRevenue: 0,
+    totalCustomers: 0,
+    lowStock: 0,
+    recentOrders: [] as any[]
   });
-  const [imageFile, setImageFile] = useState<File | null>(null);
-
-  const supabase = createClient();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadProducts();
+    const loadDashboardData = async () => {
+      const supabase = createClient();
+
+      // Fetch total orders
+      const { count: orderCount } = await supabase
+        .from('orders')
+        .select('*', { count: 'exact', head: true });
+
+      // Fetch total customers
+      const { count: customerCount } = await supabase
+        .from('users')
+        .select('*', { count: 'exact', head: true });
+
+      // Fetch low stock items
+      const { count: lowStockCount } = await supabase
+        .from('products')
+        .select('*', { count: 'exact', head: true })
+        .eq('in_stock', false);
+
+      // Fetch recent orders
+      const { data: recentOrders } = await supabase
+        .from('orders')
+        .select('*, users(full_name)')
+        .order('created_at', { ascending: false })
+        .limit(5);
+
+      // Calculate revenue
+      const { data: revenueData } = await supabase
+        .from('orders')
+        .select('total')
+        .eq('status', 'delivered');
+
+      const revenue = revenueData?.reduce((sum, order) => sum + Number(order.total), 0) || 0;
+
+      setStats({
+        totalOrders: orderCount || 0,
+        totalRevenue: revenue,
+        totalCustomers: customerCount || 0,
+        lowStock: lowStockCount || 0,
+        recentOrders: recentOrders || []
+      });
+      setLoading(false);
+    };
+
+    loadDashboardData();
   }, []);
 
-  const loadProducts = async () => {
-    const { data } = await supabase.from('products').select('*').order('created_at', { ascending: false });
-    if (data) setProducts(data);
-    setLoading(false);
-  };
-
-  const handleImageUpload = async (file: File): Promise<string> => {
-    const fileName = `${Date.now()}-${file.name.replace(/\s+/g, '-')}`;
-    const { data, error } = await supabase.storage
-      .from('products')
-      .upload(fileName, file);
-    
-    if (error) throw error;
-    
-    const { data: { publicUrl } } = supabase.storage
-      .from('products')
-      .getPublicUrl(fileName);
-    
-    return publicUrl;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setUploading(true);
-
-    try {
-      let imageUrl = '';
-      
-      if (imageFile) {
-        imageUrl = await handleImageUpload(imageFile);
-      }
-
-      const { error } = await supabase.from('products').insert({
-        ...formData,
-        image_url: imageUrl
-      });
-
-      if (error) throw error;
-
-      setShowAddForm(false);
-      setFormData({
-        name: '',
-        brand: BRANDS[0],
-        category: 'decorative',
-        sub_category: 'interior',
-        description: '',
-        price_quarter: 0,
-        price_gallon: 0,
-        price_drum: 0,
-        in_stock: true
-      });
-      setImageFile(null);
-      loadProducts();
-    } catch (error) {
-      console.error(error);
-      alert('Error adding product');
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const deleteProduct = async (id: string) => {
-    if (!confirm('Delete this product?')) return;
-    await supabase.from('products').delete().eq('id', id);
-    loadProducts();
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-off-white">
-        <Loader2 className="animate-spin text-gold" size={40} />
-      </div>
-    );
-  }
+  const statCards = [
+    { label: 'Total Revenue', value: `Rs. ${stats.totalRevenue.toLocaleString()}`, icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-100', trend: '+12%', isUp: true },
+    { label: 'Total Orders', value: stats.totalOrders.toString(), icon: ShoppingCart, color: 'text-blue-600', bg: 'bg-blue-100', trend: '+5%', isUp: true },
+    { label: 'New Customers', value: stats.totalCustomers.toString(), icon: Users, color: 'text-purple-600', bg: 'bg-purple-100', trend: '+18%', isUp: true },
+    { label: 'Low Stock', value: stats.lowStock.toString(), icon: AlertTriangle, color: 'text-red-600', bg: 'bg-red-100', trend: 'Critical', isUp: false },
+  ];
 
   return (
-    <div className="min-h-screen bg-off-white pt-[70px] p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="font-heading text-3xl font-bold text-navy">Admin Panel - Products</h1>
-          <button
-            onClick={() => setShowAddForm(true)}
-            className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-gold-light"
-          >
-            + Add Product
-          </button>
-        </div>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-2xl font-bold text-navy">Dashboard Overview</h1>
+        <p className="text-gray-500 text-sm">Welcome back! Here's what's happening today.</p>
+      </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden">
-              {product.image_url && (
-                <img src={product.image_url} alt={product.name} className="w-full h-40 object-cover" />
-              )}
-              <div className="p-4">
-                <p className="text-gold text-xs uppercase">{product.brand}</p>
-                <h3 className="font-semibold text-navy truncate">{product.name}</h3>
-                <p className="text-sm text-gray-500">Rs. {product.price_gallon.toLocaleString()}</p>
-                <button
-                  onClick={() => deleteProduct(product.id)}
-                  className="mt-2 text-red-500 text-sm hover:underline"
-                >
-                  Delete
-                </button>
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {statCards.map((card, i) => {
+          const Icon = card.icon;
+          return (
+            <motion.div
+              key={card.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className={`p-3 rounded-xl ${card.bg} ${card.color}`}>
+                  <Icon size={24} />
+                </div>
+                <div className={`flex items-center gap-1 text-sm font-semibold ${card.isUp ? 'text-green-600' : 'text-red-600'}`}>
+                  {card.trend}
+                  {card.isUp ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+              <p className="text-gray-500 text-sm font-medium">{card.label}</p>
+              <h3 className="text-2xl font-bold text-navy mt-1">{card.value}</h3>
+            </motion.div>
+          );
+        })}
+      </div>
 
-        {/* Add Product Modal */}
-        {showAddForm && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="font-heading text-xl font-bold text-navy">Add Product</h2>
-                <button onClick={() => setShowAddForm(false)}><X size={24} /></button>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1">Product Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full p-2 border rounded-lg"
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Brand *</label>
-                    <select
-                      value={formData.brand}
-                      onChange={(e) => setFormData({ ...formData, brand: e.target.value as any })}
-                      className="w-full p-2 border rounded-lg"
-                    >
-                      {BRANDS.map((b) => <option key={b} value={b}>{b}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Category *</label>
-                    <select
-                      value={formData.category}
-                      onChange={(e) => setFormData({ ...formData, category: e.target.value as ProductCategory })}
-                      className="w-full p-2 border rounded-lg"
-                    >
-                      <option value="decorative">Decorative</option>
-                      <option value="industrial">Industrial</option>
-                      <option value="auto">Auto</option>
-                      <option value="projects">Projects</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Sub Category</label>
-                  <select
-                    value={formData.sub_category}
-                    onChange={(e) => setFormData({ ...formData, sub_category: e.target.value as SubCategory })}
-                    className="w-full p-2 border rounded-lg"
-                  >
-                    <option value="interior">Interior</option>
-                    <option value="exterior">Exterior</option>
-                    <option value="wood_metal">Wood & Metal</option>
-                    <option value="waterproofing">Waterproofing</option>
-                    <option value="accessories">Accessories</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Description</label>
-                  <textarea
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full p-2 border rounded-lg"
-                    rows={2}
-                  />
-                </div>
-
-                <div className="grid grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Quarter Price</label>
-                    <input
-                      type="number"
-                      value={formData.price_quarter}
-                      onChange={(e) => setFormData({ ...formData, price_quarter: Number(e.target.value) })}
-                      className="w-full p-2 border rounded-lg"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Gallon Price *</label>
-                    <input
-                      type="number"
-                      required
-                      value={formData.price_gallon}
-                      onChange={(e) => setFormData({ ...formData, price_gallon: Number(e.target.value) })}
-                      className="w-full p-2 border rounded-lg"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Drum Price</label>
-                    <input
-                      type="number"
-                      value={formData.price_drum}
-                      onChange={(e) => setFormData({ ...formData, price_drum: Number(e.target.value) })}
-                      className="w-full p-2 border rounded-lg"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Product Image</label>
-                  <div className="border-2 border-dashed rounded-lg p-4 text-center">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => setImageFile(e.target.files?.[0] || null)}
-                      className="hidden"
-                      id="image-upload"
-                    />
-                    <label htmlFor="image-upload" className="cursor-pointer">
-                      <Upload className="mx-auto text-gray-400 mb-2" />
-                      <span className="text-sm text-gray-500">
-                        {imageFile ? imageFile.name : 'Click to upload image'}
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Recent Orders */}
+        <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="p-6 border-b border-gray-50 flex items-center justify-between">
+            <h3 className="font-bold text-navy">Recent Orders</h3>
+            <button className="text-gold text-sm font-semibold hover:underline">View All</button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Order ID</th>
+                  <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Customer</th>
+                  <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Status</th>
+                  <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Total</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {stats.recentOrders.map((order) => (
+                  <tr key={order.id} className="hover:bg-gray-50/50 transition-colors">
+                    <td className="px-6 py-4 font-mono text-sm text-gold">#{order.id.slice(0, 8).toUpperCase()}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-navy">{order.users?.full_name || 'Guest'}</td>
+                    <td className="px-6 py-4">
+                      <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase ${order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                          order.status === 'delivered' ? 'bg-green-100 text-green-700' :
+                            'bg-blue-100 text-blue-700'
+                        }`}>
+                        {order.status}
                       </span>
-                    </label>
-                  </div>
-                </div>
+                    </td>
+                    <td className="px-6 py-4 text-sm font-bold text-navy">Rs. {order.total.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-                <button
-                  type="submit"
-                  disabled={uploading}
-                  className="w-full bg-gold text-navy py-3 rounded-lg font-semibold hover:bg-gold-light disabled:opacity-50"
-                >
-                  {uploading ? <Loader2 className="animate-spin mx-auto" /> : 'Add Product'}
-                </button>
-              </form>
+        {/* Low Stock Alerts */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <h3 className="font-bold text-navy mb-6 flex items-center gap-2">
+            <Clock className="text-gold" size={20} />
+            Quick Alerts
+          </h3>
+          <div className="space-y-4">
+            {stats.lowStock > 0 ? (
+              <div className="flex items-start gap-4 p-4 bg-red-50 rounded-xl border border-red-100">
+                <AlertTriangle className="text-red-600 mt-1" size={20} />
+                <div>
+                  <h4 className="font-bold text-red-900 text-sm">Low Inventory</h4>
+                  <p className="text-red-700 text-xs mt-1">{stats.lowStock} products are currently out of stock.</p>
+                  <button className="text-red-800 text-xs font-bold mt-2 hover:underline">Restock Now</button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-3 p-4 bg-green-50 rounded-xl border border-green-100">
+                <Package className="text-green-600" size={20} />
+                <p className="text-green-700 text-xs font-medium">All products are in stock.</p>
+              </div>
+            )}
+
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-100">
+              <h4 className="font-bold text-blue-900 text-sm">Today's Traffic</h4>
+              <p className="text-blue-700 text-xs mt-1">Visit counts are up 20% compared to yesterday.</p>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
