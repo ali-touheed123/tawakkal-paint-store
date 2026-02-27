@@ -15,7 +15,15 @@ interface ProductCardProps {
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const [selectedSize, setSelectedSize] = useState<ItemSize>('gallon');
   const [addingToCart, setAddingToCart] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const { addItem } = useCartStore();
+
+  const getImageUrl = () => {
+    if (!product.image_url || imgError) {
+      return `https://placehold.co/400x400/0F1F3D/C9973A?text=${encodeURIComponent(product.brand)}`;
+    }
+    return product.image_url;
+  };
 
   const price = selectedSize === 'quarter' 
     ? product.price_quarter 
@@ -41,8 +49,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <img
-          src={product.image_url || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800'}
+          src={getImageUrl()}
           alt={product.name}
+          onError={() => setImgError(true)}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         {!product.in_stock && (
