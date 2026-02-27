@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, MessageCircle, ShoppingCart, User, Menu, X, MapPin } from 'lucide-react';
+import { Search, MessageCircle, ShoppingCart, User, Menu, X, MapPin, ChevronRight } from 'lucide-react';
 import { useCartStore, useLocationStore, useUIStore, useUserStore } from '@/lib/store';
 import { useSettings } from '@/lib/hooks/useSettings';
 
@@ -17,6 +17,9 @@ export function Navbar() {
   const { settings } = useSettings();
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeBrand, setActiveBrand] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -38,11 +41,37 @@ export function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/category/decorative', label: 'Products' },
+    { href: '#', label: 'Products', hasDropdown: true },
     { href: '/#why-choose-us', label: 'Why Choose Us' },
     { href: '/#calculator', label: 'Calculator' },
     { href: '/#contact', label: 'Contact Us' },
   ];
+
+  const productData = {
+    categories: [
+      { slug: 'decorative', label: 'Decorative' },
+      { slug: 'industrial', label: 'Industrial' },
+      { slug: 'auto', label: 'Auto' },
+      { slug: 'projects', label: 'Projects' },
+    ],
+    brands: [
+      { slug: 'gobis', label: "Gobi's" },
+      { slug: 'berger', label: 'Berger' },
+      { slug: 'diamond', label: 'Diamond' },
+      { slug: 'saasil', label: 'Saasil' },
+      { slug: 'ocean', label: 'Ocean' },
+      { slug: 'rozzilac', label: 'Rozzilac' },
+      { slug: 'reliance', label: 'Reliance' },
+      { slug: 'reliable', label: 'Reliable' },
+    ],
+    subs: [
+      { slug: 'interior', label: 'Interior' },
+      { slug: 'exterior', label: 'Exterior' },
+      { slug: 'wood_metal', label: 'Wood & Metal' },
+      { slug: 'waterproofing', label: 'Waterproofing' },
+      { slug: 'accessories', label: 'Accessories' },
+    ]
+  };
 
   const handleProfileClick = () => {
     if (isAuthenticated) {
@@ -81,16 +110,108 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors duration-300 ${pathname === link.href
-                      ? 'text-gold'
-                      : 'text-white/80 hover:text-gold'
-                    }`}
+                <div
+                  key={link.label}
+                  className="relative h-full flex items-center"
+                  onMouseEnter={() => link.hasDropdown && setActiveMenu('products')}
+                  onMouseLeave={() => link.hasDropdown && setActiveMenu(null)}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={`text-sm font-medium transition-colors duration-300 py-[25px] ${pathname === link.href
+                        ? 'text-gold'
+                        : 'text-white/80 hover:text-gold'
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+
+                  {/* Desktop Multi-level Dropdown */}
+                  <AnimatePresence>
+                    {link.hasDropdown && activeMenu === 'products' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full left-0 w-64 bg-navy border border-gold/20 shadow-2xl overflow-visible"
+                      >
+                        <div className="py-2">
+                          {productData.categories.map((cat) => (
+                            <div
+                              key={cat.slug}
+                              className="relative group"
+                              onMouseEnter={() => setActiveCategory(cat.slug)}
+                              onMouseLeave={() => setActiveCategory(null)}
+                            >
+                              <Link
+                                href={`/category/${cat.slug}`}
+                                className="flex items-center justify-between px-6 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-all"
+                              >
+                                {cat.label}
+                                <ChevronRight size={14} className="opacity-40 group-hover:opacity-100" />
+                              </Link>
+
+                              {/* Level 2: Brands */}
+                              <AnimatePresence>
+                                {activeCategory === cat.slug && (
+                                  <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -10 }}
+                                    className="absolute top-0 left-full w-64 bg-navy border border-gold/20 shadow-2xl"
+                                  >
+                                    <div className="py-2">
+                                      {productData.brands.map((brand) => (
+                                        <div
+                                          key={brand.slug}
+                                          className="relative group/brand"
+                                          onMouseEnter={() => setActiveBrand(brand.slug)}
+                                          onMouseLeave={() => setActiveBrand(null)}
+                                        >
+                                          <Link
+                                            href={`/category/${cat.slug}?brand=${brand.label}`}
+                                            className="flex items-center justify-between px-6 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-all"
+                                          >
+                                            {brand.label}
+                                            <ChevronRight size={14} className="opacity-40 group-hover/brand:opacity-100" />
+                                          </Link>
+
+                                          {/* Level 3: Sub-categories */}
+                                          <AnimatePresence>
+                                            {activeBrand === brand.slug && (
+                                              <motion.div
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -10 }}
+                                                className="absolute top-0 left-full w-64 bg-navy border border-gold/20 shadow-2xl"
+                                              >
+                                                <div className="py-2">
+                                                  {productData.subs.map((sub) => (
+                                                    <Link
+                                                      key={sub.slug}
+                                                      href={`/category/${cat.slug}?brand=${brand.label}&sub=${sub.slug}`}
+                                                      className="block px-6 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-all"
+                                                    >
+                                                      {sub.label}
+                                                    </Link>
+                                                  ))}
+                                                </div>
+                                              </motion.div>
+                                            )}
+                                          </AnimatePresence>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ))}
             </div>
 
