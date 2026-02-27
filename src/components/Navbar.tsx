@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, MessageCircle, ShoppingCart, User, Menu, X, MapPin } from 'lucide-react';
 import { useCartStore, useLocationStore, useUIStore, useUserStore } from '@/lib/store';
+import { useSettings } from '@/lib/hooks/useSettings';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -13,6 +14,7 @@ export function Navbar() {
   const { area } = useLocationStore();
   const { setLocationPopupOpen, isMobileMenuOpen, setMobileMenuOpen, setSearchOpen, setAuthModalOpen, setAuthModalMode } = useUIStore();
   const { user, isAuthenticated } = useUserStore();
+  const { settings } = useSettings();
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -62,17 +64,16 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled ? 'glassmorphism border-b border-gold/20' : 'bg-navy'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'glassmorphism border-b border-gold/20' : 'bg-navy'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[70px] md:h-[70px]">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <img 
-                src="/logo.png" 
-                alt="Tawakkal Paint Store" 
+              <img
+                src={settings?.logo || "/logo.png"}
+                alt="Tawakkal Paint Store"
                 className="h-10 md:h-12 w-auto"
               />
             </Link>
@@ -83,11 +84,10 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors duration-300 ${
-                    pathname === link.href
+                  className={`text-sm font-medium transition-colors duration-300 ${pathname === link.href
                       ? 'text-gold'
                       : 'text-white/80 hover:text-gold'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -105,7 +105,7 @@ export function Navbar() {
               </button>
 
               <Link
-                href="https://wa.me/923475658761?text=Hi! I need help with paint."
+                href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I need help with paint.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-400 hover:text-green-300 transition-colors"
@@ -176,9 +176,8 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`block py-2 text-sm font-medium ${
-                      pathname === link.href ? 'text-gold' : 'text-white/80'
-                    }`}
+                    className={`block py-2 text-sm font-medium ${pathname === link.href ? 'text-gold' : 'text-white/80'
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -193,7 +192,7 @@ export function Navbar() {
                   </button>
 
                   <Link
-                    href="https://wa.me/923475658761?text=Hi! I need help with paint."
+                    href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I need help with paint.`}
                     target="_blank"
                     className="text-green-400"
                   >

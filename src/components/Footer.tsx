@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import { MessageCircle, Instagram, Facebook, Phone, MapPin } from 'lucide-react';
 import { useLocationStore, useUIStore } from '@/lib/store';
+import { useSettings } from '@/lib/hooks/useSettings';
 
 export function Footer() {
   const { setLocationPopupOpen } = useUIStore();
+  const { settings } = useSettings();
 
   const handleChangeArea = () => {
     if (typeof window !== 'undefined' && (window as any).openLocationPopup) {
@@ -22,9 +24,9 @@ export function Footer() {
           {/* Column 1: Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img 
-                src="/logo.png" 
-                alt="Tawakkal Paint Store" 
+              <img
+                src={settings?.logo || "/logo.png"}
+                alt="Tawakkal Paint Store"
                 className="h-12 w-auto"
               />
             </div>
@@ -33,7 +35,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="https://wa.me/923475658761"
+                href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-400 hover:text-green-300 transition-colors"
@@ -42,14 +44,18 @@ export function Footer() {
                 <MessageCircle size={20} />
               </Link>
               <a
-                href="#"
+                href={settings?.socials?.instagram || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gold transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a
-                href="#"
+                href={settings?.socials?.facebook || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gold transition-colors"
                 aria-label="Facebook"
               >
@@ -84,8 +90,8 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <Phone size={18} className="text-gold mt-0.5" />
                 <div>
-                  <p className="text-gray-400 text-sm">0347-5658761</p>
-                  <p className="text-gray-400 text-sm">WhatsApp: 0347-5658761</p>
+                  <p className="text-gray-400 text-sm">{settings?.contact?.phone || '0347-5658761'}</p>
+                  <p className="text-gray-400 text-sm">WhatsApp: {settings?.contact?.whatsapp || '0347-5658761'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
