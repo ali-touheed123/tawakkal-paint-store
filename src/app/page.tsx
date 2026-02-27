@@ -9,6 +9,7 @@ import { PaintVisualizer } from '@/components/PaintVisualizer';
 import { FAQ } from '@/components/FAQ';
 import { ProductCard } from '@/components/ProductCard';
 import { createClient } from '@/lib/supabase/client';
+import { useSettings } from '@/lib/hooks/useSettings';
 import { Product } from '@/types';
 
 const categories = [
@@ -49,6 +50,7 @@ const whyChooseUs = [
 ];
 
 export default function HomePage() {
+  const { settings } = useSettings();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -75,7 +77,7 @@ export default function HomePage() {
           <div
             className="absolute inset-0 bg-cover bg-center parallax"
             style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920)',
+              backgroundImage: `url(${settings?.banners?.[0] || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920'})`,
               transform: 'translateY(0)'
             }}
           />
@@ -97,7 +99,7 @@ export default function HomePage() {
                 Where Colour Meets Craftsmanship
               </h1>
               <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-lg">
-                Karachi&apos;s most trusted paint store. 13 years, 10+ premium brands, thousands of happy homes.
+                Karachi&apos;s most trusted paint store. {settings?.contact?.phone ? 'Call us at ' + settings.contact.phone : 'Serving Karachi since 2011.'}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -107,7 +109,7 @@ export default function HomePage() {
                   Shop Now <ArrowRight size={20} />
                 </Link>
                 <Link
-                  href="https://wa.me/923475658761?text=Hi! I need help with paint."
+                  href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I need help with paint.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 border-2 border-green-500 text-green-500 px-8 py-4 rounded-lg font-semibold hover:bg-green-500 hover:text-white transition-colors"
@@ -215,7 +217,7 @@ export default function HomePage() {
             className="text-center mt-12"
           >
             <Link
-              href="https://wa.me/923475658761?text=Hi! I need colour consultation."
+              href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I need colour consultation.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-400 transition-colors"
