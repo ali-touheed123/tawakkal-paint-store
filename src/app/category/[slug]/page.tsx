@@ -53,19 +53,25 @@ export default function CategoryPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
-      const supabase = createClient();
-      let query = supabase.from('products').select('*').eq('category', category);
+      try {
+        const supabase = createClient();
+        console.log('Fetching from Supabase...');
+        let query = supabase.from('products').select('*').eq('category', category);
 
-      if (selectedBrand !== 'all') {
-        query = query.eq('brand', BRANDS.find(b => b.toLowerCase().replace("'", '') === selectedBrand.toLowerCase()) || selectedBrand);
+        if (selectedBrand !== 'all') {
+          query = query.eq('brand', BRANDS.find(b => b.toLowerCase().replace("'", '') === selectedBrand.toLowerCase()) || selectedBrand);
+        }
+
+        if (selectedSub !== 'all') {
+          query = query.eq('sub_category', selectedSub);
+        }
+
+        const { data, error } = await query;
+        console.log('Products:', data, 'Error:', error);
+        if (data) setProducts(data as Product[]);
+      } catch (err) {
+        console.error('Fetch error:', err);
       }
-
-      if (selectedSub !== 'all') {
-        query = query.eq('sub_category', selectedSub);
-      }
-
-      const { data } = await query;
-      if (data) setProducts(data as Product[]);
       setLoading(false);
     };
 
