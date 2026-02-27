@@ -24,10 +24,10 @@ import { createClient } from '@/lib/supabase/client';
 import { Order, OrderStatus } from '@/types';
 
 export default function OrdersPage() {
-    const [orders, setOrders] = useState<any[]>([]);
+    const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedOrder, setSelectedOrder] = useState<any | null>(null);
+    const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
     const supabase = createClient();
 
@@ -260,7 +260,7 @@ export default function OrdersPage() {
                                         </h4>
                                         <div className="border border-gray-100 rounded-2xl overflow-hidden">
                                             <div className="max-h-48 overflow-y-auto divide-y divide-gray-50">
-                                                {selectedOrder.items.map((item: any, i: number) => (
+                                                {selectedOrder.items.map((item: OrderItem, i: number) => (
                                                     <div key={i} className="p-3 flex items-center gap-3">
                                                         <div className="w-10 h-10 bg-gray-50 rounded-lg flex-shrink-0">
                                                             {item.image_url && <img src={item.image_url} className="w-full h-full object-cover rounded-lg" />}
@@ -296,28 +296,28 @@ export default function OrdersPage() {
                                 {/* Actions */}
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                     <button
-                                        onClick={() => updateOrderStatus(selectedOrder.id, 'confirmed')}
+                                        onClick={() => updateOrderStatus(selectedOrder.id, 'confirmed' as OrderStatus)}
                                         className="flex flex-col items-center gap-2 p-3 rounded-xl border border-blue-100 bg-blue-50/50 hover:bg-blue-50 text-blue-700 transition-colors"
                                     >
                                         <CheckCircle2 size={20} />
                                         <span className="text-[10px] font-bold uppercase">Confirm</span>
                                     </button>
                                     <button
-                                        onClick={() => updateOrderStatus(selectedOrder.id, 'shipped')}
+                                        onClick={() => updateOrderStatus(selectedOrder.id, 'shipped' as OrderStatus)}
                                         className="flex flex-col items-center gap-2 p-3 rounded-xl border border-purple-100 bg-purple-50/50 hover:bg-purple-50 text-purple-700 transition-colors"
                                     >
                                         <Truck size={20} />
                                         <span className="text-[10px] font-bold uppercase">Ship</span>
                                     </button>
                                     <button
-                                        onClick={() => updateOrderStatus(selectedOrder.id, 'delivered')}
+                                        onClick={() => updateOrderStatus(selectedOrder.id, 'delivered' as OrderStatus)}
                                         className="flex flex-col items-center gap-2 p-3 rounded-xl border border-green-100 bg-green-50/50 hover:bg-green-50 text-green-700 transition-colors"
                                     >
                                         <CheckCircle2 size={20} />
                                         <span className="text-[10px] font-bold uppercase">Deliver</span>
                                     </button>
                                     <button
-                                        onClick={() => updateOrderStatus(selectedOrder.id, 'cancelled')}
+                                        onClick={() => updateOrderStatus(selectedOrder.id, 'cancelled' as OrderStatus)}
                                         className="flex flex-col items-center gap-2 p-3 rounded-xl border border-red-100 bg-red-50/50 hover:bg-red-50 text-red-700 transition-colors"
                                     >
                                         <XCircle size={20} />

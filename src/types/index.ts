@@ -1,6 +1,8 @@
 export type ProductCategory = 'decorative' | 'industrial' | 'auto' | 'projects';
 export type SubCategory = 'interior' | 'exterior' | 'wood_metal' | 'waterproofing' | 'accessories';
-export type OrderStatus = 'pending' | 'confirmed' | 'delivered' | 'cancelled';
+export const ORDER_STATUSES = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled'] as const;
+export type OrderStatus = typeof ORDER_STATUSES[number];
+
 export type ItemSize = 'quarter' | 'gallon' | 'drum';
 
 export interface Product {
