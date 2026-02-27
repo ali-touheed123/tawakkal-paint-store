@@ -1,16 +1,33 @@
-export type ProductCategory = 'decorative' | 'industrial' | 'auto' | 'projects';
-export type SubCategory = 'interior' | 'exterior' | 'wood_metal' | 'waterproofing' | 'accessories';
 export const ORDER_STATUSES = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled'] as const;
 export type OrderStatus = typeof ORDER_STATUSES[number];
 
 export type ItemSize = 'quarter' | 'gallon' | 'drum';
 
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description: string | null;
+  image_url: string | null;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  slug: string;
+  logo_url: string | null;
+  is_active: boolean;
+  created_at: string;
+}
+
 export interface Product {
   id: string;
   name: string;
   brand: string;
-  category: ProductCategory;
-  sub_category: SubCategory | null;
+  category: string;
+  sub_category: string | null;
   description: string | null;
   image_url: string | null;
   price_quarter: number;

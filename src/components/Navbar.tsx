@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, MessageCircle, ShoppingCart, User, Menu, X, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
 import { useCartStore, useLocationStore, useUIStore, useUserStore } from '@/lib/store';
+import { createClient } from '@/lib/supabase/client';
+import { Category, Brand } from '@/types';
 import { useSettings } from '@/lib/hooks/useSettings';
 
 export function Navbar() {
@@ -20,9 +22,24 @@ export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [brands, setBrands] = useState<Brand[]>([]);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const fetchNavData = async () => {
+      const supabase = createClient();
+      const [catsRes, brandsRes] = await Promise.all([
+        supabase.from('categories').select('*').order('name'),
+        supabase.from('brands').select('*').order('name')
+      ]);
+      if (catsRes.data) setCategories(catsRes.data);
+      if (brandsRes.data) setBrands(brandsRes.data);
+    };
+    fetchNavData();
   }, []);
 
   useEffect(() => {
@@ -48,28 +65,14 @@ export function Navbar() {
   ];
 
   const productData = {
-    categories: [
-      { slug: 'decorative', label: 'Decorative' },
-      { slug: 'industrial', label: 'Industrial' },
-      { slug: 'auto', label: 'Auto' },
-      { slug: 'projects', label: 'Projects' },
-    ],
-    brands: [
-      { slug: 'gobis', label: "Gobi's" },
-      { slug: 'berger', label: 'Berger' },
-      { slug: 'diamond', label: 'Diamond' },
-      { slug: 'saasil', label: 'Saasil' },
-      { slug: 'ocean', label: 'Ocean' },
-      { slug: 'rozzilac', label: 'Rozzilac' },
-      { slug: 'reliance', label: 'Reliance' },
-      { slug: 'reliable', label: 'Reliable' },
-    ],
+    categories: categories.map(c => ({ name: c.name, slug: c.slug })),
+    brands: brands.map(b => ({ name: b.name, slug: b.slug })),
     subs: [
-      { slug: 'interior', label: 'Interior' },
-      { slug: 'exterior', label: 'Exterior' },
-      { slug: 'wood_metal', label: 'Wood & Metal' },
-      { slug: 'waterproofing', label: 'Waterproofing' },
-      { slug: 'accessories', label: 'Accessories' },
+      { name: 'Interior', slug: 'interior' },
+      { name: 'Exterior', slug: 'exterior' },
+      { name: 'Wood & Metal', slug: 'wood_metal' },
+      { name: 'Waterproofing', slug: 'waterproofing' },
+      { name: 'Accessories', slug: 'accessories' }
     ]
   };
 
@@ -147,7 +150,7 @@ export function Navbar() {
                                 href={`/category/${cat.slug}`}
                                 className="flex items-center justify-between px-6 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-all"
                               >
-                                {cat.label}
+                                {cat.name}
                                 <ChevronRight size={14} className="opacity-40 group-hover:opacity-100" />
                               </Link>
 
@@ -169,10 +172,10 @@ export function Navbar() {
                                           onMouseLeave={() => setActiveBrand(null)}
                                         >
                                           <Link
-                                            href={`/category/${cat.slug}?brand=${brand.label}`}
+                                            href={`/category/${cat.slug}?brand=${brand.name}`}
                                             className="flex items-center justify-between px-6 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-all"
                                           >
-                                            {brand.label}
+                                            {brand.name}
                                             <ChevronRight size={14} className="opacity-40 group-hover/brand:opacity-100" />
                                           </Link>
 
@@ -189,10 +192,10 @@ export function Navbar() {
                                                   {productData.subs.map((sub) => (
                                                     <Link
                                                       key={sub.slug}
-                                                      href={`/category/${cat.slug}?brand=${brand.label}&sub=${sub.slug}`}
+                                                      href={`/category/${cat.slug}?brand=${brand.name}&sub=${sub.slug}`}
                                                       className="block px-6 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-all"
                                                     >
-                                                      {sub.label}
+                                                      {sub.name}
                                                     </Link>
                                                   ))}
                                                 </div>

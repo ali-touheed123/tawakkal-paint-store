@@ -17,7 +17,8 @@ import {
     X,
     LogOut,
     ChevronRight,
-    Loader2
+    Loader2,
+    Tag
 } from 'lucide-react';
 import { useUserStore } from '@/lib/store';
 import { createClient } from '@/lib/supabase/client';
@@ -52,6 +53,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const navItems = [
         { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
         { href: '/admin/products', label: 'Products', icon: Package },
+        { href: '/admin/taxonomy', label: 'Taxonomy', icon: Tag },
         { href: '/admin/orders', label: 'Orders', icon: ShoppingCart },
         { href: '/admin/customers', label: 'Customers', icon: Users },
         { href: '/admin/discounts', label: 'Discounts', icon: Percent },
@@ -100,8 +102,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                 key={item.href}
                                 href={item.href}
                                 className={`flex items-center gap-3 px-3 py-3 rounded-lg transition-colors ${isActive
-                                        ? 'bg-gold text-navy font-semibold'
-                                        : 'text-white/70 hover:bg-white/10 hover:text-white'
+                                    ? 'bg-gold text-navy font-semibold'
+                                    : 'text-white/70 hover:bg-white/10 hover:text-white'
                                     }`}
                             >
                                 <Icon size={isSidebarOpen ? 20 : 24} />

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { createClient } from '@/lib/supabase/client';
-import { BRANDS, ProductCategory, SubCategory } from '@/types';
+import { Brand, Category } from '@/types';
 import { Upload, X, Loader2, Plus, Search, Filter, Trash2, Edit, Package } from 'lucide-react';
 
 export default function ProductsPage() {
@@ -11,11 +11,13 @@ export default function ProductsPage() {
     const [loading, setLoading] = useState(true);
     const [uploading, setUploading] = useState(false);
     const [showAddForm, setShowAddForm] = useState(false);
+    const [categories, setCategories] = useState<Category[]>([]);
+    const [brands, setBrands] = useState<Brand[]>([]);
     const [formData, setFormData] = useState({
         name: '',
-        brand: BRANDS[0],
-        category: 'decorative' as ProductCategory,
-        sub_category: 'interior' as SubCategory,
+        brand: '',
+        category: '',
+        sub_category: 'interior',
         description: '',
         price_quarter: 0,
         price_gallon: 0,
@@ -28,16 +30,30 @@ export default function ProductsPage() {
     const supabase = createClient();
 
     useEffect(() => {
-        loadProducts();
+        loadData();
     }, []);
 
-    const loadProducts = async () => {
+    const loadData = async () => {
         setLoading(true);
-        const { data } = await supabase
-            .from('products')
-            .select('*')
-            .order('created_at', { ascending: false });
-        if (data) setProducts(data);
+        const [productsRes, catsRes, brandsRes] = await Promise.all([
+            supabase.from('products').select('*').order('created_at', { ascending: false }),
+            supabase.from('categories').select('*').order('name'),
+            supabase.from('brands').select('*').order('name')
+        ]);
+
+        if (productsRes.data) setProducts(productsRes.data);
+        if (catsRes.data) {
+            setCategories(catsRes.data);
+            if (!formData.category && catsRes.data.length > 0) {
+                setFormData(prev => ({ ...prev, category: catsRes.data[0].slug }));
+            }
+        }
+        if (brandsRes.data) {
+            setBrands(brandsRes.data);
+            if (!formData.brand && brandsRes.data.length > 0) {
+                setFormData(prev => ({ ...prev, brand: brandsRes.data[0].name }));
+            }
+        }
         setLoading(false);
     };
 
@@ -77,8 +93,8 @@ export default function ProductsPage() {
             setShowAddForm(false);
             setFormData({
                 name: '',
-                brand: BRANDS[0],
-                category: 'decorative',
+                brand: brands[0]?.name || '',
+                category: categories[0]?.slug || '',
                 sub_category: 'interior',
                 description: '',
                 price_quarter: 0,
@@ -87,7 +103,7 @@ export default function ProductsPage() {
                 in_stock: true
             });
             setImageFile(null);
-            loadProducts();
+            loadData();
         } catch (error) {
             console.error(error);
             alert('Error adding product');
@@ -99,7 +115,7 @@ export default function ProductsPage() {
     const deleteProduct = async (id: string) => {
         if (!confirm('Delete this product?')) return;
         await supabase.from('products').delete().eq('id', id);
-        loadProducts();
+        loadData();
     };
 
     const filteredProducts = products.filter(p =>
@@ -251,23 +267,20 @@ export default function ProductsPage() {
                                     <label className="block text-sm font-semibold text-gray-700 mb-1">Brand *</label>
                                     <select
                                         value={formData.brand}
-                                        onChange={(e) => setFormData({ ...formData, brand: e.target.value as any })}
+                                        onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
                                         className="w-full p-2.5 border border-gray-200 rounded-lg focus:border-gold outline-none"
                                     >
-                                        {BRANDS.map((b) => <option key={b} value={b}>{b}</option>)}
+                                        {brands.map((b) => <option key={b.id} value={b.name}>{b.name}</option>)}
                                     </select>
                                 </div>
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-700 mb-1">Category *</label>
                                     <select
                                         value={formData.category}
-                                        onChange={(e) => setFormData({ ...formData, category: e.target.value as ProductCategory })}
+                                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                                         className="w-full p-2.5 border border-gray-200 rounded-lg focus:border-gold outline-none"
                                     >
-                                        <option value="decorative">Decorative</option>
-                                        <option value="industrial">Industrial</option>
-                                        <option value="auto">Auto</option>
-                                        <option value="projects">Projects</option>
+                                        {categories.map((c) => <option key={c.id} value={c.slug}>{c.name}</option>)}
                                     </select>
                                 </div>
                             </div>
