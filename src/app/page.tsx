@@ -17,19 +17,19 @@ const categories = [
     slug: 'decorative',
     name: 'Decorative',
     description: 'Interior & exterior wall paints for homes & offices',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800'
+    image: '/images/categories/decorative.jpg'
   },
   {
     slug: 'industrial',
     name: 'Industrial',
     description: 'Heavy-duty protective coatings',
-    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800'
+    image: '/images/categories/industrial.jpg'
   },
   {
     slug: 'auto',
     name: 'Auto',
     description: 'Automotive & vehicle refinishing paints',
-    image: 'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5a?w=800'
+    image: '/images/categories/auto.jpg'
   },
   {
     slug: 'projects',
