@@ -71,10 +71,10 @@ export const useCartStore = create<CartStore>()(
       getTotal: () => {
         return get().items.reduce((total, item) => {
           if (!item.product) return total;
-          const price = item.size === 'quarter' 
-            ? item.product.price_quarter 
-            : item.size === 'gallon' 
-              ? item.product.price_gallon 
+          const price = item.size === 'quarter'
+            ? item.product.price_quarter
+            : item.size === 'gallon'
+              ? item.product.price_gallon
               : item.product.price_drum;
           return total + (price * item.quantity);
         }, 0);
@@ -111,6 +111,8 @@ interface UserStore {
   user: User | null;
   setUser: (user: User | null) => void;
   isAuthenticated: boolean;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }
 
 export const useUserStore = create<UserStore>()(
@@ -118,7 +120,9 @@ export const useUserStore = create<UserStore>()(
     (set) => ({
       user: null,
       isAuthenticated: false,
-      setUser: (user) => set({ user, isAuthenticated: !!user })
+      loading: true,
+      setUser: (user) => set({ user, isAuthenticated: !!user, loading: false }),
+      setLoading: (loading) => set({ loading })
     }),
     {
       name: 'tawakkal-user'

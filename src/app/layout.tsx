@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { AuthModal } from "@/components/AuthModal";
 import { SearchOverlay } from "@/components/SearchOverlay";
+import { AuthProvider } from "@/components/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Tawakkal Paint Store | Premium Paints in Karachi",
@@ -68,15 +69,17 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <LocationPopup />
-        <Navbar />
-        <AuthModal />
-        <SearchOverlay />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppFloat />
+        <AuthProvider>
+          <LocationPopup />
+          <Navbar />
+          <AuthModal />
+          <SearchOverlay />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppFloat />
+        </AuthProvider>
       </body>
     </html>
   );

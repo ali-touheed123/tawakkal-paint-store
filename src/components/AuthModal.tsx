@@ -37,7 +37,7 @@ export function AuthModal() {
 
     try {
       const supabase = createClient();
-      
+
       if (authModalMode === 'register') {
         const { data, error: signUpError } = await supabase.auth.signUp({
           email: formData.email,
@@ -52,19 +52,8 @@ export function AuthModal() {
 
         if (signUpError) throw signUpError;
 
-        if (data.user) {
-          const { data: userData } = await supabase
-            .from('users')
-            .select('*')
-            .eq('id', data.user.id)
-            .single();
-          
-          if (userData) {
-            setUser(userData);
-          }
-        }
-        
         setAuthModalOpen(false);
+        alert('Welcome! Your account has been created.');
       } else {
         const { data, error: signInError } = await supabase.auth.signInWithPassword({
           email: formData.email,
@@ -73,20 +62,8 @@ export function AuthModal() {
 
         if (signInError) throw signInError;
 
-        if (data.user) {
-          const { data: userData } = await supabase
-            .from('users')
-            .select('*')
-            .eq('id', data.user.id)
-            .single();
-          
-          if (userData) {
-            setUser(userData);
-          }
-        }
-        
         setAuthModalOpen(false);
-        
+
         if (redirectAfterAuth) {
           window.location.href = redirectAfterAuth;
         }
@@ -103,16 +80,16 @@ export function AuthModal() {
       setError('Please enter your email address');
       return;
     }
-    
+
     setLoading(true);
     setError(null);
-    
+
     try {
       const supabase = createClient();
       const { error } = await supabase.auth.resetPasswordForEmail(formData.email, {
         redirectTo: `${window.location.origin}/profile?reset=true`
       });
-      
+
       if (error) throw error;
       setError(null);
       alert('Password reset link sent to your email!');
@@ -151,8 +128,8 @@ export function AuthModal() {
                 {authModalMode === 'login' ? 'Welcome Back' : 'Create Account'}
               </h2>
               <p className="text-gray-400 text-sm mt-1">
-                {authModalMode === 'login' 
-                  ? 'Sign in to access your account' 
+                {authModalMode === 'login'
+                  ? 'Sign in to access your account'
                   : 'Register to unlock exclusive discounts'}
               </p>
             </div>
