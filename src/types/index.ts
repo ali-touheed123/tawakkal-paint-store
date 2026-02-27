@@ -57,6 +57,7 @@ export interface Order {
   subtotal: number;
   discount_percent: number;
   discount_amount: number;
+  shipping_amount?: number;
   total: number;
   payment_method: string;
   status: OrderStatus;
@@ -64,6 +65,10 @@ export interface Order {
   delivery_address: string;
   phone: string;
   created_at: string;
+  users?: {
+    full_name: string;
+    email: string | null;
+  };
 }
 
 export interface SiteSettings {

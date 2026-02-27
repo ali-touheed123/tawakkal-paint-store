@@ -21,7 +21,7 @@ import {
     MessageCircle
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { Order, OrderStatus } from '@/types';
+import { Order, OrderStatus, OrderItem } from '@/types';
 
 export default function OrdersPage() {
     const [orders, setOrders] = useState<Order[]>([]);
