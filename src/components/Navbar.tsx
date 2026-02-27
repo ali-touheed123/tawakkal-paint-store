@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, MessageCircle, ShoppingCart, User, Menu, X, MapPin, ChevronRight } from 'lucide-react';
+import { Search, MessageCircle, ShoppingCart, User, Menu, X, MapPin, ChevronRight, ChevronDown } from 'lucide-react';
 import { useCartStore, useLocationStore, useUIStore, useUserStore } from '@/lib/store';
 import { useSettings } from '@/lib/hooks/useSettings';
 
@@ -108,7 +108,7 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8 self-stretch">
               {navLinks.map((link) => (
                 <div
                   key={link.label}
@@ -133,9 +133,9 @@ export function Navbar() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full left-0 w-64 bg-navy border border-gold/20 shadow-2xl overflow-visible"
+                        className="absolute top-full left-0 w-64 bg-navy border border-gold/20 shadow-2xl overflow-visible pt-1"
                       >
-                        <div className="py-2">
+                        <div className="bg-navy border border-gold/20 shadow-2xl py-2">
                           {productData.categories.map((cat) => (
                             <div
                               key={cat.slug}
@@ -158,9 +158,9 @@ export function Navbar() {
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -10 }}
-                                    className="absolute top-0 left-full w-64 bg-navy border border-gold/20 shadow-2xl"
+                                    className="absolute top-0 left-full w-64 pl-1"
                                   >
-                                    <div className="py-2">
+                                    <div className="bg-navy border border-gold/20 shadow-2xl py-2">
                                       {productData.brands.map((brand) => (
                                         <div
                                           key={brand.slug}
@@ -183,9 +183,9 @@ export function Navbar() {
                                                 initial={{ opacity: 0, x: -10 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -10 }}
-                                                className="absolute top-0 left-full w-64 bg-navy border border-gold/20 shadow-2xl"
+                                                className="absolute top-0 left-full w-64 pl-1"
                                               >
-                                                <div className="py-2">
+                                                <div className="bg-navy border border-gold/20 shadow-2xl py-2">
                                                   {productData.subs.map((sub) => (
                                                     <Link
                                                       key={sub.slug}
