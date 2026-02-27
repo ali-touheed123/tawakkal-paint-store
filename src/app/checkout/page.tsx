@@ -7,7 +7,8 @@ import { motion } from 'framer-motion';
 import { Loader2, Lock, Check, CreditCard, Smartphone, Building } from 'lucide-react';
 import { useCartStore, useUserStore, useLocationStore, useUIStore } from '@/lib/store';
 import { createClient } from '@/lib/supabase/client';
-import { getDiscount, KARACHI_AREAS, type OrderItem } from '@/types';
+import { useDiscountRules, useShippingRates, usePaymentMethods } from '@/lib/hooks/useSettings';
+import { type OrderItem } from '@/types';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -15,10 +16,13 @@ export default function CheckoutPage() {
   const { user, isAuthenticated } = useUserStore();
   const { area: deliveryArea } = useLocationStore();
   const { redirectAfterAuth } = useUIStore();
-  
+
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [orderId, setOrderId] = useState<string | null>(null);
+  const { calculateDiscount } = useDiscountRules();
+  const { getRateForArea, rates } = useShippingRates();
+  const { methods: paymentMethods } = usePaymentMethods();
   const [formData, setFormData] = useState({
     fullName: user?.full_name || '',
     phone: user?.phone || '',
@@ -77,7 +81,7 @@ export default function CheckoutPage() {
           <h1 className="font-heading text-3xl font-bold text-navy mb-4">Order Placed!</h1>
           <p className="text-gray-600 mb-2">Your order has been confirmed.</p>
           <p className="text-gold font-semibold text-xl mb-6">Order ID: {orderId}</p>
-          
+
           <a
             href={`https://wa.me/923475658761?text=Hi! My order ID is ${orderId}. Please update me on my delivery status.`}
             target="_blank"
@@ -86,7 +90,7 @@ export default function CheckoutPage() {
           >
             Track on WhatsApp
           </a>
-          
+
           <Link
             href="/"
             className="block w-full py-3 border-2 border-navy text-navy rounded-lg font-semibold hover:bg-navy hover:text-white transition-colors"
@@ -99,13 +103,14 @@ export default function CheckoutPage() {
   }
 
   const subtotal = getTotal();
-  const discountPercent = getDiscount(subtotal);
+  const discountPercent = calculateDiscount(subtotal);
   const discountAmount = subtotal * (discountPercent / 100);
-  const total = subtotal - discountAmount;
+  const shippingCharge = deliveryArea ? (getRateForArea(deliveryArea, subtotal) || 0) : 0;
+  const total = subtotal - discountAmount + shippingCharge;
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    
+
     if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
     else if (!/^03\d{9}$/.test(formData.phone.replace(/\s/g, ''))) {
@@ -113,7 +118,7 @@ export default function CheckoutPage() {
     }
     if (!formData.deliveryArea) newErrors.deliveryArea = 'Please select delivery area';
     if (!formData.deliveryAddress.trim()) newErrors.deliveryAddress = 'Delivery address is required';
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -126,7 +131,7 @@ export default function CheckoutPage() {
 
     try {
       const supabase = createClient();
-      
+
       const orderItems: OrderItem[] = items.map(item => ({
         product_id: item.product_id,
         name: item.product?.name || '',
@@ -149,6 +154,7 @@ export default function CheckoutPage() {
           subtotal,
           discount_percent: discountPercent,
           discount_amount: discountAmount,
+          shipping_amount: shippingCharge,
           total,
           payment_method: 'cash_on_delivery',
           status: 'pending',
@@ -171,13 +177,7 @@ export default function CheckoutPage() {
     }
   };
 
-  const paymentMethods = [
-    { id: 'cod', label: 'Cash on Delivery', icon: Check, active: true, coming: false },
-    { id: 'bank', label: 'Bank Transfer', icon: Building, active: false, coming: true },
-    { id: 'card', label: 'Credit / Debit Card', icon: CreditCard, active: false, coming: true },
-    { id: 'jazz', label: 'JazzCash', icon: Smartphone, active: false, coming: true },
-    { id: 'easy', label: 'EasyPaisa', icon: Smartphone, active: false, coming: true }
-  ];
+  const deliveryAreas = Array.from(new Set(rates.map(r => r.area)));
 
   return (
     <div className="min-h-screen pt-[70px] bg-off-white">
@@ -189,7 +189,7 @@ export default function CheckoutPage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h2 className="font-heading text-xl font-semibold text-navy mb-6">Delivery Details</h2>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
@@ -197,9 +197,8 @@ export default function CheckoutPage() {
                     type="text"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      errors.fullName ? 'border-red-500' : 'border-gray-200 focus:border-gold'
-                    }`}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${errors.fullName ? 'border-red-500' : 'border-gray-200 focus:border-gold'
+                      }`}
                     placeholder="John Doe"
                   />
                   {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
@@ -211,9 +210,8 @@ export default function CheckoutPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      errors.phone ? 'border-red-500' : 'border-gray-200 focus:border-gold'
-                    }`}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${errors.phone ? 'border-red-500' : 'border-gray-200 focus:border-gold'
+                      }`}
                     placeholder="03XXXXXXXXX"
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
@@ -235,12 +233,11 @@ export default function CheckoutPage() {
                   <select
                     value={formData.deliveryArea}
                     onChange={(e) => setFormData({ ...formData, deliveryArea: e.target.value })}
-                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      errors.deliveryArea ? 'border-red-500' : 'border-gray-200 focus:border-gold'
-                    }`}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${errors.deliveryArea ? 'border-red-500' : 'border-gray-200 focus:border-gold'
+                      }`}
                   >
                     <option value="">Select area</option>
-                    {KARACHI_AREAS.map(area => (
+                    {deliveryAreas.map(area => (
                       <option key={area} value={area}>{area}</option>
                     ))}
                   </select>
@@ -253,9 +250,8 @@ export default function CheckoutPage() {
                     value={formData.deliveryAddress}
                     onChange={(e) => setFormData({ ...formData, deliveryAddress: e.target.value })}
                     rows={3}
-                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      errors.deliveryAddress ? 'border-red-500' : 'border-gray-200 focus:border-gold'
-                    }`}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 ${errors.deliveryAddress ? 'border-red-500' : 'border-gray-200 focus:border-gold'
+                      }`}
                     placeholder="House #, Street #, Area..."
                   />
                   {errors.deliveryAddress && <p className="text-red-500 text-sm mt-1">{errors.deliveryAddress}</p>}
@@ -266,35 +262,32 @@ export default function CheckoutPage() {
             {/* Payment Methods */}
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h2 className="font-heading text-xl font-semibold text-navy mb-6">Payment Method</h2>
-              
+
               <div className="space-y-3">
                 {paymentMethods.map((method) => (
                   <div
                     key={method.id}
-                    className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-colors ${
-                      method.active
+                    className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-colors ${method.type === 'cod'
                         ? 'border-green-500 bg-green-50'
-                        : method.coming
-                          ? 'border-gray-200 bg-gray-50 opacity:60'
-                          : 'border-gray-200'
-                    }`}
+                        : 'border-gray-200 opacity-60'
+                      }`}
                   >
-                    {method.active ? (
+                    {method.type === 'cod' ? (
                       <Check className="text-green-500" size={20} />
-                    ) : method.coming ? (
+                    ) : (
                       <Lock className="text-gray-400" size={20} />
-                    ) : null}
-                    
+                    )}
+
                     <div className="flex-1">
-                      <p className={`font-medium ${method.active ? 'text-navy' : 'text-gray-500'}`}>
-                        {method.label}
+                      <p className={`font-medium ${method.type === 'cod' ? 'text-navy' : 'text-gray-500'}`}>
+                        {method.name}
                       </p>
-                      {method.coming && (
+                      {method.type !== 'cod' && (
                         <span className="text-xs bg-gold text-navy px-2 py-0.5 rounded-full">Coming Soon</span>
                       )}
                     </div>
-                    
-                    <method.icon className={method.active ? 'text-green-500' : 'text-gray-400'} size={20} />
+
+                    <CreditCard className={method.type === 'cod' ? 'text-green-500' : 'text-gray-400'} size={20} />
                   </div>
                 ))}
               </div>
@@ -305,7 +298,7 @@ export default function CheckoutPage() {
           <div className="lg:sticky lg:top-24 h-fit">
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h2 className="font-heading text-xl font-semibold text-navy mb-6">Order Summary</h2>
-              
+
               <div className="space-y-3 mb-6">
                 {items.map((item) => (
                   <div key={item.id} className="flex justify-between text-sm">
@@ -313,10 +306,10 @@ export default function CheckoutPage() {
                       {item.product?.name} ({item.size}) x {item.quantity}
                     </span>
                     <span className="font-medium">
-                      Rs. {((item.size === 'quarter' 
-                        ? item.product?.price_quarter 
-                        : item.size === 'gallon' 
-                          ? item.product?.price_gallon 
+                      Rs. {((item.size === 'quarter'
+                        ? item.product?.price_quarter
+                        : item.size === 'gallon'
+                          ? item.product?.price_gallon
                           : item.product?.price_drum) || 0 * item.quantity).toLocaleString()}
                     </span>
                   </div>
@@ -328,13 +321,18 @@ export default function CheckoutPage() {
                   <span className="text-gray-600">Subtotal</span>
                   <span>Rs. {subtotal.toLocaleString()}</span>
                 </div>
-                
+
                 {discountPercent > 0 && (
                   <div className="flex justify-between text-green-600">
                     <span>Discount ({discountPercent}%)</span>
                     <span>- Rs. {discountAmount.toLocaleString()}</span>
                   </div>
                 )}
+
+                <div className="flex justify-between text-gray-600">
+                  <span>Shipping</span>
+                  <span>{shippingCharge === 0 ? 'FREE' : `Rs. ${shippingCharge.toLocaleString()}`}</span>
+                </div>
 
                 <div className="flex justify-between font-heading text-xl font-bold text-navy pt-3 border-t">
                   <span>Total</span>
