@@ -14,7 +14,11 @@ import {
     Search,
     ChevronDown,
     Loader2,
-    ExternalLink
+    ExternalLink,
+    Users,
+    ShoppingCart,
+    X,
+    MessageCircle
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { Order, OrderStatus } from '@/types';

@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { createClient } from '@/lib/supabase/client';
 import { BRANDS, ProductCategory, SubCategory } from '@/types';
-import { Upload, X, Loader2, Plus, Search, Filter, Trash2, Edit } from 'lucide-react';
+import { Upload, X, Loader2, Plus, Search, Filter, Trash2, Edit, Package } from 'lucide-react';
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<any[]>([]);

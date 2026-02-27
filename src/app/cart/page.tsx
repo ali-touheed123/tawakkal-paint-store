@@ -5,12 +5,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Trash2, Minus, Plus, MessageCircle, ArrowRight, Lock } from 'lucide-react';
 import { useCartStore, useUserStore, useUIStore } from '@/lib/store';
-import { getDiscount, getNextDiscountTier } from '@/types';
+import { useDiscountRules } from '@/lib/hooks/useSettings';
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, getTotal } = useCartStore();
   const { user, isAuthenticated } = useUserStore();
   const { setAuthModalOpen, setAuthModalMode } = useUIStore();
+  const { calculateDiscount, getNextTier } = useDiscountRules();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -20,10 +21,10 @@ export default function CartPage() {
   if (!mounted) return null;
 
   const subtotal = getTotal();
-  const discountPercent = isAuthenticated ? getDiscount(subtotal) : 0;
+  const discountPercent = isAuthenticated ? calculateDiscount(subtotal) : 0;
   const discountAmount = subtotal * (discountPercent / 100);
   const total = subtotal - discountAmount;
-  const nextTier = getNextDiscountTier(subtotal);
+  const nextTier = getNextTier(subtotal);
 
   const getPrice = (item: typeof items[0]) => {
     if (!item.product) return 0;
@@ -78,7 +79,7 @@ export default function CartPage() {
                       {item.product?.name}
                     </h3>
                     <p className="text-gray-500 text-sm capitalize mb-2">{item.size}</p>
-                    
+
                     <div className="flex items-center justify-between">
                       {/* Quantity */}
                       <div className="flex items-center gap-2">
@@ -172,14 +173,14 @@ export default function CartPage() {
                     <span className="text-gray-600">Subtotal</span>
                     <span className="font-medium">Rs. {subtotal.toLocaleString()}</span>
                   </div>
-                  
+
                   {isAuthenticated && discountPercent > 0 && (
                     <div className="flex justify-between text-green-600">
                       <span>Discount ({discountPercent}%)</span>
                       <span>- Rs. {discountAmount.toLocaleString()}</span>
                     </div>
                   )}
-                  
+
                   {isAuthenticated && discountAmount > 0 && (
                     <div className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
                       <span className="text-green-700 text-sm">You save Rs. {discountAmount.toLocaleString()}</span>
@@ -212,11 +213,10 @@ export default function CartPage() {
                       setAuthModalOpen(true);
                     }
                   }}
-                  className={`block w-full text-center mt-4 py-4 rounded-lg font-semibold transition-colors ${
-                    isAuthenticated
+                  className={`block w-full text-center mt-4 py-4 rounded-lg font-semibold transition-colors ${isAuthenticated
                       ? 'bg-navy text-white hover:bg-navy/90'
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  }`}
+                    }`}
                 >
                   Proceed to Checkout
                 </Link>

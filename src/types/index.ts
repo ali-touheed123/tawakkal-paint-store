@@ -64,6 +64,45 @@ export interface Order {
   created_at: string;
 }
 
+export interface SiteSettings {
+  logo?: string;
+  contact?: {
+    phone: string;
+    email: string;
+    whatsapp: string;
+  };
+  socials?: {
+    facebook: string;
+    instagram: string;
+  };
+  banners?: string[];
+}
+
+export interface DiscountRule {
+  id: string;
+  min_amount: number;
+  max_amount: number;
+  discount_percent: number;
+  is_active: boolean;
+}
+
+export interface PaymentMethod {
+  id: string;
+  name: string;
+  type: 'cod' | 'bank' | 'jazz_cash' | 'easy_paisa';
+  details: string | null;
+  is_active: boolean;
+}
+
+export interface ShippingRate {
+  id: string;
+  city: string;
+  area: string;
+  rate: number;
+  min_order_for_free: number | null;
+  is_active: boolean;
+}
+
 export const KARACHI_AREAS = [
   'Gulshan-e-Iqbal',
   'DHA',
