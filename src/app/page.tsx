@@ -72,9 +72,9 @@ export default function HomePage() {
       <section ref={heroRef} className="relative min-h-screen flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center parallax"
-            style={{ 
+            style={{
               backgroundImage: 'url(https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920)',
               transform: 'translateY(0)'
             }}
@@ -295,14 +295,14 @@ export default function HomePage() {
           </motion.div>
 
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
               {[...Array(8)].map((_, i) => (
                 <div key={i} className="bg-white rounded-xl h-80 animate-pulse" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.slice(0, 8).map((product, i) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+              {products.slice(0, 12).map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
             </div>

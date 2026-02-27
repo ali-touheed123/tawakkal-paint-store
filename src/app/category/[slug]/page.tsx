@@ -44,7 +44,7 @@ export default function CategoryPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const category = params.slug as string;
-  
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedBrand, setSelectedBrand] = useState(searchParams.get('brand') || 'all');
@@ -139,11 +139,10 @@ export default function CategoryPage() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => handleBrandChange('all')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedBrand === 'all'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedBrand === 'all'
                     ? 'bg-gold text-navy'
                     : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
-                }`}
+                  }`}
               >
                 All Brands
               </button>
@@ -151,11 +150,10 @@ export default function CategoryPage() {
                 <button
                   key={brand}
                   onClick={() => handleBrandChange(brand.toLowerCase().replace("'", ''))}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    selectedBrand === brand.toLowerCase().replace("'", '')
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedBrand === brand.toLowerCase().replace("'", '')
                       ? 'bg-gold text-navy'
                       : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
-                  }`}
+                    }`}
                 >
                   {brand}
                 </button>
@@ -169,11 +167,10 @@ export default function CategoryPage() {
               <button
                 key={sub.id}
                 onClick={() => handleSubChange(sub.id)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  selectedSub === sub.id
+                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${selectedSub === sub.id
                     ? 'bg-navy text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {sub.label}
               </button>
@@ -186,7 +183,7 @@ export default function CategoryPage() {
       <section className="py-12 bg-off-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
               {[...Array(8)].map((_, i) => (
                 <div key={i} className="bg-white rounded-xl h-80 animate-pulse" />
               ))}
@@ -205,7 +202,7 @@ export default function CategoryPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
               {products.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}

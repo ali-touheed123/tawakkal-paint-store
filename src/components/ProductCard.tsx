@@ -62,16 +62,16 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <p className="text-gold text-xs uppercase tracking-wider font-semibold mb-1">
+      <div className="p-3">
+        <p className="text-gold text-[10px] uppercase tracking-wider font-semibold mb-0.5">
           {product.brand}
         </p>
-        <h3 className="font-heading text-lg font-semibold text-navy mb-3 line-clamp-2">
+        <h3 className="font-heading text-base font-semibold text-navy mb-2 line-clamp-2 h-12">
           {product.name}
         </h3>
 
         {/* Size Toggle */}
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-1.5 mb-3">
           {sizes.map((size) => {
             const sizePrice = size === 'quarter' 
               ? product.price_quarter 
@@ -85,7 +85,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                className={`flex-1 py-1.5 px-2 rounded-md text-[11px] font-medium transition-all ${
                   selectedSize === size
                     ? 'bg-gold text-navy'
                     : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
@@ -98,19 +98,19 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         </div>
 
         {/* Price */}
-        <p className="font-heading text-xl font-bold text-navy mb-4">
+        <p className="font-heading text-lg font-bold text-navy mb-3">
           Rs. {price.toLocaleString()}
         </p>
 
         {/* Actions */}
-        <div className="flex gap-2">
+        <div className="flex gap-1.5">
           <Link
             href={`https://wa.me/923475658761?text=Hi! I'm interested in ${product.name} – ${selectedSize}. Please share availability and price.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-colors"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition-colors"
           >
-            <MessageCircle size={16} />
+            <MessageCircle size={14} />
             <span className="hidden sm:inline">Inquiry</span>
           </Link>
           
@@ -118,17 +118,17 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             <button
               onClick={handleAddToCart}
               disabled={addingToCart}
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium bg-navy text-white hover:bg-gold transition-colors disabled:opacity-50"
+              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium bg-navy text-white hover:bg-gold transition-colors disabled:opacity-50"
             >
-              <ShoppingCart size={16} />
+              <ShoppingCart size={14} />
               <span className="hidden sm:inline">{addingToCart ? 'Added!' : 'Add'}</span>
             </button>
           ) : (
             <button
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium border-2 border-navy text-navy hover:bg-navy hover:text-white transition-colors"
+              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-medium border-2 border-navy text-navy hover:bg-navy hover:text-white transition-colors"
             >
-              <Bell size={16} />
-              <span className="hidden sm:inline">Notify Me</span>
+              <Bell size={14} />
+              <span className="hidden sm:inline">Notify</span>
             </button>
           )}
         </div>
