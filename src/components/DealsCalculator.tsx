@@ -200,10 +200,14 @@ export function DealsCalculator() {
                                 ))}
                             </div>
 
-                            <button className={`w-full mt-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${pkg.id === 'best' || pkg.id === 'premium'
-                                ? 'bg-navy text-white hover:bg-gold hover:text-navy'
-                                : 'bg-gray-100 text-navy hover:bg-gray-200'
-                                }`}>
+                            <button
+                                className={`w-full mt-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${pkg.id === 'local' ? 'bg-white border border-gray-200 text-navy hover:bg-gray-50 hover:border-gray-300' :
+                                        pkg.id === 'normal' ? 'bg-[#007bff] text-white hover:bg-[#0056b3]' :
+                                            pkg.id === 'best' ? 'bg-[#ff7f00] text-white hover:bg-[#cc6600]' :
+                                                pkg.id === 'premium' ? 'bg-[#ffd700] text-navy hover:bg-[#e6c200]' :
+                                                    'bg-gray-100 text-navy hover:bg-gray-200'
+                                    }`}
+                            >
                                 Book Now
                             </button>
                         </motion.div>
