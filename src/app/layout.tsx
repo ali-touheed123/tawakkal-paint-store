@@ -31,6 +31,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://tawakkalpaintstore.com"
+  },
+  icons: {
+    icon: '/icon.jpg',
+    shortcut: '/icon.jpg',
+    apple: '/icon.jpg',
   }
 };
 
