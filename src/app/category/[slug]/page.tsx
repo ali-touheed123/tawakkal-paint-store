@@ -5,7 +5,7 @@ import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ProductCard } from '@/components/ProductCard';
 import { createClient } from '@/lib/supabase/client';
-import { Product, BRANDS } from '@/types';
+import { Product, BRANDS, BRAND_LOGOS } from '@/types';
 
 const subCategories = [
   { id: 'all', label: 'All' },
@@ -147,18 +147,32 @@ export default function CategoryPage() {
               >
                 All Brands
               </button>
-              {BRANDS.map((brand) => (
-                <button
-                  key={brand}
-                  onClick={() => handleBrandChange(brand.toLowerCase().replace("'", ''))}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedBrand === brand.toLowerCase().replace("'", '')
-                    ? 'bg-gold text-navy'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
-                    }`}
-                >
-                  {brand}
-                </button>
-              ))}
+              {BRANDS.map((brand) => {
+                const logoUrl = BRAND_LOGOS[brand];
+                const isActive = selectedBrand === brand.toLowerCase().replace("'", '');
+
+                return (
+                  <button
+                    key={brand}
+                    onClick={() => handleBrandChange(brand.toLowerCase().replace("'", ''))}
+                    className={`h-12 px-4 rounded-lg border-2 transition-all flex items-center justify-center bg-white ${isActive
+                      ? 'border-gold shadow-md scale-105'
+                      : 'border-gray-100 hover:border-gold/50 grayscale opacity-70 hover:grayscale-0 hover:opacity-100'
+                      }`}
+                    title={brand}
+                  >
+                    {logoUrl ? (
+                      <img
+                        src={logoUrl}
+                        alt={brand}
+                        className="h-8 w-auto object-contain pointer-events-none"
+                      />
+                    ) : (
+                      <span className="text-sm font-medium">{brand}</span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
