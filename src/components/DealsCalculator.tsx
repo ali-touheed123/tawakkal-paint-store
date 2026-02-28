@@ -200,7 +200,10 @@ export function DealsCalculator() {
                                 ))}
                             </div>
 
-                            <button
+                            <a
+                                href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I am interested in booking the *${pkg.name}* package for my *${selectedSize.gaz} Gaz* property.\n\nEstimated Cost: Rs. ${price.toLocaleString()}\nIncludes Labour: ${withLabour ? 'Yes' : 'No'}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={`w-full mt-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${pkg.id === 'local' ? 'bg-white border border-gray-200 text-navy hover:bg-gray-50 hover:border-gray-300' :
                                         pkg.id === 'normal' ? 'bg-[#007bff] text-white hover:bg-[#0056b3]' :
                                             pkg.id === 'best' ? 'bg-[#ff7f00] text-white hover:bg-[#cc6600]' :
@@ -208,8 +211,8 @@ export function DealsCalculator() {
                                                     'bg-gray-100 text-navy hover:bg-gray-200'
                                     }`}
                             >
-                                Book Now
-                            </button>
+                                Book on WhatsApp
+                            </a>
                         </motion.div>
                     );
                 })}
