@@ -44,7 +44,7 @@ const whyChooseUs = [
   { icon: Users, title: '5,000+ Happy Customers', description: 'Satisfied clients across Karachi' },
   { icon: Award, title: '10+ Premium Brands', description: 'Authorized dealer for top brands' },
   { icon: CheckCircle, title: '100% Original Sealed', description: 'No fakes, no refills. Ever.' },
-  { icon: Star, title: 'Authorized Dealer', description: 'Gobi\'s, Berger, Diamond, Saasil, Ocean' },
+  { icon: Star, title: 'Authorized Dealer', description: 'Gobi\'s, Berger, Diamond, Saasil' },
   { icon: Award, title: 'Exclusive Distributor', description: 'Rozzilac exclusive partnership' },
   { icon: Palette, title: 'Free Color Consultation', description: 'Expert advice on color selection' }
 ];

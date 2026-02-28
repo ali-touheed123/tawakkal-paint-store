@@ -174,14 +174,13 @@ export function getNextDiscountTier(subtotal: number): { discount: number; amoun
   return null;
 }
 
-export const BRANDS = ['Gobi\'s', 'Berger', 'Diamond', 'Saasil', 'Ocean', 'Rozzilac', 'Reliance', 'Reliable'] as const;
+export const BRANDS = ['Gobi\'s', 'Berger', 'Diamond', 'Saasil', 'Rozzilac', 'Reliance', 'Reliable'] as const;
 
 export const BRAND_LOGOS: Record<string, string> = {
   "Gobi's": '/images/brands/gobi\'s.png',
   'Berger': '/images/brands/berger.png',
   'Diamond': '/images/brands/diamond.png',
   'Saasil': '/images/brands/saasi.png',
-  'Ocean': '/images/brands/ocean.png',
   'Rozzilac': '/images/brands/rozzi.png',
   'Reliance': '/images/brands/reliance.png',
   'Reliable': '/images/brands/reliable.png'
@@ -299,7 +298,7 @@ export const FAQS = [
   },
   {
     question: 'Are all products 100% original and sealed?',
-    answer: 'Absolutely! We are authorized dealers for Gobi\'s, Berger, Diamond, Saasil, Ocean, and exclusive distributor for Rozzilac. All our products are factory-sealed with no refills or fakes. Quality is guaranteed.'
+    answer: 'Absolutely! We are authorized dealers for Gobi\'s, Berger, Diamond, Saasil, and exclusive distributor for Rozzilac. All our products are factory-sealed with no refills or fakes. Quality is guaranteed.'
   },
   {
     question: 'How does Cash on Delivery work?',
@@ -315,7 +314,7 @@ export const FAQS = [
   },
   {
     question: 'What brands do you carry?',
-    answer: 'We carry premium brands including Gobi\'s, Berger, Diamond, Saasil, Ocean, and are exclusive distributors for Rozzilac. All products are authentic and factory-sealed.'
+    answer: 'We carry premium brands including Gobi\'s, Berger, Diamond, Saasil, and are exclusive distributors for Rozzilac. All products are authentic and factory-sealed.'
   },
   {
     question: 'How do I unlock the discount system?',
