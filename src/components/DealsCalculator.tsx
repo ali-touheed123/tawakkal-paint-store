@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Shield, Star, Crown, Construction, Ruler, Building2, HardHat } from 'lucide-react';
-import { useStore } from '@/lib/store';
+import { useSettings } from '@/lib/hooks/useSettings';
 
 const PROPERTY_SIZES = [
     { gaz: 80, sqft: 720 },
@@ -61,7 +61,7 @@ const PACKAGES = [
 ];
 
 export function DealsCalculator() {
-    const settings = useStore(state => state.settings);
+    const { settings } = useSettings();
     const [selectedSize, setSelectedSize] = useState(PROPERTY_SIZES[0]);
     const [withLabour, setWithLabour] = useState(true);
 
@@ -101,8 +101,8 @@ export function DealsCalculator() {
                                 key={size.gaz}
                                 onClick={() => setSelectedSize(size)}
                                 className={`px-5 py-3 rounded-xl border transition-all font-medium flex flex-col items-center ${selectedSize.gaz === size.gaz
-                                        ? 'border-gold bg-gold/5 text-navy shadow-sm ring-1 ring-gold'
-                                        : 'border-gray-200 text-gray-500 hover:border-gold/50'
+                                    ? 'border-gold bg-gold/5 text-navy shadow-sm ring-1 ring-gold'
+                                    : 'border-gray-200 text-gray-500 hover:border-gold/50'
                                     }`}
                             >
                                 <span className="text-lg">{size.gaz} Gaz</span>
@@ -201,8 +201,8 @@ export function DealsCalculator() {
                             </div>
 
                             <button className={`w-full mt-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${pkg.id === 'best' || pkg.id === 'premium'
-                                    ? 'bg-navy text-white hover:bg-gold hover:text-navy'
-                                    : 'bg-gray-100 text-navy hover:bg-gray-200'
+                                ? 'bg-navy text-white hover:bg-gold hover:text-navy'
+                                : 'bg-gray-100 text-navy hover:bg-gray-200'
                                 }`}>
                                 Book Now
                             </button>
