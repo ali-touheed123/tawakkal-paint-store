@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Shield, Star, Crown, Construction, Ruler, Building2, HardHat } from 'lucide-react';
+import { Check, Shield, Star, Crown, Construction, Ruler, Building2, HardHat, MapPin } from 'lucide-react';
 import { useSettings } from '@/lib/hooks/useSettings';
 
 const PROPERTY_SIZES = [
@@ -64,6 +64,7 @@ export function DealsCalculator() {
     const { settings } = useSettings();
     const [selectedSize, setSelectedSize] = useState(PROPERTY_SIZES[0]);
     const [withLabour, setWithLabour] = useState(true);
+    const [withVisit, setWithVisit] = useState(true);
 
     // Fallback prices if settings aren't loaded or set yet
     const defaultBasePricing = {
@@ -81,7 +82,14 @@ export function DealsCalculator() {
         const rawPrice = basePrice * sizeMultiplier;
 
         // Labour logic: with labour = 100%, without labour = 75%
-        return withLabour ? rawPrice : rawPrice * 0.75;
+        let finalPrice = withLabour ? rawPrice : rawPrice * 0.75;
+
+        // Site Visit fee
+        if (withVisit) {
+            finalPrice += 1000;
+        }
+
+        return finalPrice;
     };
 
     return (
@@ -149,6 +157,27 @@ export function DealsCalculator() {
                                     />
                                 </div>
                             </label>
+
+                            <label className="flex items-center gap-4 cursor-pointer p-4 bg-white rounded-xl border border-gray-200 hover:border-gold transition-colors w-full">
+                                <div className={`p-3 rounded-full ${withVisit ? 'bg-gold/10 text-gold' : 'bg-gray-100 text-gray-400'}`}>
+                                    <MapPin size={24} />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="font-bold text-navy">Site Visit & Measurement</div>
+                                    <div className="text-xs text-gray-500">Professional inspection (+Rs. 1,000)</div>
+                                </div>
+                                <div className="relative">
+                                    <div className={`w-12 h-6 rounded-full transition-colors ${withVisit ? 'bg-gold' : 'bg-gray-300'}`}>
+                                        <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${withVisit ? 'left-7' : 'left-1'}`} />
+                                    </div>
+                                    <input
+                                        type="checkbox"
+                                        className="hidden"
+                                        checked={withVisit}
+                                        onChange={(e) => setWithVisit(e.target.checked)}
+                                    />
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -201,14 +230,14 @@ export function DealsCalculator() {
                             </div>
 
                             <a
-                                href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I am interested in booking the *${pkg.name}* package for my *${selectedSize.gaz} Gaz* property.\n\nEstimated Cost: Rs. ${price.toLocaleString()}\nIncludes Labour: ${withLabour ? 'Yes' : 'No'}`}
+                                href={`https://wa.me/${settings?.contact?.whatsapp || '923475658761'}?text=Hi! I am interested in booking the *${pkg.name}* package for my *${selectedSize.gaz} Gaz* property.\n\nEstimated Cost: Rs. ${price.toLocaleString()}\nIncludes Labour: ${withLabour ? 'Yes' : 'No'}\nSite Visit Requested: ${withVisit ? 'Yes' : 'No'}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`w-full mt-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${pkg.id === 'local' ? 'bg-white border border-gray-200 text-navy hover:bg-gray-50 hover:border-gray-300' :
-                                        pkg.id === 'normal' ? 'bg-[#007bff] text-white hover:bg-[#0056b3]' :
-                                            pkg.id === 'best' ? 'bg-[#ff7f00] text-white hover:bg-[#cc6600]' :
-                                                pkg.id === 'premium' ? 'bg-[#ffd700] text-navy hover:bg-[#e6c200]' :
-                                                    'bg-gray-100 text-navy hover:bg-gray-200'
+                                    pkg.id === 'normal' ? 'bg-[#007bff] text-white hover:bg-[#0056b3]' :
+                                        pkg.id === 'best' ? 'bg-[#ff7f00] text-white hover:bg-[#cc6600]' :
+                                            pkg.id === 'premium' ? 'bg-[#ffd700] text-navy hover:bg-[#e6c200]' :
+                                                'bg-gray-100 text-navy hover:bg-gray-200'
                                     }`}
                             >
                                 Book on WhatsApp
