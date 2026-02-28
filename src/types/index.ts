@@ -174,7 +174,7 @@ export function getNextDiscountTier(subtotal: number): { discount: number; amoun
   return null;
 }
 
-export const BRANDS = ['Gobi\'s', 'Berger', 'Diamond', 'Saasi', 'Brighto', 'Choice', 'Rozzilac', 'Reliance', 'Reliable'] as const;
+export const BRANDS = ['Gobi\'s', 'Berger', 'Diamond', 'Saasi', 'Brighto', 'Choice', 'Dior', 'Rozzilac', 'Reliance', 'Reliable'] as const;
 
 export const BRAND_LOGOS: Record<string, string> = {
   "Gobi's": '/images/brands/gobi\'s.png',
@@ -183,6 +183,7 @@ export const BRAND_LOGOS: Record<string, string> = {
   'Saasi': '/images/brands/saasi.png',
   'Brighto': '/images/brands/brighto.png',
   'Choice': '/images/brands/choice.png',
+  'Dior': '/images/brands/dior.jpeg',
   'Rozzilac': '/images/brands/rozzi.png',
   'Reliance': '/images/brands/reliance.png',
   'Reliable': '/images/brands/reliable.png'
