@@ -33,9 +33,9 @@ const categories = [
     image: '/images/categories/auto.jpg'
   },
   {
-    slug: 'projects',
-    name: 'Projects',
-    description: 'Bulk supply for construction projects',
+    slug: 'deals',
+    name: 'Deals / Projects',
+    description: 'Complete paint packages for your 80 to 1000 Gaz property',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800'
   }
 ];
@@ -271,7 +271,7 @@ export default function HomePage() {
                   </h3>
                   <p className="text-gray-300 mb-4">{cat.description}</p>
                   <Link
-                    href={`/category/${cat.slug}`}
+                    href={cat.slug === 'deals' ? '/deals' : `/category/${cat.slug}`}
                     className="inline-flex items-center gap-2 text-gold font-semibold group-hover:gap-3 transition-all"
                   >
                     Explore <ArrowRight size={18} />

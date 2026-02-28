@@ -100,6 +100,12 @@ export interface SiteSettings {
     instagram: string;
   };
   banners?: string[];
+  deals_base_pricing?: {
+    local: number;
+    normal: number;
+    best: number;
+    premium: number;
+  };
 }
 
 export interface DiscountRule {

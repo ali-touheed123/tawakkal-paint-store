@@ -22,7 +22,13 @@ export default function SettingsPage() {
         logo: '',
         contact: { phone: '', email: '', whatsapp: '' },
         socials: { facebook: '', instagram: '' },
-        banners: [] as string[]
+        banners: [] as string[],
+        deals_base_pricing: {
+            local: 50000,
+            normal: 100000,
+            best: 200000,
+            premium: 370000
+        }
     });
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
@@ -239,6 +245,54 @@ export default function SettingsPage() {
                             These details are used across the Navbar, Footer, and Contact page.
                             Changes will reflect instantly on the live site.
                         </p>
+                    </div>
+                </div>
+                {/* Deals Pricing Defaults */}
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-6">
+                    <h3 className="font-bold text-navy flex items-center gap-2">
+                        <Settings className="text-gold" size={20} />
+                        Deals / Projects Base Pricing
+                    </h3>
+                    <p className="text-xs text-gray-500">
+                        Set the base prices for an <strong>80 Gaz (720 sq/ft)</strong> property. All other sizes will calculate proportionally.
+                    </p>
+                    <div className="grid gap-4">
+                        <div>
+                            <label className="text-xs font-bold text-gray-400 uppercase block mb-2">Local Quality (PKR)</label>
+                            <input
+                                type="number"
+                                value={settings.deals_base_pricing?.local || ''}
+                                onChange={(e) => handleNestedUpdate('deals_base_pricing', 'local', Number(e.target.value))}
+                                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg outline-none focus:border-gold text-sm"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-gray-400 uppercase block mb-2">Normal Quality (PKR)</label>
+                            <input
+                                type="number"
+                                value={settings.deals_base_pricing?.normal || ''}
+                                onChange={(e) => handleNestedUpdate('deals_base_pricing', 'normal', Number(e.target.value))}
+                                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg outline-none focus:border-gold text-sm"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-gray-400 uppercase block mb-2">Best Quality (PKR)</label>
+                            <input
+                                type="number"
+                                value={settings.deals_base_pricing?.best || ''}
+                                onChange={(e) => handleNestedUpdate('deals_base_pricing', 'best', Number(e.target.value))}
+                                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg outline-none focus:border-gold text-sm"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-gray-400 uppercase block mb-2">Premium Quality (PKR)</label>
+                            <input
+                                type="number"
+                                value={settings.deals_base_pricing?.premium || ''}
+                                onChange={(e) => handleNestedUpdate('deals_base_pricing', 'premium', Number(e.target.value))}
+                                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg outline-none focus:border-gold text-sm"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
