@@ -67,7 +67,19 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           {product.brand}
         </p>
         <h3 className="font-heading text-base font-semibold text-navy mb-2 line-clamp-2 h-12">
-          {product.name}
+          {(() => {
+            const nameLower = product.name.toLowerCase();
+            const brandLower = product.brand.toLowerCase();
+            const brandBase = brandLower.replace(/[''’]/g, '');
+
+            if (nameLower.startsWith(brandLower)) {
+              return product.name.slice(product.brand.length).trim();
+            }
+            if (nameLower.startsWith(brandBase)) {
+              return product.name.slice(brandBase.length).trim();
+            }
+            return product.name;
+          })()}
         </h3>
 
         {/* Size Toggle */}
@@ -86,8 +98,8 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                 key={size}
                 onClick={() => setSelectedSize(size)}
                 className={`flex-1 py-1.5 px-2 rounded-md text-[11px] font-medium transition-all ${selectedSize === size
-                    ? 'bg-gold text-navy'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
+                  ? 'bg-gold text-navy'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
                   }`}
               >
                 {size.charAt(0).toUpperCase() + size.slice(1)}
