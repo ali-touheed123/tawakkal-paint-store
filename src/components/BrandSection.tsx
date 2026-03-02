@@ -45,7 +45,7 @@ export function BrandSection() {
                                     <img
                                         src={logo.url}
                                         alt={logo.name}
-                                        className="h-8 md:h-12 w-auto object-contain pointer-events-none"
+                                        className={`h-8 md:h-12 w-auto object-contain pointer-events-none ${logo.name === 'Dior' ? 'scale-125 p-1' : ''}`}
                                     />
                                 </div>
                             ))}

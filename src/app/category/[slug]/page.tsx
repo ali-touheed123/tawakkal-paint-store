@@ -165,7 +165,7 @@ export default function CategoryPage() {
                       <img
                         src={logoUrl}
                         alt={brand}
-                        className="h-8 w-auto object-contain pointer-events-none"
+                        className={`h-full w-auto object-contain pointer-events-none p-1 ${brand === 'Dior' ? 'scale-110' : ''}`}
                       />
                     ) : (
                       <span className="text-sm font-medium">{brand}</span>
