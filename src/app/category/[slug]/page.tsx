@@ -21,22 +21,22 @@ const categoryInfo: Record<string, { title: string; description: string; hero: s
   decorative: {
     title: 'Decorative Paints',
     description: 'Premium interior & exterior wall paints for homes & offices',
-    hero: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920'
+    hero: '/images/categories/decorative.jpg'
   },
   industrial: {
     title: 'Industrial Paints',
     description: 'Heavy-duty protective coatings for industrial applications',
-    hero: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1920'
+    hero: '/images/categories/industrial.jpg'
   },
   auto: {
     title: 'Automotive Paints',
     description: 'Professional automotive & vehicle refinishing paints',
-    hero: 'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5a?w=1920'
+    hero: '/images/categories/auto.jpg'
   },
   projects: {
     title: 'Bulk Projects',
     description: 'Bulk supply for construction projects at competitive prices',
-    hero: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920'
+    hero: '/images/categories/projects.jpg'
   }
 };
 
