@@ -35,10 +35,10 @@ export function PaintCalculator() {
     const amount = totalArea / coverageRate;
     const withWastage = Math.ceil(amount * 1.1 * 2) / 2;
 
-    const drums = Math.floor(withWastage / 18.9);
-    const remainderAfterDrums = withWastage - drums * 18.9;
-    const gallons = Math.floor(remainderAfterDrums / 3.785);
-    const quarters = Math.ceil((remainderAfterDrums - gallons * 3.785) / 1);
+    const drums = Math.floor(withWastage / 16);
+    const remainderAfterDrums = withWastage - drums * 16;
+    const gallons = Math.floor(remainderAfterDrums / 3.64);
+    const quarters = Math.ceil((remainderAfterDrums - gallons * 3.64) / 0.91);
 
     let breakdown = '';
     if (drums > 0) breakdown += `${drums} Drum${drums > 1 ? 's' : ''} `;
