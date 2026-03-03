@@ -14,9 +14,7 @@ export function PaintCalculator() {
   const [directArea, setDirectArea] = useState(500);
   const [coats, setCoats] = useState(2);
   const [rooms, setRooms] = useState(1);
-  const [subtractDoors, setSubtractDoors] = useState(false);
   const [numDoors, setNumDoors] = useState(0);
-  const [subtractWindows, setSubtractWindows] = useState(false);
   const [numWindows, setNumWindows] = useState(0);
 
   const coverageRate = paintType.coverage;
@@ -30,10 +28,14 @@ export function PaintCalculator() {
       wallArea = directArea;
     }
 
-    const deductions = (subtractDoors ? numDoors * 21 : 0) +
-      (subtractWindows ? numWindows * 15 : 0);
+    const isDeduction = ['wall', 'primer', 'putty'].includes(paintType.id);
+    const adjustmentArea = (numDoors * 21) + (numWindows * 15);
 
-    const netArea = Math.max(0, wallArea - deductions);
+    // For wood/metal, wallArea logic is often not needed, but we keep it for flexibility.
+    // If it's wood/metal, we assume wallArea starts at 0 if no dimensions are provided.
+    const baseArea = (dimensionsMode === 'dimensions' && ['wood', 'metal'].includes(paintType.id)) ? 0 : wallArea;
+    const netArea = isDeduction ? Math.max(0, baseArea - adjustmentArea) : baseArea + adjustmentArea;
+
     const totalArea = netArea * coats * rooms;
     const amount = totalArea / coverageRate;
     const withWastage = Math.ceil(amount * 1.1 * 2) / 2;
@@ -54,9 +56,11 @@ export function PaintCalculator() {
       totalArea,
       breakdown: breakdown.trim()
     };
-  }, [dimensionsMode, length, width, height, directArea, coats, rooms, subtractDoors, numDoors, subtractWindows, numWindows, coverageRate]);
+  }, [dimensionsMode, length, width, height, directArea, coats, rooms, numDoors, numWindows, coverageRate, paintType.id]);
 
   const whatsappMessage = `Hi! The calculator says I need ${calculation.litres} litres of ${paintType.label} for ${calculation.totalArea} sq/ft. Please help me choose the right product.`;
+
+  const showDimensionsInput = !(dimensionsMode === 'dimensions' && ['wood', 'metal'].includes(paintType.id));
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,8 +95,8 @@ export function PaintCalculator() {
                   key={type.id}
                   onClick={() => setPaintType(type)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${paintType.id === type.id
-                      ? 'bg-gold text-navy'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
+                    ? 'bg-gold text-navy'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
                     }`}
                 >
                   {type.label}
@@ -108,8 +112,8 @@ export function PaintCalculator() {
               <button
                 onClick={() => setDimensionsMode('dimensions')}
                 className={`flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all ${dimensionsMode === 'dimensions'
-                    ? 'bg-navy text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-navy text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
               >
                 Room Dimensions
@@ -117,8 +121,8 @@ export function PaintCalculator() {
               <button
                 onClick={() => setDimensionsMode('area')}
                 className={`flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all ${dimensionsMode === 'area'
-                    ? 'bg-navy text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-navy text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
               >
                 Direct sq/ft
@@ -126,38 +130,42 @@ export function PaintCalculator() {
             </div>
 
             {dimensionsMode === 'dimensions' ? (
-              <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-xs text-gray-500 mb-1">Length (ft)</label>
-                  <input
-                    type="number"
-                    value={length}
-                    onChange={(e) => setLength(Number(e.target.value))}
-                    className="w-full p-3 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
-                    min="1"
-                  />
+              showDimensionsInput ? (
+                <div className="grid grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Length (ft)</label>
+                    <input
+                      type="number"
+                      value={length}
+                      onChange={(e) => setLength(Number(e.target.value))}
+                      className="w-full p-3 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
+                      min="1"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Width (ft)</label>
+                    <input
+                      type="number"
+                      value={width}
+                      onChange={(e) => setWidth(Number(e.target.value))}
+                      className="w-full p-3 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
+                      min="1"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Height (ft)</label>
+                    <input
+                      type="number"
+                      value={height}
+                      onChange={(e) => setHeight(Number(e.target.value))}
+                      className="w-full p-3 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
+                      min="1"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs text-gray-500 mb-1">Width (ft)</label>
-                  <input
-                    type="number"
-                    value={width}
-                    onChange={(e) => setWidth(Number(e.target.value))}
-                    className="w-full p-3 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
-                    min="1"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-500 mb-1">Height (ft)</label>
-                  <input
-                    type="number"
-                    value={height}
-                    onChange={(e) => setHeight(Number(e.target.value))}
-                    className="w-full p-3 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
-                    min="1"
-                  />
-                </div>
-              </div>
+              ) : (
+                <p className="text-sm text-gray-500 italic">Dimensions input is typically not used for {paintType.label} paint. Consider using "Direct sq/ft" mode or adding doors/windows.</p>
+              )
             ) : (
               <div>
                 <label className="block text-xs text-gray-500 mb-1">Total Wall Area (sq/ft)</label>
@@ -181,8 +189,8 @@ export function PaintCalculator() {
                   key={num}
                   onClick={() => setCoats(num)}
                   className={`flex-1 py-3 rounded-lg text-sm font-medium transition-all ${coats === num
-                      ? 'bg-gold text-navy'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
+                    ? 'bg-gold text-navy'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
                     }`}
                 >
                   {num} {num === 1 ? 'Coat' : 'Coats'}
@@ -217,7 +225,7 @@ export function PaintCalculator() {
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-navy">
                 <DoorOpen size={18} className="text-gold" />
-                <label className="text-sm font-semibold">Subtract Doors</label>
+                <label className="text-sm font-semibold">Add Doors</label>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl p-1 w-fit">
@@ -234,7 +242,6 @@ export function PaintCalculator() {
                   <button
                     onClick={() => {
                       setNumDoors(numDoors + 1);
-                      if (!subtractDoors) setSubtractDoors(true);
                     }}
                     className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center hover:bg-gold-pale hover:text-gold transition-colors text-navy"
                   >
@@ -242,8 +249,8 @@ export function PaintCalculator() {
                   </button>
                 </div>
                 {numDoors > 0 && (
-                  <span className="text-[10px] text-gray-400 font-medium italic">
-                    -{numDoors * 21} sq/ft
+                  <span className={`text-[10px] font-medium italic ${['wall', 'primer', 'putty'].includes(paintType.id) ? 'text-red-400' : 'text-green-400'}`}>
+                    {['wall', 'primer', 'putty'].includes(paintType.id) ? '-' : '+'}{numDoors * 21} sq/ft
                   </span>
                 )}
               </div>
@@ -253,7 +260,7 @@ export function PaintCalculator() {
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-navy">
                 <Layout size={18} className="text-gold" />
-                <label className="text-sm font-semibold">Subtract Windows</label>
+                <label className="text-sm font-semibold">Add Windows</label>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl p-1 w-fit">
@@ -270,7 +277,6 @@ export function PaintCalculator() {
                   <button
                     onClick={() => {
                       setNumWindows(numWindows + 1);
-                      if (!subtractWindows) setSubtractWindows(true);
                     }}
                     className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center hover:bg-gold-pale hover:text-gold transition-colors text-navy"
                   >
@@ -278,8 +284,8 @@ export function PaintCalculator() {
                   </button>
                 </div>
                 {numWindows > 0 && (
-                  <span className="text-[10px] text-gray-400 font-medium italic">
-                    -{numWindows * 15} sq/ft
+                  <span className={`text-[10px] font-medium italic ${['wall', 'primer', 'putty'].includes(paintType.id) ? 'text-red-400' : 'text-green-400'}`}>
+                    {['wall', 'primer', 'putty'].includes(paintType.id) ? '-' : '+'}{numWindows * 15} sq/ft
                   </span>
                 )}
               </div>
