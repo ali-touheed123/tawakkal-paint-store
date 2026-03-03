@@ -62,8 +62,9 @@ export default function HomePage() {
       const { data } = await supabase
         .from('products')
         .select('*')
-        .or('brand.ilike.%Rozzilac%,brand.ilike.%Gobi%,brand.ilike.%Reliable%')
+        .in('brand', ['Rozzilac', "Gobi's", 'Reliable'])
         .or('name.ilike.%Matt%,name.ilike.%Weather%,name.ilike.%Enamel%,name.ilike.%Emulsion%')
+        .order('created_at', { ascending: false })
         .limit(10);
       if (data) setProducts(data as Product[]);
       setLoading(false);

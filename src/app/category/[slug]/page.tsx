@@ -56,19 +56,25 @@ export default function CategoryPage() {
       setLoading(true);
       try {
         const supabase = createClient();
-        console.log('Fetching from Supabase...');
-        let query = supabase.from('products').select('*').eq('category', category);
+        console.log('Fetching products for category:', category, 'brand:', selectedBrand);
 
-        if (selectedBrand !== 'all') {
-          query = query.eq('brand', BRANDS.find(b => b.toLowerCase().replace("'", '') === selectedBrand.toLowerCase()) || selectedBrand);
+        let supabaseQuery = supabase.from('products').select('*').eq('category', category);
+
+        if (selectedBrand && selectedBrand !== 'all') {
+          const exactBrand = BRANDS.find(b =>
+            b.toLowerCase().replace(/['\s]/g, '') === selectedBrand.toLowerCase().replace(/['\s]/g, '')
+          );
+          console.log('Filtering by brand:', exactBrand || selectedBrand);
+          supabaseQuery = supabaseQuery.eq('brand', exactBrand || selectedBrand);
         }
 
-        if (selectedSub !== 'all') {
-          query = query.eq('sub_category', selectedSub);
+        if (selectedSub && selectedSub !== 'all') {
+          console.log('Filtering by sub-category:', selectedSub);
+          supabaseQuery = supabaseQuery.eq('sub_category', selectedSub);
         }
 
-        const { data, error } = await query;
-        console.log('Products:', data, 'Error:', error);
+        const { data, error } = await supabaseQuery;
+        console.log('Query result products count:', data?.length, 'Error:', error);
         if (data) setProducts(data as Product[]);
       } catch (err) {
         console.error('Fetch error:', err);
