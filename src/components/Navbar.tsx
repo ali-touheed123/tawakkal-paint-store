@@ -210,6 +210,14 @@ export function Navbar() {
                               </AnimatePresence>
                             </div>
                           ))}
+                          {/* Static Deals & Projects Link */}
+                          <Link
+                            href="/deals"
+                            className="flex items-center justify-between px-6 py-3 text-sm text-gold font-semibold hover:bg-white/5 transition-all border-t border-gold/10"
+                          >
+                            Deals & Projects
+                            <ChevronRight size={14} className="opacity-100" />
+                          </Link>
                         </div>
                       </motion.div>
                     )}
@@ -349,6 +357,14 @@ export function Navbar() {
                                   </AnimatePresence>
                                 </div>
                               ))}
+                              {/* Static Deals & Projects Link for Mobile */}
+                              <Link
+                                href="/deals"
+                                className="block py-3 text-sm text-gold font-semibold border-t border-gold/10 mt-2"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                Deals & Projects
+                              </Link>
                             </motion.div>
                           )}
                         </AnimatePresence>
