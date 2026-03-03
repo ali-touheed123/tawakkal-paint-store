@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Plus, Minus } from 'lucide-react';
+import { MessageCircle, Plus, Minus, DoorOpen, Layout } from 'lucide-react';
 import { PAINT_TYPES } from '@/types';
 
 export function PaintCalculator() {
@@ -15,24 +15,24 @@ export function PaintCalculator() {
   const [coats, setCoats] = useState(2);
   const [rooms, setRooms] = useState(1);
   const [subtractDoors, setSubtractDoors] = useState(false);
-  const [numDoors, setNumDoors] = useState(1);
+  const [numDoors, setNumDoors] = useState(0);
   const [subtractWindows, setSubtractWindows] = useState(false);
-  const [numWindows, setNumWindows] = useState(2);
+  const [numWindows, setNumWindows] = useState(0);
 
   const coverageRate = paintType.coverage;
 
   const calculation = useMemo(() => {
     let wallArea: number;
-    
+
     if (dimensionsMode === 'dimensions') {
       wallArea = 2 * (length + width) * height;
     } else {
       wallArea = directArea;
     }
 
-    const deductions = (subtractDoors ? numDoors * 21 : 0) + 
-                       (subtractWindows ? numWindows * 15 : 0);
-    
+    const deductions = (subtractDoors ? numDoors * 21 : 0) +
+      (subtractWindows ? numWindows * 15 : 0);
+
     const netArea = Math.max(0, wallArea - deductions);
     const totalArea = netArea * coats * rooms;
     const amount = totalArea / coverageRate;
@@ -90,11 +90,10 @@ export function PaintCalculator() {
                 <button
                   key={type.id}
                   onClick={() => setPaintType(type)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    paintType.id === type.id
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${paintType.id === type.id
                       ? 'bg-gold text-navy'
                       : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
-                  }`}
+                    }`}
                 >
                   {type.label}
                 </button>
@@ -108,21 +107,19 @@ export function PaintCalculator() {
             <div className="flex gap-4 mb-4">
               <button
                 onClick={() => setDimensionsMode('dimensions')}
-                className={`flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all ${
-                  dimensionsMode === 'dimensions'
+                className={`flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all ${dimensionsMode === 'dimensions'
                     ? 'bg-navy text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 Room Dimensions
               </button>
               <button
                 onClick={() => setDimensionsMode('area')}
-                className={`flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all ${
-                  dimensionsMode === 'area'
+                className={`flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all ${dimensionsMode === 'area'
                     ? 'bg-navy text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 Direct sq/ft
               </button>
@@ -183,11 +180,10 @@ export function PaintCalculator() {
                 <button
                   key={num}
                   onClick={() => setCoats(num)}
-                  className={`flex-1 py-3 rounded-lg text-sm font-medium transition-all ${
-                    coats === num
+                  className={`flex-1 py-3 rounded-lg text-sm font-medium transition-all ${coats === num
                       ? 'bg-gold text-navy'
                       : 'bg-gray-100 text-gray-600 hover:bg-gold-pale'
-                  }`}
+                    }`}
                 >
                   {num} {num === 1 ? 'Coat' : 'Coats'}
                 </button>
@@ -216,50 +212,78 @@ export function PaintCalculator() {
           </div>
 
           {/* Doors & Windows */}
-          <div className="space-y-4">
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={subtractDoors}
-                onChange={(e) => setSubtractDoors(e.target.checked)}
-                className="w-5 h-5 text-gold rounded focus:ring-gold"
-              />
-              <span className="text-sm text-navy">Subtract doors (21 sq/ft each)</span>
-            </label>
-            {subtractDoors && (
-              <div className="flex items-center gap-4 ml-8">
-                <span className="text-xs text-gray-500">Number of doors:</span>
-                <input
-                  type="number"
-                  value={numDoors}
-                  onChange={(e) => setNumDoors(Number(e.target.value))}
-                  className="w-20 p-2 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
-                  min="0"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+            {/* Doors */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-navy">
+                <DoorOpen size={18} className="text-gold" />
+                <label className="text-sm font-semibold">Subtract Doors</label>
               </div>
-            )}
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl p-1 w-fit">
+                  <button
+                    onClick={() => setNumDoors(Math.max(0, numDoors - 1))}
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${numDoors > 0 ? 'bg-white text-navy shadow-sm hover:bg-gold-pale hover:text-gold' : 'text-gray-300 cursor-not-allowed'
+                      }`}
+                  >
+                    <Minus size={14} />
+                  </button>
+                  <span className={`text-sm font-bold w-4 text-center ${numDoors > 0 ? 'text-navy' : 'text-gray-400'}`}>
+                    {numDoors}
+                  </span>
+                  <button
+                    onClick={() => {
+                      setNumDoors(numDoors + 1);
+                      if (!subtractDoors) setSubtractDoors(true);
+                    }}
+                    className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center hover:bg-gold-pale hover:text-gold transition-colors text-navy"
+                  >
+                    <Plus size={14} />
+                  </button>
+                </div>
+                {numDoors > 0 && (
+                  <span className="text-[10px] text-gray-400 font-medium italic">
+                    -{numDoors * 21} sq/ft
+                  </span>
+                )}
+              </div>
+            </div>
 
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={subtractWindows}
-                onChange={(e) => setSubtractWindows(e.target.checked)}
-                className="w-5 h-5 text-gold rounded focus:ring-gold"
-              />
-              <span className="text-sm text-navy">Subtract windows (15 sq/ft each)</span>
-            </label>
-            {subtractWindows && (
-              <div className="flex items-center gap-4 ml-8">
-                <span className="text-xs text-gray-500">Number of windows:</span>
-                <input
-                  type="number"
-                  value={numWindows}
-                  onChange={(e) => setNumWindows(Number(e.target.value))}
-                  className="w-20 p-2 border border-gray-200 rounded-lg focus:border-gold focus:outline-none"
-                  min="0"
-                />
+            {/* Windows */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-navy">
+                <Layout size={18} className="text-gold" />
+                <label className="text-sm font-semibold">Subtract Windows</label>
               </div>
-            )}
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl p-1 w-fit">
+                  <button
+                    onClick={() => setNumWindows(Math.max(0, numWindows - 1))}
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${numWindows > 0 ? 'bg-white text-navy shadow-sm hover:bg-gold-pale hover:text-gold' : 'text-gray-300 cursor-not-allowed'
+                      }`}
+                  >
+                    <Minus size={14} />
+                  </button>
+                  <span className={`text-sm font-bold w-4 text-center ${numWindows > 0 ? 'text-navy' : 'text-gray-400'}`}>
+                    {numWindows}
+                  </span>
+                  <button
+                    onClick={() => {
+                      setNumWindows(numWindows + 1);
+                      if (!subtractWindows) setSubtractWindows(true);
+                    }}
+                    className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center hover:bg-gold-pale hover:text-gold transition-colors text-navy"
+                  >
+                    <Plus size={14} />
+                  </button>
+                </div>
+                {numWindows > 0 && (
+                  <span className="text-[10px] text-gray-400 font-medium italic">
+                    -{numWindows * 15} sq/ft
+                  </span>
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
 
