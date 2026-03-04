@@ -139,15 +139,15 @@ export default function CategoryPage() {
 
       {/* Filters */}
       <section className="sticky top-[70px] z-30 bg-white shadow-md border-b border-gold/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex flex-col gap-4">
             {/* Brand Filter */}
-            <div className="space-y-3">
-              <h3 className="text-xs font-bold text-navy/40 uppercase tracking-widest pl-1">Filter by Brand</h3>
-              <div className="flex overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide snap-x gap-3 lg:flex-wrap lg:overflow-visible">
+            <div className="space-y-2">
+              <h3 className="text-[10px] font-bold text-navy/30 uppercase tracking-[0.2em] pl-1">Filter by Brand</h3>
+              <div className="flex overflow-x-auto pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide snap-x gap-2.5">
                 <button
                   onClick={() => handleBrandChange('all')}
-                  className={`snap-start shrink-0 h-14 px-6 rounded-xl text-sm font-semibold transition-all border-2 flex items-center justify-center ${selectedBrand === 'all'
+                  className={`snap-start shrink-0 h-12 px-6 rounded-xl text-sm font-semibold transition-all border-2 flex items-center justify-center ${selectedBrand === 'all'
                     ? 'bg-gold border-gold text-navy shadow-lg shadow-gold/20 scale-105'
                     : 'bg-white border-gray-100 text-gray-400 hover:border-gold/30 hover:text-gold'
                     }`}
@@ -162,7 +162,7 @@ export default function CategoryPage() {
                     <button
                       key={brand}
                       onClick={() => handleBrandChange(brand.toLowerCase().replace("'", ''))}
-                      className={`snap-start shrink-0 h-14 w-28 px-4 rounded-xl border-2 transition-all flex items-center justify-center bg-white ${isActive
+                      className={`snap-start shrink-0 h-12 w-24 px-3 rounded-xl border-2 transition-all flex items-center justify-center bg-white ${isActive
                         ? 'border-gold shadow-lg shadow-gold/10 scale-105 z-10'
                         : 'border-gray-100 hover:border-gold/30 grayscale opacity-60 hover:grayscale-0 hover:opacity-100'
                         }`}
@@ -185,9 +185,9 @@ export default function CategoryPage() {
 
             {/* Sub-category Filter - Only for Decorative */}
             {category === 'decorative' && (
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold text-navy/40 uppercase tracking-widest pl-1">Filter by Category</h3>
-                <div className="flex overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide snap-x gap-2 lg:flex-wrap lg:overflow-visible">
+              <div className="space-y-2">
+                <h3 className="text-[10px] font-bold text-navy/30 uppercase tracking-[0.2em] pl-1">Filter by Category</h3>
+                <div className="flex overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide snap-x gap-2">
                   {subCategories.map((sub) => (
                     <button
                       key={sub.id}
