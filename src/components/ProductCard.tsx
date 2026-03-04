@@ -47,7 +47,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-gold/10 group"
     >
       {/* Image */}
-      <div className="relative aspect-square overflow-hidden bg-white border-b border-gray-100">
+      <Link href={`/product/${product.id}`} className="relative aspect-square overflow-hidden bg-white border-b border-gray-100 block">
         <img
           src={getImageUrl()}
           alt={product.name}
@@ -59,7 +59,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             <span className="text-white font-semibold">Out of Stock</span>
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-3">

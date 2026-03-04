@@ -334,3 +334,13 @@ export const FAQS = [
     answer: 'Yes! Once your order is confirmed, you can track it by WhatsApping us with your Order ID. Our team will provide you with regular updates on your delivery status.'
   }
 ];
+
+export interface Shade {
+  id: string;
+  product_id: string;
+  name: string;
+  code: string;
+  hex: string;
+  is_drum_available: boolean;
+  created_at?: string;
+}
