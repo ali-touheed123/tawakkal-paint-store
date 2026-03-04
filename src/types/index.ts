@@ -70,6 +70,11 @@ export interface OrderItem {
   quantity: number;
   price: number;
   image_url: string | null;
+  selectedShade?: {
+    name: string;
+    code: string;
+    hex: string;
+  };
 }
 
 export interface Order {
