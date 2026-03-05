@@ -12,14 +12,14 @@ import {
     Package,
     Info,
     ArrowRight,
-    Search,
-    Maximize2
+    Search
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { Product, ItemSize, Shade } from '@/types';
 import { useCartStore } from '@/lib/store';
 import { ShadeSelector } from '@/components/ShadeSelector';
 import { SimpleVisualizer } from '@/components/SimpleVisualizer';
+import { PaintCalculator } from '@/components/PaintCalculator';
 import Link from 'next/link';
 import { BRIGHTO_SHADES } from '@/constants/shades';
 
@@ -135,11 +135,7 @@ export default function ProductDetailPage() {
                                     <img src={product.image_url || ''} className="max-h-full object-contain" />
                                 </div>
                             )}
-                            <button className="absolute top-4 right-4 p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg text-navy hover:bg-white transition-all scale-0 group-hover:scale-100">
-                                <Maximize2 size={20} />
-                            </button>
                         </div>
-
                         {/* Thumbnails */}
                         <div className="flex gap-4">
                             <div className="w-24 h-24 rounded-2xl border-2 border-gold p-2 bg-white flex items-center justify-center shadow-md">
@@ -154,6 +150,15 @@ export default function ProductDetailPage() {
                                     <div className="w-full h-full" style={{ backgroundColor: selectedShade.hex }} />
                                 </motion.div>
                             )}
+                        </div>
+
+                        {/* Paint Calculator Integration */}
+                        <div className="pt-8 border-t border-gray-100">
+                            <div className="flex items-center gap-2 mb-6">
+                                <Info size={16} className="text-gold" />
+                                <h3 className="text-sm font-bold text-navy uppercase tracking-widest">How Much Paint Do You Need?</h3>
+                            </div>
+                            <PaintCalculator />
                         </div>
                     </div>
 
