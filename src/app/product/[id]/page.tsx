@@ -34,6 +34,7 @@ export default function ProductDetailPage() {
     const [shades, setShades] = useState<Shade[]>(BRIGHTO_SHADES);
     const [selectedShade, setSelectedShade] = useState<Shade | null>(null);
     const [addingToCart, setAddingToCart] = useState(false);
+    const [activeTab, setActiveTab] = useState<'visualizer' | 'calculator'>('visualizer');
 
     const { addItem } = useCartStore();
 
@@ -121,20 +122,66 @@ export default function ProductDetailPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-                    {/* LEFT COLUMN: Visualizer & Thumbnails */}
-                    <div className="space-y-8 lg:sticky lg:top-[140px]">
-                        <div className="relative group rounded-3xl overflow-hidden bg-gray-50 shadow-2xl">
-                            {isBrightoSuperEmulsion ? (
-                                <SimpleVisualizer
-                                    color={selectedShade?.hex || '#FFFFFF'}
-                                    name={selectedShade?.name || 'Standard'}
-                                    onSelect={(s) => setSelectedShade(s)}
-                                />
-                            ) : (
-                                <div className="aspect-[16/9] flex items-center justify-center p-8">
-                                    <img src={product.image_url || ''} className="max-h-full object-contain" />
-                                </div>
-                            )}
+                    {/* LEFT COLUMN: Visualizer & Calculator Tabs */}
+                    <div className="space-y-6 lg:sticky lg:top-[120px]">
+                        {/* Tab Switcher */}
+                        <div className="flex bg-gray-100 p-1.5 rounded-2xl w-fit">
+                            <button
+                                onClick={() => setActiveTab('visualizer')}
+                                className={`px-6 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'visualizer'
+                                    ? 'bg-white text-navy shadow-sm'
+                                    : 'text-gray-500 hover:text-navy'
+                                    }`}
+                            >
+                                Room Visualizer
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('calculator')}
+                                className={`px-6 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'calculator'
+                                    ? 'bg-white text-navy shadow-sm'
+                                    : 'text-gray-500 hover:text-navy'
+                                    }`}
+                            >
+                                Paint Calculator
+                            </button>
+                        </div>
+
+                        <div className="relative group rounded-3xl overflow-hidden bg-white shadow-2xl border border-gray-100 min-h-[400px]">
+                            <AnimatePresence mode="wait">
+                                {activeTab === 'visualizer' ? (
+                                    <motion.div
+                                        key="visualizer"
+                                        initial={{ opacity: 0, scale: 0.98 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 1.02 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="h-full"
+                                    >
+                                        {isBrightoSuperEmulsion ? (
+                                            <SimpleVisualizer
+                                                color={selectedShade?.hex || '#FFFFFF'}
+                                                name={selectedShade?.name || 'Standard'}
+                                                onSelect={(s) => setSelectedShade(s)}
+                                            />
+                                        ) : (
+                                            <div className="aspect-[16/9] flex items-center justify-center p-8">
+                                                <img src={product.image_url || ''} className="max-h-full object-contain" />
+                                            </div>
+                                        )}
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="calculator"
+                                        initial={{ opacity: 0, scale: 0.98 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 1.02 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="p-4"
+                                    >
+                                        <PaintCalculator compact={true} />
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </div>
                         {/* Thumbnails */}
                         <div className="flex gap-4">
@@ -150,15 +197,6 @@ export default function ProductDetailPage() {
                                     <div className="w-full h-full" style={{ backgroundColor: selectedShade.hex }} />
                                 </motion.div>
                             )}
-                        </div>
-
-                        {/* Paint Calculator Integration */}
-                        <div className="pt-8 border-t border-gray-100">
-                            <div className="flex items-center gap-2 mb-6">
-                                <Info size={16} className="text-gold" />
-                                <h3 className="text-sm font-bold text-navy uppercase tracking-widest">How Much Paint Do You Need?</h3>
-                            </div>
-                            <PaintCalculator />
                         </div>
                     </div>
 

@@ -5,7 +5,11 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Plus, Minus, DoorOpen, Layout } from 'lucide-react';
 import { PAINT_TYPES } from '@/types';
 
-export function PaintCalculator() {
+interface PaintCalculatorProps {
+  compact?: boolean;
+}
+
+export function PaintCalculator({ compact = false }: PaintCalculatorProps) {
   const [paintType, setPaintType] = useState(PAINT_TYPES[0]);
   const [dimensionsMode, setDimensionsMode] = useState<'dimensions' | 'area'>('dimensions');
   const [length, setLength] = useState(12);
@@ -56,32 +60,33 @@ export function PaintCalculator() {
   const whatsappMessage = `Hi! The calculator says I need ${calculation.litres} litres of ${paintType.label} for ${calculation.totalArea} sq/ft. Please help me choose the right product.`;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-4">
-          How Much Paint Do You Need?
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Calculate the exact amount of paint required for your project.
-        </p>
-      </motion.div>
+    <div className={compact ? "w-full" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"}>
+      {!compact && (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-4">
+            How Much Paint Do You Need?
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Calculate the exact amount of paint required for your project.
+          </p>
+        </motion.div>
+      )}
 
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Input Section */}
+      <div className={compact ? "grid grid-cols-1 gap-6" : "grid lg:grid-cols-2 gap-12"}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
+          className={`bg-white rounded-2xl shadow-lg ${compact ? 'p-4 border border-gray-100' : 'p-6 md:p-8'}`}
         >
           {/* Paint Type */}
-          <div className="mb-8">
-            <label className="block text-sm font-semibold text-navy mb-3">Paint Type</label>
+          <div className={compact ? "mb-4" : "mb-8"}>
+            <label className="block text-[10px] font-bold text-navy mb-2 uppercase tracking-widest opacity-60">Paint Type</label>
             <div className="flex flex-wrap gap-2">
               {PAINT_TYPES.map((type) => (
                 <button
@@ -287,35 +292,35 @@ export function PaintCalculator() {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-navy rounded-2xl p-6 md:p-8 text-white"
+          className={`bg-navy rounded-2xl text-white ${compact ? 'p-6' : 'p-6 md:p-8'}`}
         >
-          <h3 className="font-heading text-2xl font-bold text-gold mb-8 text-center">
+          <h3 className={`font-heading font-bold text-gold text-center ${compact ? 'text-lg mb-4' : 'text-2xl mb-8'}`}>
             Your Paint Requirement
           </h3>
 
-          <div className="text-center mb-8">
-            <p className="text-gray-400 text-sm mb-2">Total Area</p>
-            <p className="text-3xl font-bold">{calculation.totalArea.toLocaleString()} sq/ft</p>
+          <div className={`text-center ${compact ? 'mb-4' : 'mb-8'}`}>
+            <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mb-1">Total Area</p>
+            <p className={`${compact ? 'text-xl' : 'text-3xl'} font-bold`}>{calculation.totalArea.toLocaleString()} sq/ft</p>
           </div>
 
-          <div className="bg-white/10 rounded-2xl p-8 mb-8 text-center">
-            <p className="text-gray-300 text-sm mb-2">Paint Needed</p>
+          <div className={`bg-white/10 rounded-2xl text-center ${compact ? 'p-6 mb-6' : 'p-8 mb-8'}`}>
+            <p className="text-gray-300 text-[10px] uppercase font-bold tracking-widest mb-1">Paint Needed</p>
             <motion.p
               key={calculation.litres}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="font-heading text-5xl md:text-6xl font-bold text-gold"
+              className={`font-heading font-bold text-gold ${compact ? 'text-4xl' : 'text-5xl md:text-6xl'}`}
             >
               {calculation.litres}
             </motion.p>
-            <p className="text-gray-300 mt-2">
+            <p className="text-gray-300 mt-1 text-xs">
               {paintType.id === 'putty' ? 'kg' : 'Litres'}
             </p>
           </div>
 
-          <div className="bg-gold/20 rounded-xl p-6 mb-8">
-            <p className="text-gray-300 text-sm mb-2">Best Tin Combination</p>
-            <p className="text-xl font-semibold text-gold">{calculation.breakdown}</p>
+          <div className={`bg-gold/20 rounded-xl mb-6 ${compact ? 'p-4' : 'p-6 mb-8'}`}>
+            <p className="text-gray-300 text-[10px] uppercase font-bold tracking-widest mb-1">Best Tin Combination</p>
+            <p className={`${compact ? 'text-lg' : 'text-xl'} font-semibold text-gold`}>{calculation.breakdown}</p>
           </div>
 
           <a
