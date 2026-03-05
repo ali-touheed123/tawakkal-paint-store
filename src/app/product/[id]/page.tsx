@@ -212,7 +212,6 @@ export default function ProductDetailPage() {
                         <div className="space-y-8 pt-4">
                             <div className="flex items-baseline gap-4">
                                 <div className="text-4xl font-bold text-navy">Rs. {price?.toLocaleString()}</div>
-                                <span className="text-green-500 text-sm font-bold">In Stock ({product.in_stock ? '40' : '0'})</span>
                             </div>
 
                             <div className="flex items-center gap-6">
