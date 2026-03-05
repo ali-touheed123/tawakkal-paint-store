@@ -78,37 +78,6 @@ export function SimpleVisualizer({ color: initialColor, name: initialName, onSel
                 </motion.div>
             </div>
 
-            {/* INTERNAL COLOR SELECTION PANEL */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] sm:w-auto">
-                <div className="bg-navy/80 backdrop-blur-xl p-3 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 overflow-x-auto scrollbar-hide max-w-full">
-                    <div className="flex items-center gap-2 pr-4 border-r border-white/10 shrink-0">
-                        <div className="p-2 bg-gold/20 rounded-lg">
-                            <Palette size={14} className="text-gold" />
-                        </div>
-                        <span className="text-[10px] font-bold text-white uppercase tracking-tighter whitespace-nowrap">Explore Shades</span>
-                    </div>
-
-                    <div className="flex gap-2">
-                        {BRIGHTO_SHADES.slice(0, 12).map((shade) => (
-                            <button
-                                key={shade.id}
-                                onClick={() => handleSwatchClick(shade)}
-                                className={`w-8 h-8 rounded-full shrink-0 border-2 transition-all active:scale-90 ${currentColor === shade.hex ? 'border-gold scale-110 shadow-lg' : 'border-white/20 hover:border-white/50'
-                                    }`}
-                                style={{ backgroundColor: shade.hex }}
-                                title={shade.name}
-                            >
-                                {currentColor === shade.hex && <Check size={10} className="mx-auto text-navy" />}
-                            </button>
-                        ))}
-                    </div>
-
-                    <button className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors ml-2 shrink-0">
-                        <Maximize2 size={14} className="text-white" />
-                    </button>
-                </div>
-            </div>
-
             {/* Premium Branding */}
             <div className="absolute top-6 right-6 z-30">
                 <div className="bg-gold text-navy px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-tighter shadow-lg ring-2 ring-gold/20">
