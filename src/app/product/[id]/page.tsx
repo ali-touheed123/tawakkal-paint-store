@@ -21,7 +21,7 @@ import { ShadeSelector } from '@/components/ShadeSelector';
 import { SimpleVisualizer } from '@/components/SimpleVisualizer';
 import { PaintCalculator } from '@/components/PaintCalculator';
 import Link from 'next/link';
-import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES } from '@/constants/shades';
+import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES } from '@/constants/shades';
 
 
 export default function ProductDetailPage() {
@@ -55,7 +55,11 @@ export default function ProductDetailPage() {
                 // Set default shades based on product type
                 const isSuperEmulsion = productData.name === 'Brighto Super Emulsion';
                 const isSyntheticEnamel = productData.name === 'Brighto Synthetic Enamel';
-                const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES : [];
+                const isPlasticEmulsion = productData.name === 'Brighto Plastic Emulsion';
+                const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
+                    : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
+                        : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
+                            : [];
 
                 // Fetch shades from DB, fallback to local constants
                 const { data: shadeData } = await supabase
@@ -108,7 +112,8 @@ export default function ProductDetailPage() {
 
     const isBrightoSuperEmulsion = product.name === 'Brighto Super Emulsion';
     const isBrightoSyntheticEnamel = product.name === 'Brighto Synthetic Enamel';
-    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel;
+    const isBrightoPlasticEmulsion = product.name === 'Brighto Plastic Emulsion';
+    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion;
 
     return (
         <div className="min-h-screen pt-[70px] bg-white">
@@ -221,7 +226,7 @@ export default function ProductDetailPage() {
                                 </span>
                             </div>
                             <h1 className="font-heading text-4xl lg:text-5xl font-bold text-navy leading-tight mb-4 tracking-tight">
-                                {isBrightoSuperEmulsion ? 'Plastic Emulsion Paint' : isBrightoSyntheticEnamel ? 'Synthetic Enamel Paint' : product.name}
+                                {isBrightoSuperEmulsion ? 'Plastic Emulsion Paint' : isBrightoSyntheticEnamel ? 'Synthetic Enamel Paint' : isBrightoPlasticEmulsion ? 'Plastic Emulsion Paint' : product.name}
                             </h1>
                             <p className="text-gray-400 font-medium text-sm leading-relaxed max-w-xl">
                                 {product.brand} {product.name} (color) : <span className="text-navy font-bold">{selectedShade?.name || 'Select a shade'}</span>

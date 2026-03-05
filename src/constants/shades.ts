@@ -142,3 +142,80 @@ export const BRIGHTO_ENAMEL_SHADES: Shade[] = [
     // Black
     { id: 'e3102', product_id: '', name: 'Black', code: '3102', hex: '#000000', is_drum_available: false },
 ];
+
+// Brighto Plastic Emulsion shades (extracted from official 2025 shade card PDF)
+export const BRIGHTO_PLASTIC_EMULSION_SHADES: Shade[] = [
+    // Whites
+    { id: 'p6000', product_id: '', name: 'Brilliant White', code: '6000', hex: '#FFFFFF', is_drum_available: true },
+    { id: 'p6212', product_id: '', name: 'Off White', code: '6212', hex: '#FAF0E6', is_drum_available: true },
+    { id: 'p6100', product_id: '', name: 'Ash White', code: '6100', hex: '#E8E8E8', is_drum_available: true },
+    { id: 'p6802', product_id: '', name: 'Swiss White', code: '6802', hex: '#FEFEFA', is_drum_available: false },
+    { id: 'p6300', product_id: '', name: 'Lilly White', code: '6300', hex: '#FDF8F0', is_drum_available: false },
+    { id: 'p6801', product_id: '', name: 'Kitten White', code: '6801', hex: '#FFF5EE', is_drum_available: false },
+    { id: 'p6258', product_id: '', name: 'Dove White', code: '6258', hex: '#F8F8F8', is_drum_available: false },
+    { id: 'p6400', product_id: '', name: 'Rose White', code: '6400', hex: '#FFF0F5', is_drum_available: false },
+    { id: 'p6900', product_id: '', name: 'Lavender White', code: '6900', hex: '#F4F0FF', is_drum_available: false },
+    { id: 'p6804', product_id: '', name: 'Whisper White', code: '6804', hex: '#F5F5F5', is_drum_available: false },
+    { id: 'p6500', product_id: '', name: 'Apple White', code: '6500', hex: '#F0FFF0', is_drum_available: false },
+    { id: 'p6704', product_id: '', name: 'Reflection White', code: '6704', hex: '#F0EDE8', is_drum_available: false },
+    { id: 'p6707', product_id: '', name: 'New Ash White', code: '6707', hex: '#DFDFDF', is_drum_available: false },
+    { id: 'p6903', product_id: '', name: 'Apricot White', code: '6903', hex: '#FFECD0', is_drum_available: false },
+    // Creams & Beiges
+    { id: 'p6201', product_id: '', name: 'Cream', code: '6201', hex: '#FFFDD0', is_drum_available: false },
+    { id: 'p6501', product_id: '', name: 'Almond Wisp', code: '6501', hex: '#EFDECD', is_drum_available: false },
+    { id: 'p6823', product_id: '', name: 'Peach Cream', code: '6823', hex: '#FFEFD5', is_drum_available: false },
+    { id: 'p6502', product_id: '', name: 'Ivory Silk', code: '6502', hex: '#FFFFF0', is_drum_available: false },
+    { id: 'p6626', product_id: '', name: 'Royal Beige', code: '6626', hex: '#D4B896', is_drum_available: false },
+    { id: 'p6506', product_id: '', name: 'Manila Tan', code: '6506', hex: '#D2B48C', is_drum_available: false },
+    { id: 'p6507', product_id: '', name: 'Brazil Nut', code: '6507', hex: '#A67B5B', is_drum_available: false },
+    { id: 'p6504', product_id: '', name: 'Classical', code: '6504', hex: '#F5F5DC', is_drum_available: false },
+    { id: 'p6907', product_id: '', name: 'Cockleshell', code: '6907', hex: '#FFE5B4', is_drum_available: false },
+    { id: 'p6706', product_id: '', name: 'New Cockleshell', code: '6706', hex: '#F5DEB3', is_drum_available: false },
+    { id: 'p6824', product_id: '', name: 'Parasol', code: '6824', hex: '#EEDC82', is_drum_available: false },
+    { id: 'p6222', product_id: '', name: 'Chocolate', code: '6222', hex: '#7B3F00', is_drum_available: false },
+    // Greys
+    { id: 'p6708', product_id: '', name: 'Antique Grey', code: '6708', hex: '#8A8A7A', is_drum_available: false },
+    // Pinks & Reds
+    { id: 'p6173', product_id: '', name: 'Pink Violet', code: '6173', hex: '#CC8899', is_drum_available: false },
+    { id: 'p6702', product_id: '', name: 'Coral Spice', code: '6702', hex: '#E2725B', is_drum_available: false },
+    { id: 'p6508', product_id: '', name: 'Rose Water', code: '6508', hex: '#F7CAC9', is_drum_available: false },
+    { id: 'p6260', product_id: '', name: 'Peach Goodness', code: '6260', hex: '#FFDAB9', is_drum_available: false },
+    { id: 'p6252', product_id: '', name: 'Ice Red', code: '6252', hex: '#FFB3B3', is_drum_available: false },
+    { id: 'p6813', product_id: '', name: 'Carnival Pink', code: '6813', hex: '#E4007C', is_drum_available: false },
+    { id: 'p6209', product_id: '', name: 'Brighto Pink', code: '6209', hex: '#FF007F', is_drum_available: false },
+    { id: 'p6822', product_id: '', name: 'Summer Pink', code: '6822', hex: '#FFB6C1', is_drum_available: false },
+    { id: 'p6703', product_id: '', name: 'Deep Pink', code: '6703', hex: '#FF1493', is_drum_available: false },
+    { id: 'p6251', product_id: '', name: 'Salmon', code: '6251', hex: '#FA8072', is_drum_available: false },
+    { id: 'p6701', product_id: '', name: 'Cold Candy', code: '6701', hex: '#FFD1DC', is_drum_available: false },
+    { id: 'p6207', product_id: '', name: 'Brighto Red', code: '6207', hex: '#ED1C24', is_drum_available: false },
+    { id: 'p6171', product_id: '', name: 'Salsa', code: '6171', hex: '#CC3333', is_drum_available: false },
+    { id: 'p6505', product_id: '', name: 'Red Fog', code: '6505', hex: '#CC4444', is_drum_available: false },
+    // Oranges & Yellows
+    { id: 'p6250', product_id: '', name: 'Stunning Gold', code: '6250', hex: '#DAA520', is_drum_available: false },
+    { id: 'p6816', product_id: '', name: 'Gold Mist', code: '6816', hex: '#D4AF37', is_drum_available: false },
+    { id: 'p6811', product_id: '', name: 'African Orange', code: '6811', hex: '#FF6600', is_drum_available: false },
+    { id: 'p6818', product_id: '', name: 'Rust Dust', code: '6818', hex: '#B7410E', is_drum_available: false },
+    { id: 'p6253', product_id: '', name: 'Arizona Sunset', code: '6253', hex: '#FF6347', is_drum_available: false },
+    { id: 'p6444', product_id: '', name: 'Coral Reef', code: '6444', hex: '#FF7F50', is_drum_available: false },
+    { id: 'p6555', product_id: '', name: 'Mango Yellow', code: '6555', hex: '#FFD700', is_drum_available: false },
+    { id: 'p6814', product_id: '', name: 'Lemon Yellow', code: '6814', hex: '#FFF44F', is_drum_available: false },
+    { id: 'p6805', product_id: '', name: 'Sunburst', code: '6805', hex: '#FFCF48', is_drum_available: false },
+    // Greens
+    { id: 'p6236', product_id: '', name: 'Apple Green', code: '6236', hex: '#8DB600', is_drum_available: false },
+    { id: 'p6809', product_id: '', name: 'Forest Green', code: '6809', hex: '#228B22', is_drum_available: false },
+    { id: 'p6810', product_id: '', name: 'Green Stone', code: '6810', hex: '#4A766E', is_drum_available: false },
+    { id: 'p6205', product_id: '', name: 'Lime Juice', code: '6205', hex: '#CCFF00', is_drum_available: false },
+    { id: 'p6705', product_id: '', name: 'Jade', code: '6705', hex: '#00A86B', is_drum_available: false },
+    // Blues
+    { id: 'p6777', product_id: '', name: 'Eveline Blue', code: '6777', hex: '#5B9BD5', is_drum_available: false },
+    { id: 'p6819', product_id: '', name: 'Brighto Blue', code: '6819', hex: '#0000FF', is_drum_available: false },
+    { id: 'p6820', product_id: '', name: 'Indigo', code: '6820', hex: '#4B0082', is_drum_available: false },
+    { id: 'p6254', product_id: '', name: 'Celestial', code: '6254', hex: '#4997D0', is_drum_available: false },
+    { id: 'p6259', product_id: '', name: 'Ice Star', code: '6259', hex: '#B0E0E6', is_drum_available: false },
+    { id: 'p6257', product_id: '', name: 'Ice Age', code: '6257', hex: '#D6EBFF', is_drum_available: false },
+    // Other
+    { id: 'p6806', product_id: '', name: 'Walkabout', code: '6806', hex: '#C19A6B', is_drum_available: false },
+    { id: 'p6905', product_id: '', name: 'Sherbet', code: '6905', hex: '#F5E6CB', is_drum_available: false },
+    // Black
+    { id: 'p6821', product_id: '', name: 'Black', code: '6821', hex: '#000000', is_drum_available: false },
+];
