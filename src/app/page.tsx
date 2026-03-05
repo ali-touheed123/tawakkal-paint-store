@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Calculator, Palette, CheckCircle, Award, Star, Truck, Users, Clock } from 'lucide-react';
 import { PaintCalculator } from '@/components/PaintCalculator';
-import { PaintVisualizer } from '@/components/PaintVisualizer';
 import { FAQ } from '@/components/FAQ';
 import { ProductCard } from '@/components/ProductCard';
 import { BrandSection } from '@/components/BrandSection';
@@ -331,11 +330,6 @@ export default function HomePage() {
       {/* Paint Calculator Section */}
       <section id="calculator" className="py-20 bg-white">
         <PaintCalculator />
-      </section>
-
-      {/* Paint Visualizer Section */}
-      <section className="py-20 bg-gold-pale">
-        <PaintVisualizer />
       </section>
 
       {/* FAQ Section */}
