@@ -21,7 +21,7 @@ import { ShadeSelector } from '@/components/ShadeSelector';
 import { SimpleVisualizer } from '@/components/SimpleVisualizer';
 import { PaintCalculator } from '@/components/PaintCalculator';
 import Link from 'next/link';
-import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES, SAASI_MATT_ENAMEL_SHADES, SAASI_PLASTIC_EMULSION_SHADES, SAASI_SUPER_GLOSS_ENAMEL_SHADES } from '@/constants/shades';
+import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES, SAASI_MATT_ENAMEL_SHADES, SAASI_PLASTIC_EMULSION_SHADES, SAASI_SUPER_GLOSS_ENAMEL_SHADES, SAASI_WEATHER_SAFE_SHADES } from '@/constants/shades';
 
 
 export default function ProductDetailPage() {
@@ -61,6 +61,7 @@ export default function ProductDetailPage() {
                 const isSaasiMattEnamel = productData.brand === 'Saasi' && productData.name === 'Matt Enamel';
                 const isSaasiPlasticEmulsion = productData.brand === 'Saasi' && productData.name === 'Plastic Emulsion';
                 const isSaasiSuperGlossEnamel = productData.brand === 'Saasi' && productData.name === 'Super Gloss Enamel';
+                const isSaasiWeatherSafe = productData.brand === 'Saasi' && productData.name === 'Weather Safe';
                 const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
                     : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
                         : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
@@ -69,7 +70,8 @@ export default function ProductDetailPage() {
                                     : isSaasiMattEnamel ? SAASI_MATT_ENAMEL_SHADES
                                         : isSaasiPlasticEmulsion ? SAASI_PLASTIC_EMULSION_SHADES
                                             : isSaasiSuperGlossEnamel ? SAASI_SUPER_GLOSS_ENAMEL_SHADES
-                                                : [];
+                                                : isSaasiWeatherSafe ? SAASI_WEATHER_SAFE_SHADES
+                                                    : [];
 
                 // Fetch shades from DB, fallback to local constants
                 const { data: shadeData } = await supabase
@@ -128,7 +130,8 @@ export default function ProductDetailPage() {
     const isSaasiMattEnamel = product.brand === 'Saasi' && product.name === 'Matt Enamel';
     const isSaasiPlasticEmulsion = product.brand === 'Saasi' && product.name === 'Plastic Emulsion';
     const isSaasiSuperGlossEnamel = product.brand === 'Saasi' && product.name === 'Super Gloss Enamel';
-    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel;
+    const isSaasiWeatherSafe = product.brand === 'Saasi' && product.name === 'Weather Safe';
+    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel || isSaasiWeatherSafe;
 
     return (
         <div className="min-h-screen pt-[70px] bg-white">
