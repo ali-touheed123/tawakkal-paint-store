@@ -21,7 +21,7 @@ import { ShadeSelector } from '@/components/ShadeSelector';
 import { SimpleVisualizer } from '@/components/SimpleVisualizer';
 import { PaintCalculator } from '@/components/PaintCalculator';
 import Link from 'next/link';
-import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES } from '@/constants/shades';
+import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES } from '@/constants/shades';
 
 
 export default function ProductDetailPage() {
@@ -57,11 +57,13 @@ export default function ProductDetailPage() {
                 const isSyntheticEnamel = productData.name === 'Brighto Synthetic Enamel';
                 const isPlasticEmulsion = productData.name === 'Brighto Plastic Emulsion';
                 const isAllWeather = productData.name === 'Brighto All Weather';
+                const isSaasiHydrous = productData.name.includes('Hydrous Matt Finish');
                 const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
                     : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
                         : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
                             : isAllWeather ? BRIGHTO_ALL_WEATHER_SHADES
-                                : [];
+                                : isSaasiHydrous ? SAASI_HYDROUS_SHADES
+                                    : [];
 
                 // Fetch shades from DB, fallback to local constants
                 const { data: shadeData } = await supabase
@@ -116,7 +118,8 @@ export default function ProductDetailPage() {
     const isBrightoSyntheticEnamel = product.name === 'Brighto Synthetic Enamel';
     const isBrightoPlasticEmulsion = product.name === 'Brighto Plastic Emulsion';
     const isBrightoAllWeather = product.name === 'Brighto All Weather';
-    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather;
+    const isSaasiHydrous = product.name.includes('Hydrous Matt Finish');
+    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous;
 
     return (
         <div className="min-h-screen pt-[70px] bg-white">
