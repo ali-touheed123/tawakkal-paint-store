@@ -21,7 +21,7 @@ import { ShadeSelector } from '@/components/ShadeSelector';
 import { SimpleVisualizer } from '@/components/SimpleVisualizer';
 import { PaintCalculator } from '@/components/PaintCalculator';
 import Link from 'next/link';
-import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES, SAASI_MATT_ENAMEL_SHADES, SAASI_PLASTIC_EMULSION_SHADES } from '@/constants/shades';
+import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES, SAASI_MATT_ENAMEL_SHADES, SAASI_PLASTIC_EMULSION_SHADES, SAASI_SUPER_GLOSS_ENAMEL_SHADES } from '@/constants/shades';
 
 
 export default function ProductDetailPage() {
@@ -60,6 +60,7 @@ export default function ProductDetailPage() {
                 const isSaasiHydrous = productData.name.includes('Hydrous Matt Finish');
                 const isSaasiMattEnamel = productData.brand === 'Saasi' && productData.name === 'Matt Enamel';
                 const isSaasiPlasticEmulsion = productData.brand === 'Saasi' && productData.name === 'Plastic Emulsion';
+                const isSaasiSuperGlossEnamel = productData.brand === 'Saasi' && productData.name === 'Super Gloss Enamel';
                 const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
                     : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
                         : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
@@ -67,7 +68,8 @@ export default function ProductDetailPage() {
                                 : isSaasiHydrous ? SAASI_HYDROUS_SHADES
                                     : isSaasiMattEnamel ? SAASI_MATT_ENAMEL_SHADES
                                         : isSaasiPlasticEmulsion ? SAASI_PLASTIC_EMULSION_SHADES
-                                            : [];
+                                            : isSaasiSuperGlossEnamel ? SAASI_SUPER_GLOSS_ENAMEL_SHADES
+                                                : [];
 
                 // Fetch shades from DB, fallback to local constants
                 const { data: shadeData } = await supabase
@@ -125,7 +127,8 @@ export default function ProductDetailPage() {
     const isSaasiHydrous = product.name.includes('Hydrous Matt Finish');
     const isSaasiMattEnamel = product.brand === 'Saasi' && product.name === 'Matt Enamel';
     const isSaasiPlasticEmulsion = product.brand === 'Saasi' && product.name === 'Plastic Emulsion';
-    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion;
+    const isSaasiSuperGlossEnamel = product.brand === 'Saasi' && product.name === 'Super Gloss Enamel';
+    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel;
 
     return (
         <div className="min-h-screen pt-[70px] bg-white">
