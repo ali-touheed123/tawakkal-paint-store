@@ -292,65 +292,65 @@ export const BRIGHTO_ALL_WEATHER_SHADES: Shade[] = [
     // Black
     { id: 'w7314', product_id: '', name: 'Black', code: '7314', hex: '#000000', is_drum_available: false },
 ];
-e x p o r t   c o n s t   S A A S I _ H Y D R O U S _ S H A D E S :   S h a d e [ ]   =   [  
-     {   i d :   ' s a a s i - h y d r o u s - 1 ' ,   n a m e :   ' O f f   W h i t e ' ,   c o d e :   ' 6 3 0 1 ' ,   h e x :   ' # F 9 F 4 E 3 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 ' ,   n a m e :   ' C r i s p ' ,   c o d e :   ' 6 3 2 4 ' ,   h e x :   ' # F 8 F 5 D C '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 ' ,   n a m e :   ' M o b e   P e a r l ' ,   c o d e :   ' 6 3 3 5 ' ,   h e x :   ' # E F D F C A '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 ' ,   n a m e :   ' A l m o n d   S a n d ' ,   c o d e :   ' 6 3 3 0 ' ,   h e x :   ' # E 7 D 5 B 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 ' ,   n a m e :   ' P a l a c e   W h i t e ' ,   c o d e :   ' 6 3 2 7 ' ,   h e x :   ' # F 9 E E D 1 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 6 ' ,   n a m e :   ' C a n d l e   W a x ' ,   c o d e :   ' 6 3 3 1 ' ,   h e x :   ' # F 1 D E C 0 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 7 ' ,   n a m e :   ' E v e n i n g   T e a ' ,   c o d e :   ' 6 3 0 5 ' ,   h e x :   ' # F A D 0 A 1 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 8 ' ,   n a m e :   ' S w e e t   C r e a m ' ,   c o d e :   ' 6 3 2 5 ' ,   h e x :   ' # F 8 D 1 8 C '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 9 ' ,   n a m e :   ' F l a x   S t r a w ' ,   c o d e :   ' 6 3 3 6 ' ,   h e x :   ' # E 2 C 9 9 5 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 0 ' ,   n a m e :   ' A p r i c o t ' ,   c o d e :   ' 6 3 0 6 ' ,   h e x :   ' # F 4 A F 7 A '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 1 ' ,   n a m e :   ' N a t u r a l   P a p r i k a ' ,   c o d e :   ' 6 3 0 7 ' ,   h e x :   ' # C E 7 2 5 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 2 ' ,   n a m e :   ' T r o n d h e i m ' ,   c o d e :   ' 6 3 3 2 ' ,   h e x :   ' # A 6 8 0 5 D '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 3 ' ,   n a m e :   ' L a v e n d e r ' ,   c o d e :   ' 6 3 6 2 ' ,   h e x :   ' # B 4 B 9 D 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 4 ' ,   n a m e :   ' A n g e l   B l u e ' ,   c o d e :   ' 6 3 4 0 ' ,   h e x :   ' # D A E F E 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 5 ' ,   n a m e :   ' P e a c h   S h a d o w ' ,   c o d e :   ' 6 3 2 1 ' ,   h e x :   ' # F 8 D 1 B 4 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 6 ' ,   n a m e :   ' B a b y   P i n k ' ,   c o d e :   ' 6 3 0 8 ' ,   h e x :   ' # F 9 D 8 D 2 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 7 ' ,   n a m e :   ' P i n k   O r c h a r d ' ,   c o d e :   ' 6 3 4 9 ' ,   h e x :   ' # A 6 6 E 9 9 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 8 ' ,   n a m e :   ' P u r p l e   A s t e r ' ,   c o d e :   ' 6 3 1 2 ' ,   h e x :   ' # E 0 C F D 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 1 9 ' ,   n a m e :   ' S o f t   B l u e ' ,   c o d e :   ' 6 3 1 5 ' ,   h e x :   ' # C 4 E 4 F 2 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 0 ' ,   n a m e :   ' R e d   B u f f ' ,   c o d e :   ' 6 3 3 3 ' ,   h e x :   ' # B 5 6 D 5 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 1 ' ,   n a m e :   ' P e t a l   P i n k ' ,   c o d e :   ' 6 3 3 9 ' ,   h e x :   ' # E 4 C A C 3 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 2 ' ,   n a m e :   ' C a r n i v a l   P i n k ' ,   c o d e :   ' 6 3 1 3 ' ,   h e x :   ' # B 3 6 8 A 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 3 ' ,   n a m e :   ' P u r p l e ' ,   c o d e :   ' 6 3 4 3 ' ,   h e x :   ' # 6 E 5 C 8 D '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 4 ' ,   n a m e :   ' I c e   T u r q u o i s e ' ,   c o d e :   ' 6 3 6 1 ' ,   h e x :   ' # 8 5 D 4 F 5 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 5 ' ,   n a m e :   ' F r e s h   P a s t a ' ,   c o d e :   ' 6 3 2 2 ' ,   h e x :   ' # E A E 3 B A '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 6 ' ,   n a m e :   ' A n g e l i c a   P i n k ' ,   c o d e :   ' 6 3 0 9 ' ,   h e x :   ' # F 5 C 2 C D '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 7 ' ,   n a m e :   ' C h i l l i   R e d ' ,   c o d e :   ' 6 3 5 3 ' ,   h e x :   ' # 8 5 3 3 3 1 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 8 ' ,   n a m e :   ' R o y a l   O r c h a r d ' ,   c o d e :   ' 6 3 4 5 ' ,   h e x :   ' # 4 C 3 C 5 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 2 9 ' ,   n a m e :   ' B l u e   F l a m e ' ,   c o d e :   ' 6 3 1 6 ' ,   h e x :   ' # 3 E 6 B 9 D '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 0 ' ,   n a m e :   ' G o l d   R u s h ' ,   c o d e :   ' 6 3 1 7 ' ,   h e x :   ' # A 4 8 D 5 1 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 1 ' ,   n a m e :   ' E m i l y ' ,   c o d e :   ' 6 3 1 1 ' ,   h e x :   ' # E E B F A 9 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 2 ' ,   n a m e :   ' A d v e n t u r e ' ,   c o d e :   ' 6 3 1 4 ' ,   h e x :   ' # 8 7 2 E 3 1 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 3 ' ,   n a m e :   ' R e d   W i n e ' ,   c o d e :   ' 6 3 5 0 ' ,   h e x :   ' # 3 C 2 9 3 C '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 4 ' ,   n a m e :   ' N a v y   B l u e ' ,   c o d e :   ' 6 3 5 4 ' ,   h e x :   ' # 2 1 3 C 7 A '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 5 ' ,   n a m e :   ' A s h   W h i t e ' ,   c o d e :   ' 6 3 1 8 ' ,   h e x :   ' # F 8 F 4 D F '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 6 ' ,   n a m e :   ' A s h   G r e y ' ,   c o d e :   ' 6 3 5 7 ' ,   h e x :   ' # 8 A 8 E 8 9 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 7 ' ,   n a m e :   ' T u r q u o i s e ' ,   c o d e :   ' 6 3 4 7 ' ,   h e x :   ' # 7 3 C 5 B 5 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 8 ' ,   n a m e :   ' G r e e n   G r a p e ' ,   c o d e :   ' 6 3 2 0 ' ,   h e x :   ' # E F F 4 D 2 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 3 9 ' ,   n a m e :   ' V a n i l l a   Y e l l o w ' ,   c o d e :   ' 6 3 2 3 ' ,   h e x :   ' # F F F 3 C 4 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 0 ' ,   n a m e :   ' E g o   S h e l l ' ,   c o d e :   ' 6 3 2 8 ' ,   h e x :   ' # E B E 4 D 0 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 1 ' ,   n a m e :   ' S t e e l   G r e y ' ,   c o d e :   ' 6 3 5 9 ' ,   h e x :   ' # 7 7 8 4 8 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 2 ' ,   n a m e :   ' P a c i f i c   O c e a n ' ,   c o d e :   ' 6 3 5 1 ' ,   h e x :   ' # 3 E A F A F '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 3 ' ,   n a m e :   ' S h e r b e t ' ,   c o d e :   ' 6 3 4 2 ' ,   h e x :   ' # D A E E D 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 4 ' ,   n a m e :   ' L e m o n   S h i n e ' ,   c o d e :   ' 6 3 2 6 ' ,   h e x :   ' # F C E 0 7 A '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 5 ' ,   n a m e :   ' L a v e n d e r   W h i t e ' ,   c o d e :   ' 6 3 1 9 ' ,   h e x :   ' # D E D 9 D 4 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 6 ' ,   n a m e :   ' H a v a n a ' ,   c o d e :   ' 6 3 6 0 ' ,   h e x :   ' # 5 C 4 5 3 0 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 7 ' ,   n a m e :   ' O c e a n   D i p ' ,   c o d e :   ' 6 3 4 6 ' ,   h e x :   ' # 3 9 8 6 A 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 8 ' ,   n a m e :   ' A p p l e   G r e e n ' ,   c o d e :   ' 6 3 1 0 ' ,   h e x :   ' # A F D 3 8 E '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 4 9 ' ,   n a m e :   ' B a n a n a   Y e l l o w ' ,   c o d e :   ' 6 3 2 9 ' ,   h e x :   ' # F F D 5 5 5 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 0 ' ,   n a m e :   ' S n o w   W h i t e ' ,   c o d e :   ' 6 3 5 6 ' ,   h e x :   ' # E 4 E 0 D 6 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 1 ' ,   n a m e :   ' D a r k   B r o w n ' ,   c o d e :   ' 6 3 3 7 ' ,   h e x :   ' # 3 5 2 B 2 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 2 ' ,   n a m e :   ' P e a c o c k   B l u e ' ,   c o d e :   ' 6 3 5 5 ' ,   h e x :   ' # 2 9 5 F 6 C '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 3 ' ,   n a m e :   ' L i m e ' ,   c o d e :   ' 6 3 4 1 ' ,   h e x :   ' # D 1 E 5 8 B '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 4 ' ,   n a m e :   ' H o n e y   G o l d ' ,   c o d e :   ' 6 3 3 4 ' ,   h e x :   ' # F 8 B 5 6 A '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 5 ' ,   n a m e :   ' S n o w f i e l d ' ,   c o d e :   ' 6 3 5 8 ' ,   h e x :   ' # C 0 C 8 C 8 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 6 ' ,   n a m e :   ' G r e e n   L a n d ' ,   c o d e :   ' 6 3 4 8 ' ,   h e x :   ' # 4 9 8 2 4 2 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 7 ' ,   n a m e :   ' D a r k   G r e e n ' ,   c o d e :   ' 6 3 5 2 ' ,   h e x :   ' # 2 1 4 F 3 3 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 8 ' ,   n a m e :   ' G r a s s   G r e e n ' ,   c o d e :   ' 6 3 4 4 ' ,   h e x :   ' # 7 C 9 8 5 4 '   } ,  
-     {   i d :   ' s a a s i - h y d r o u s - 5 9 ' ,   n a m e :   ' M a n g o   Y e l l o w ' ,   c o d e :   ' 6 3 3 8 ' ,   h e x :   ' # F 6 A 8 4 1 '   } ,  
- ] ;  
- 
+
+export const SAASI_HYDROUS_SHADES: Shade[] = [
+  { id: 'saasi-hydrous-1', product_id: '', name: 'Off White', code: '6301', hex: '#F9F4E3', is_drum_available: false },
+  { id: 'saasi-hydrous-2', product_id: '', name: 'Crisp', code: '6324', hex: '#F8F5DC', is_drum_available: false },
+  { id: 'saasi-hydrous-3', product_id: '', name: 'Mobe Pearl', code: '6335', hex: '#EFDFCA', is_drum_available: false },
+  { id: 'saasi-hydrous-4', product_id: '', name: 'Almond Sand', code: '6330', hex: '#E7D5B8', is_drum_available: false },
+  { id: 'saasi-hydrous-5', product_id: '', name: 'Palace White', code: '6327', hex: '#F9EED1', is_drum_available: false },
+  { id: 'saasi-hydrous-6', product_id: '', name: 'Candle Wax', code: '6331', hex: '#F1DEC0', is_drum_available: false },
+  { id: 'saasi-hydrous-7', product_id: '', name: 'Evening Tea', code: '6305', hex: '#FAD0A1', is_drum_available: false },
+  { id: 'saasi-hydrous-8', product_id: '', name: 'Sweet Cream', code: '6325', hex: '#F8D18C', is_drum_available: false },
+  { id: 'saasi-hydrous-9', product_id: '', name: 'Flax Straw', code: '6336', hex: '#E2C995', is_drum_available: false },
+  { id: 'saasi-hydrous-10', product_id: '', name: 'Apricot', code: '6306', hex: '#F4AF7A', is_drum_available: false },
+  { id: 'saasi-hydrous-11', product_id: '', name: 'Natural Paprika', code: '6307', hex: '#CE7256', is_drum_available: false },
+  { id: 'saasi-hydrous-12', product_id: '', name: 'Trondheim', code: '6332', hex: '#A6805D', is_drum_available: false },
+  { id: 'saasi-hydrous-13', product_id: '', name: 'Lavender', code: '6362', hex: '#B4B9D6', is_drum_available: false },
+  { id: 'saasi-hydrous-14', product_id: '', name: 'Angel Blue', code: '6340', hex: '#DAEFE6', is_drum_available: false },
+  { id: 'saasi-hydrous-15', product_id: '', name: 'Peach Shadow', code: '6321', hex: '#F8D1B4', is_drum_available: false },
+  { id: 'saasi-hydrous-16', product_id: '', name: 'Baby Pink', code: '6308', hex: '#F9D8D2', is_drum_available: false },
+  { id: 'saasi-hydrous-17', product_id: '', name: 'Pink Orchard', code: '6349', hex: '#A66E99', is_drum_available: false },
+  { id: 'saasi-hydrous-18', product_id: '', name: 'Purple Aster', code: '6312', hex: '#E0CFD8', is_drum_available: false },
+  { id: 'saasi-hydrous-19', product_id: '', name: 'Soft Blue', code: '6315', hex: '#C4E4F2', is_drum_available: false },
+  { id: 'saasi-hydrous-20', product_id: '', name: 'Red Buff', code: '6333', hex: '#B56D56', is_drum_available: false },
+  { id: 'saasi-hydrous-21', product_id: '', name: 'Petal Pink', code: '6339', hex: '#E4CAC3', is_drum_available: false },
+  { id: 'saasi-hydrous-22', product_id: '', name: 'Carnival Pink', code: '6313', hex: '#B368A6', is_drum_available: false },
+  { id: 'saasi-hydrous-23', product_id: '', name: 'Purple', code: '6343', hex: '#6E5C8D', is_drum_available: false },
+  { id: 'saasi-hydrous-24', product_id: '', name: 'Ice Turquoise', code: '6361', hex: '#85D4F5', is_drum_available: false },
+  { id: 'saasi-hydrous-25', product_id: '', name: 'Fresh Pasta', code: '6322', hex: '#EAE3BA', is_drum_available: false },
+  { id: 'saasi-hydrous-26', product_id: '', name: 'Angelica Pink', code: '6309', hex: '#F5C2CD', is_drum_available: false },
+  { id: 'saasi-hydrous-27', product_id: '', name: 'Chilli Red', code: '6353', hex: '#853331', is_drum_available: false },
+  { id: 'saasi-hydrous-28', product_id: '', name: 'Royal Orchard', code: '6345', hex: '#4C3C58', is_drum_available: false },
+  { id: 'saasi-hydrous-29', product_id: '', name: 'Blue Flame', code: '6316', hex: '#3E6B9D', is_drum_available: false },
+  { id: 'saasi-hydrous-30', product_id: '', name: 'Gold Rush', code: '6317', hex: '#A48D51', is_drum_available: false },
+  { id: 'saasi-hydrous-31', product_id: '', name: 'Emily', code: '6311', hex: '#EEBFA9', is_drum_available: false },
+  { id: 'saasi-hydrous-32', product_id: '', name: 'Adventure', code: '6314', hex: '#872E31', is_drum_available: false },
+  { id: 'saasi-hydrous-33', product_id: '', name: 'Red Wine', code: '6350', hex: '#3C293C', is_drum_available: false },
+  { id: 'saasi-hydrous-34', product_id: '', name: 'Navy Blue', code: '6354', hex: '#213C7A', is_drum_available: false },
+  { id: 'saasi-hydrous-35', product_id: '', name: 'Ash White', code: '6318', hex: '#F8F4DF', is_drum_available: false },
+  { id: 'saasi-hydrous-36', product_id: '', name: 'Ash Grey', code: '6357', hex: '#8A8E89', is_drum_available: false },
+  { id: 'saasi-hydrous-37', product_id: '', name: 'Turquoise', code: '6347', hex: '#73C5B5', is_drum_available: false },
+  { id: 'saasi-hydrous-38', product_id: '', name: 'Green Grape', code: '6320', hex: '#EFF4D2', is_drum_available: false },
+  { id: 'saasi-hydrous-39', product_id: '', name: 'Vanilla Yellow', code: '6323', hex: '#FFF3C4', is_drum_available: false },
+  { id: 'saasi-hydrous-40', product_id: '', name: 'Ego Shell', code: '6328', hex: '#EBE4D0', is_drum_available: false },
+  { id: 'saasi-hydrous-41', product_id: '', name: 'Steel Grey', code: '6359', hex: '#778488', is_drum_available: false },
+  { id: 'saasi-hydrous-42', product_id: '', name: 'Pacific Ocean', code: '6351', hex: '#3EAFAF', is_drum_available: false },
+  { id: 'saasi-hydrous-43', product_id: '', name: 'Sherbet', code: '6342', hex: '#DAEED6', is_drum_available: false },
+  { id: 'saasi-hydrous-44', product_id: '', name: 'Lemon Shine', code: '6326', hex: '#FCE07A', is_drum_available: false },
+  { id: 'saasi-hydrous-45', product_id: '', name: 'Lavender White', code: '6319', hex: '#DED9D4', is_drum_available: false },
+  { id: 'saasi-hydrous-46', product_id: '', name: 'Havana', code: '6360', hex: '#5C4530', is_drum_available: false },
+  { id: 'saasi-hydrous-47', product_id: '', name: 'Ocean Dip', code: '6346', hex: '#3986A8', is_drum_available: false },
+  { id: 'saasi-hydrous-48', product_id: '', name: 'Apple Green', code: '6310', hex: '#AFD38E', is_drum_available: false },
+  { id: 'saasi-hydrous-49', product_id: '', name: 'Banana Yellow', code: '6329', hex: '#FFD555', is_drum_available: false },
+  { id: 'saasi-hydrous-50', product_id: '', name: 'Snow White', code: '6356', hex: '#E4E0D6', is_drum_available: false },
+  { id: 'saasi-hydrous-51', product_id: '', name: 'Dark Brown', code: '6337', hex: '#352B28', is_drum_available: false },
+  { id: 'saasi-hydrous-52', product_id: '', name: 'Peacock Blue', code: '6355', hex: '#295F6C', is_drum_available: false },
+  { id: 'saasi-hydrous-53', product_id: '', name: 'Lime', code: '6341', hex: '#D1E58B', is_drum_available: false },
+  { id: 'saasi-hydrous-54', product_id: '', name: 'Honey Gold', code: '6334', hex: '#F8B56A', is_drum_available: false },
+  { id: 'saasi-hydrous-55', product_id: '', name: 'Snowfield', code: '6358', hex: '#C0C8C8', is_drum_available: false },
+  { id: 'saasi-hydrous-56', product_id: '', name: 'Green Land', code: '6348', hex: '#498242', is_drum_available: false },
+  { id: 'saasi-hydrous-57', product_id: '', name: 'Dark Green', code: '6352', hex: '#214F33', is_drum_available: false },
+  { id: 'saasi-hydrous-58', product_id: '', name: 'Grass Green', code: '6344', hex: '#7C9854', is_drum_available: false },
+  { id: 'saasi-hydrous-59', product_id: '', name: 'Mango Yellow', code: '6338', hex: '#F6A841', is_drum_available: false },
+];
