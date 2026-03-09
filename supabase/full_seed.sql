@@ -89,6 +89,7 @@ INSERT INTO products (name, brand, category, sub_category, description, image_ur
 ('Gobis Wall Primer Sealer', 'Gobi''s', 'decorative', 'accessories', 'Combo primer and sealer', '/images/products/gobis/Gobis-Wall-Primer-Sealer.png', 740, 2500, 11500, true),
 ('Gobis Weather Protector', 'Gobi''s', 'decorative', 'exterior', 'Standard weather protection coating', '/images/products/gobis/Gobis-Weather Protector.png', 1650, 5700, 26500, true),
 ('Gobis Gold Eggshell Matt Finish', 'Gobi''s', 'decorative', 'interior', 'Elite eggshell finish wall paint', '/images/products/gobis/gobis_gold_eggshell-matt-finish-253x253-removebg-preview.png', 1650, 5600, 26000, true),
+('Gobis Eggshell Matt Enamel', 'Gobi''s', 'decorative', 'wood_metal', 'High quality eggshell matt enamel finish for a sophisticated look', '/images/products/gobis/gobi''s EggShell-Matt-enamel.png', 1750, 6000, 27500, true),
 ('Gobis Heat Flex Sealant', 'Gobi''s', 'decorative', 'waterproofing', 'Flexible heat resistant sealant', '/images/products/gobis/heat flex sealent.png', 2500, 8500, 0, true),
 ('Gobis Wood Finish / Metal Finish', 'Gobi''s', 'decorative', 'wood_metal', 'Dual surface wood and metal finish', '/images/products/gobis/wood_finish__metal_finish-removebg-preview.png', 1900, 6500, 30000, true),
 ('Gobis Wood Sealer', 'Gobi''s', 'decorative', 'wood_metal', 'High penetration wood sealer', '/images/products/gobis/wood_sealer-removebg-preview.png', 1750, 6000, 0, true),
