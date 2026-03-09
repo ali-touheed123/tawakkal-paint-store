@@ -48,7 +48,7 @@ export default function ProductDetailPage() {
     const isSaasiSuperGlossEnamel = product?.brand === 'Saasi' && product?.name === 'Super Gloss Enamel';
     const isSaasiWeatherSafe = product?.brand === 'Saasi' && product?.name === 'Weather Safe';
     const isBrightoStainFree = product?.name === 'Brighto Stain Free royal silky finish emulsion';
-    const isGobisIndustrialEnamel = product?.brand === 'Gobis' && product?.name === 'Industrial Enamel Gloss Finish';
+    const isGobisIndustrialEnamel = (product?.brand === "Gobi's" || product?.brand === 'Gobis') && (product?.name === 'Gobis Industrial Enamel Gloss Finish' || product?.name === 'Industrial Enamel Gloss Finish');
     const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel || isSaasiWeatherSafe || isBrightoStainFree || isGobisIndustrialEnamel;
 
     const shadeCardPdf = useMemo(() => {
@@ -72,8 +72,8 @@ export default function ProductDetailPage() {
             if (name === 'Weather Safe') return '/pdfs/saasi-weather-safe.pdf';
         }
 
-        if (brand === 'Gobis') {
-            if (name === 'Industrial Enamel Gloss Finish') return '/pdfs/gobis-industrial-enamel.pdf';
+        if (brand === "Gobi's" || brand === 'Gobis') {
+            if (name === 'Gobis Industrial Enamel Gloss Finish' || name === 'Industrial Enamel Gloss Finish') return '/pdfs/gobis-industrial-enamel.pdf';
         }
 
         return null;
@@ -104,7 +104,7 @@ export default function ProductDetailPage() {
                 const isSaasiSuperGlossEnamel = productData.brand === 'Saasi' && productData.name === 'Super Gloss Enamel';
                 const isSaasiWeatherSafe = productData.brand === 'Saasi' && productData.name === 'Weather Safe';
                 const isBrightoStainFree = productData.name === 'Brighto Stain Free royal silky finish emulsion';
-                const isGobisIndustrialEnamel = productData.brand === 'Gobis' && productData.name === 'Industrial Enamel Gloss Finish';
+                const isGobisIndustrialEnamel = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && (productData.name === 'Gobis Industrial Enamel Gloss Finish' || productData.name === 'Industrial Enamel Gloss Finish');
                 const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
                     : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
                         : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
