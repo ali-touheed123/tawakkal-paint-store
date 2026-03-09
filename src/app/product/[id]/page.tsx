@@ -21,7 +21,7 @@ import { ShadeSelector } from '@/components/ShadeSelector';
 import { SimpleVisualizer } from '@/components/SimpleVisualizer';
 import { PaintCalculator } from '@/components/PaintCalculator';
 import Link from 'next/link';
-import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES, SAASI_MATT_ENAMEL_SHADES, SAASI_PLASTIC_EMULSION_SHADES, SAASI_SUPER_GLOSS_ENAMEL_SHADES, SAASI_WEATHER_SAFE_SHADES, GOBIS_INDUSTRIAL_ENAMEL_SHADES } from '@/constants/shades';
+import { BRIGHTO_SHADES, BRIGHTO_ENAMEL_SHADES, BRIGHTO_PLASTIC_EMULSION_SHADES, BRIGHTO_ALL_WEATHER_SHADES, SAASI_HYDROUS_SHADES, SAASI_MATT_ENAMEL_SHADES, SAASI_PLASTIC_EMULSION_SHADES, SAASI_SUPER_GLOSS_ENAMEL_SHADES, SAASI_WEATHER_SAFE_SHADES, GOBIS_INDUSTRIAL_ENAMEL_SHADES, GOBIS_STOVING_PAINT_SHADES } from '@/constants/shades';
 
 
 export default function ProductDetailPage() {
@@ -49,7 +49,8 @@ export default function ProductDetailPage() {
     const isSaasiWeatherSafe = product?.brand === 'Saasi' && product?.name === 'Weather Safe';
     const isBrightoStainFree = product?.name === 'Brighto Stain Free royal silky finish emulsion';
     const isGobisIndustrialEnamel = (product?.brand === "Gobi's" || product?.brand === 'Gobis') && (product?.name === 'Gobis Industrial Enamel Gloss Finish' || product?.name === 'Industrial Enamel Gloss Finish');
-    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel || isSaasiWeatherSafe || isBrightoStainFree || isGobisIndustrialEnamel;
+    const isGobisStovingPaint = (product?.brand === "Gobi's" || product?.brand === 'Gobis') && (product?.name === "Gobi's Stoving Paint" || product?.name === 'Gobis Stoving Paint' || product?.name === 'stoving paint');
+    const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel || isSaasiWeatherSafe || isBrightoStainFree || isGobisIndustrialEnamel || isGobisStovingPaint;
 
     const shadeCardPdf = useMemo(() => {
         if (!product) return null;
@@ -74,6 +75,7 @@ export default function ProductDetailPage() {
 
         if (brand === "Gobi's" || brand === 'Gobis') {
             if (name === 'Gobis Industrial Enamel Gloss Finish' || name === 'Industrial Enamel Gloss Finish') return '/pdfs/gobis-industrial-enamel.pdf';
+            if (name === "Gobi's Stoving Paint" || name === 'Gobis Stoving Paint' || name === 'stoving paint') return '/pdfs/gobis-stoving-paint.pdf';
         }
 
         return null;
@@ -105,6 +107,7 @@ export default function ProductDetailPage() {
                 const isSaasiWeatherSafe = productData.brand === 'Saasi' && productData.name === 'Weather Safe';
                 const isBrightoStainFree = productData.name === 'Brighto Stain Free royal silky finish emulsion';
                 const isGobisIndustrialEnamel = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && (productData.name === 'Gobis Industrial Enamel Gloss Finish' || productData.name === 'Industrial Enamel Gloss Finish');
+                const isGobisStovingPaint = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && (productData.name === "Gobi's Stoving Paint" || productData.name === 'Gobis Stoving Paint' || productData.name === 'stoving paint');
                 const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
                     : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
                         : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
@@ -116,7 +119,8 @@ export default function ProductDetailPage() {
                                                 : isSaasiWeatherSafe ? SAASI_WEATHER_SAFE_SHADES
                                                     : isBrightoStainFree ? BRIGHTO_PLASTIC_EMULSION_SHADES
                                                         : isGobisIndustrialEnamel ? GOBIS_INDUSTRIAL_ENAMEL_SHADES
-                                                            : [];
+                                                            : isGobisStovingPaint ? GOBIS_STOVING_PAINT_SHADES
+                                                                : [];
 
                 // Fetch shades from DB, fallback to local constants
                 const { data: shadeData } = await supabase
