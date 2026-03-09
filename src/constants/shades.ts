@@ -1266,3 +1266,81 @@ export const GOBIS_GOLD_EGGSHELL_MATT_FINISH_SHADES: Shade[] = [
   { id: 'ggem-733', product_id: '', name: 'Diyar', code: '733', hex: '#4B3621', is_drum_available: false },
   { id: 'ggem-734', product_id: '', name: 'Polish Brown', code: '734', hex: '#3B2F2F', is_drum_available: false },
 ];
+
+export const GOBIS_GLOSS_ENAMEL_SHADES: Shade[] = [
+  // Whites & Creams
+  { id: 'gge-1001', product_id: '', name: 'Off White', code: '1001', hex: '#FAF9F6', is_drum_available: true },
+  { id: 'gge-1036', product_id: '', name: 'Ash White', code: '1036', hex: '#B2BEB5', is_drum_available: true },
+  { id: 'gge-1061', product_id: '', name: 'Lavender White', code: '1061', hex: '#E6E6FA', is_drum_available: false },
+  { id: 'gge-694', product_id: '', name: 'Kitten White', code: '694', hex: '#F1E9D2', is_drum_available: false },
+  { id: 'gge-1077', product_id: '', name: 'Rose White', code: '1077', hex: '#FFF0F5', is_drum_available: false },
+  { id: 'gge-1092', product_id: '', name: 'Antique White', code: '1092', hex: '#FAEBD7', is_drum_available: false },
+  { id: 'gge-1003', product_id: '', name: 'Cream', code: '1003', hex: '#FFFDD0', is_drum_available: false },
+  { id: 'gge-1076', product_id: '', name: 'Pale Cream', code: '1076', hex: '#FFF9E3', is_drum_available: false },
+  { id: 'gge-1004', product_id: '', name: 'Country Cream', code: '1004', hex: '#F5F5DC', is_drum_available: false },
+  { id: 'gge-1060', product_id: '', name: 'Cameo', code: '1060', hex: '#F3E5AB', is_drum_available: false },
+  { id: 'gge-1045', product_id: '', name: 'New Champagne', code: '1045', hex: '#F7E7CE', is_drum_available: false },
+
+  // Yellows & Oranges
+  { id: 'gge-1006', product_id: '', name: 'Lemon', code: '1006', hex: '#FFF44F', is_drum_available: false },
+  { id: 'gge-1007', product_id: '', name: 'Golden Yellow', code: '1007', hex: '#FFD700', is_drum_available: false },
+  { id: 'gge-1063', product_id: '', name: 'Orange', code: '1063', hex: '#FF8C00', is_drum_available: false },
+
+  // Pinks & Reds
+  { id: 'gge-1062', product_id: '', name: 'Pink', code: '1062', hex: '#FFC0CB', is_drum_available: false },
+  { id: 'gge-1069', product_id: '', name: 'Pink Bonnet', code: '1069', hex: '#FFB7C5', is_drum_available: false },
+  { id: 'gge-1040', product_id: '', name: 'Candy', code: '1040', hex: '#FF1493', is_drum_available: false },
+  { id: 'gge-1014', product_id: '', name: 'Signal Red', code: '1014', hex: '#FF0000', is_drum_available: false },
+  { id: 'gge-1066', product_id: '', name: 'Soft Terracotta', code: '1066', hex: '#E2725B', is_drum_available: false },
+
+  // Greens
+  { id: 'gge-1047', product_id: '', name: 'Coriander', code: '1047', hex: '#C4D300', is_drum_available: false },
+  { id: 'gge-1071', product_id: '', name: 'White Green', code: '1071', hex: '#F0FFF0', is_drum_available: false },
+  { id: 'gge-1081', product_id: '', name: 'Sea Green', code: '1081', hex: '#2E8B57', is_drum_available: false },
+  { id: 'gge-1029', product_id: '', name: 'Spring Green', code: '1029', hex: '#00FF7F', is_drum_available: false },
+  { id: 'gge-1030', product_id: '', name: 'Adams Green', code: '1030', hex: '#006400', is_drum_available: false },
+  { id: 'gge-1032', product_id: '', name: 'Emerald', code: '1032', hex: '#50C878', is_drum_available: false },
+  { id: 'gge-1033', product_id: '', name: 'Royal Green', code: '1033', hex: '#004225', is_drum_available: false },
+  { id: 'gge-1044', product_id: '', name: 'Original Green', code: '1044', hex: '#008000', is_drum_available: false },
+
+  // Blues & Purples
+  { id: 'gge-1039', product_id: '', name: 'White Blue', code: '1039', hex: '#F0FFFF', is_drum_available: false },
+  { id: 'gge-1089', product_id: '', name: 'Ice Blue', code: '1089', hex: '#AFDBF5', is_drum_available: false },
+  { id: 'gge-1016', product_id: '', name: 'Light Blue', code: '1016', hex: '#ADD8E6', is_drum_available: false },
+  { id: 'gge-1020', product_id: '', name: 'Middle Blue', code: '1020', hex: '#0000CD', is_drum_available: false },
+  { id: 'gge-1021', product_id: '', name: 'Royal Blue', code: '1021', hex: '#4169E1', is_drum_available: false },
+  { id: 'gge-1080', product_id: '', name: 'Comet Blue', code: '1080', hex: '#000080', is_drum_available: false },
+  { id: 'gge-1068', product_id: '', name: 'Corn Flower', code: '1068', hex: '#6495ED', is_drum_available: false },
+  { id: 'gge-1083', product_id: '', name: 'Lilac Time', code: '1083', hex: '#E6E6FA', is_drum_available: false },
+  { id: 'gge-1084', product_id: '', name: 'Mauve', code: '1084', hex: '#E0B0FF', is_drum_available: false },
+
+  // Greys & Neutrals
+  { id: 'gge-1072', product_id: '', name: 'Early Dawn', code: '1072', hex: '#E3E4E0', is_drum_available: false },
+  { id: 'gge-1079', product_id: '', name: 'Light Grey', code: '1079', hex: '#D3D3D3', is_drum_available: false },
+  { id: 'gge-1043', product_id: '', name: 'Grey White', code: '1043', hex: '#E8E8E8', is_drum_available: false },
+  { id: 'gge-1027', product_id: '', name: 'Ash Grey', code: '1027', hex: '#B2BEB5', is_drum_available: false },
+  { id: 'gge-1067', product_id: '', name: 'Smoke Grey', code: '1067', hex: '#708090', is_drum_available: false },
+  { id: 'gge-1070', product_id: '', name: 'Court Grey', code: '1070', hex: '#808080', is_drum_available: false },
+  { id: 'gge-1078', product_id: '', name: 'Shadow', code: '1078', hex: '#36454F', is_drum_available: false },
+  { id: 'gge-1065', product_id: '', name: 'Pumice', code: '1065', hex: '#7F7F7F', is_drum_available: false },
+
+  // Browns & Earthy
+  { id: 'gge-1005', product_id: '', name: 'Beige', code: '1005', hex: '#F5F5DC', is_drum_available: false },
+  { id: 'gge-1008', product_id: '', name: 'Golden Brown', code: '1008', hex: '#996515', is_drum_available: false },
+  { id: 'gge-1009', product_id: '', name: 'Dark Brown', code: '1009', hex: '#3D2B1F', is_drum_available: false },
+  { id: 'gge-1059', product_id: '', name: 'Polish Brown', code: '1059', hex: '#3B2F2F', is_drum_available: false },
+  { id: 'gge-1082', product_id: '', name: 'Brown', code: '1082', hex: '#8B4513', is_drum_available: false },
+  { id: 'gge-1085', product_id: '', name: 'Hope Sack', code: '1085', hex: '#C19A6B', is_drum_available: false },
+  { id: 'gge-1088', product_id: '', name: 'Diyar', code: '1088', hex: '#4B3621', is_drum_available: false },
+  { id: 'gge-1090', product_id: '', name: 'Sheesham', code: '1090', hex: '#714B23', is_drum_available: false },
+  { id: 'gge-1096', product_id: '', name: 'Chocolate', code: '1096', hex: '#7B3F00', is_drum_available: false },
+  { id: 'gge-1097', product_id: '', name: 'Sandal', code: '1097', hex: '#C2B280', is_drum_available: false },
+
+  // Special
+  { id: 'gge-1012', product_id: '', name: 'Red Oxide', code: '1012', hex: '#8B0000', is_drum_available: false },
+  { id: 'gge-1091', product_id: '', name: 'Reflection', code: '1091', hex: '#F0EDE8', is_drum_available: false },
+  { id: 'gge-1093', product_id: '', name: 'Thousand Nights', code: '1093', hex: '#2F4F4F', is_drum_available: false },
+  { id: 'gge-1094', product_id: '', name: 'Antilope', code: '1094', hex: '#915C44', is_drum_available: false },
+  { id: 'gge-1095', product_id: '', name: 'Spice', code: '1095', hex: '#E2725B', is_drum_available: false },
+  { id: 'gge-1049', product_id: '', name: 'Oyster', code: '1049', hex: '#EAE0C8', is_drum_available: false },
+];
