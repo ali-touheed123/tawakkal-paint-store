@@ -1109,3 +1109,55 @@ export const GOBIS_SILKSHEEN_EMULSION_SHADES: Shade[] = [
   { id: 'gs-8890', product_id: '', name: 'Copper Tone', code: '8890', hex: '#B87333', is_drum_available: false },
   { id: 'gs-8817', product_id: '', name: 'Tile Red', code: '8817', hex: '#B22222', is_drum_available: false },
 ];
+
+export const GOBIS_AQUEOUS_MATT_FINISH_SHADES: Shade[] = [
+  // Whites & Neutrals
+  { id: 'gam-631', product_id: '', name: 'Classic White', code: '631', hex: '#FFFFFF', is_drum_available: false },
+  { id: 'gam-633', product_id: '', name: 'Pearl White', code: '633', hex: '#F0EAD6', is_drum_available: false },
+  { id: 'gam-602', product_id: '', name: 'Ash White', code: '602', hex: '#B2BEB5', is_drum_available: false },
+  { id: 'gam-601', product_id: '', name: 'Off White', code: '601', hex: '#FAF9F6', is_drum_available: false },
+  { id: 'gam-637', product_id: '', name: 'Egg White', code: '637', hex: '#F0EAD6', is_drum_available: false },
+  { id: 'gam-690', product_id: '', name: 'Antique White', code: '690', hex: '#FAEBD7', is_drum_available: false },
+  { id: 'gam-639', product_id: '', name: 'White Comfort', code: '639', hex: '#F5F5F5', is_drum_available: false },
+  { id: 'gam-685', product_id: '', name: 'Rose White', code: '685', hex: '#FFF0F5', is_drum_available: false },
+  { id: 'gam-647', product_id: '', name: 'Apricot White', code: '647', hex: '#FBCEB1', is_drum_available: false },
+  { id: 'gam-687', product_id: '', name: 'Lavender White', code: '687', hex: '#E6E6FA', is_drum_available: false },
+  { id: 'gam-607', product_id: '', name: 'Cotton Ball', code: '607', hex: '#F2F0E6', is_drum_available: false },
+  { id: 'gam-694', product_id: '', name: 'Kitten White', code: '694', hex: '#F1E9D2', is_drum_available: false },
+  { id: 'gam-646', product_id: '', name: 'Chandni', code: '646', hex: '#FAF9F6', is_drum_available: false },
+
+  // Pinks & Roses
+  { id: 'gam-653', product_id: '', name: 'Country Rose', code: '653', hex: '#F4C2C2', is_drum_available: false },
+  { id: 'gam-608', product_id: '', name: 'Peach Orchid', code: '608', hex: '#FFDAB9', is_drum_available: false },
+  { id: 'gam-635', product_id: '', name: 'Cockleshell', code: '635', hex: '#FFCBA4', is_drum_available: false },
+  { id: 'gam-670', product_id: '', name: 'Pink', code: '670', hex: '#FFC0CB', is_drum_available: false },
+  { id: 'gam-686', product_id: '', name: 'Peach Goddess', code: '686', hex: '#FBD7D1', is_drum_available: false },
+  { id: 'gam-671', product_id: '', name: 'Pink Bonnet', code: '671', hex: '#FFB7C5', is_drum_available: false },
+  { id: 'gam-689', product_id: '', name: 'Iced Pink', code: '689', hex: '#FADADD', is_drum_available: false },
+
+  // Blues & Purples
+  { id: 'gam-623', product_id: '', name: 'Reflection', code: '623', hex: '#E0FFFF', is_drum_available: false },
+  { id: 'gam-643', product_id: '', name: 'Soul', code: '643', hex: '#E6E6FA', is_drum_available: false },
+  { id: 'gam-612', product_id: '', name: 'Thousand Nights', code: '612', hex: '#B2C2D1', is_drum_available: false },
+  { id: 'gam-616', product_id: '', name: 'Silver Tone', code: '616', hex: '#C0C0C0', is_drum_available: false },
+  { id: 'gam-625', product_id: '', name: 'Torres Blue', code: '625', hex: '#007FFF', is_drum_available: false },
+  { id: 'gam-644', product_id: '', name: 'Lilac Time', code: '644', hex: '#E0B0FF', is_drum_available: false },
+  { id: 'gam-610', product_id: '', name: 'Eternity', code: '610', hex: '#87CEEB', is_drum_available: false },
+  { id: 'gam-645', product_id: '', name: 'Crystal Light', code: '645', hex: '#E0FFFF', is_drum_available: false },
+  { id: 'gam-642', product_id: '', name: 'Ice Turquoise', code: '642', hex: '#AFEEEE', is_drum_available: false },
+  { id: 'gam-611', product_id: '', name: 'Purple Heather', code: '611', hex: '#D19FE8', is_drum_available: false },
+  { id: 'gam-676', product_id: '', name: 'Sea Blue', code: '676', hex: '#4682B4', is_drum_available: false },
+  { id: 'gam-618', product_id: '', name: 'Red Purple', code: '618', hex: '#953553', is_drum_available: false },
+  { id: 'gam-617', product_id: '', name: 'Blue Flame', code: '617', hex: '#318CE7', is_drum_available: false },
+
+  // Greens & Others
+  { id: 'gam-603', product_id: '', name: 'Twilight', code: '603', hex: '#E4E0E9', is_drum_available: false },
+  { id: 'gam-681', product_id: '', name: 'Vintage', code: '681', hex: '#F5F5DC', is_drum_available: false },
+  { id: 'gam-691', product_id: '', name: 'Fresh Cut', code: '691', hex: '#90EE90', is_drum_available: false },
+  { id: 'gam-683', product_id: '', name: 'Cozy', code: '683', hex: '#FFDAB9', is_drum_available: false },
+  { id: 'gam-634', product_id: '', name: 'Puff', code: '634', hex: '#EAE0C8', is_drum_available: false },
+  { id: 'gam-692', product_id: '', name: 'Light Green', code: '692', hex: '#77DD77', is_drum_available: false },
+  { id: 'gam-621', product_id: '', name: 'Spiney Green', code: '621', hex: '#5E7D7E', is_drum_available: false },
+  { id: 'gam-604', product_id: '', name: 'Orchard Lane', code: '604', hex: '#90EE90', is_drum_available: false },
+  { id: 'gam-636', product_id: '', name: 'Apricot', code: '636', hex: '#FBCEB1', is_drum_available: false },
+];
