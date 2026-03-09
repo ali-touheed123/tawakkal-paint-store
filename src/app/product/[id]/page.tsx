@@ -128,6 +128,7 @@ export default function ProductDetailPage() {
                 const isGobisGoldLuxuriousWallEmulsion = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && productData.name?.toLowerCase().includes('gold') && productData.name?.toLowerCase().includes('wall emulsion');
                 const isGobisSilksheenEmulsion = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && productData.name?.toLowerCase().includes('silksheen emulsion');
                 const isGobisGoldEnamel = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && productData.name?.toLowerCase().includes('gold') && productData.name?.toLowerCase().includes('enamel') && !productData.name?.toLowerCase().includes('wall emulsion');
+                const isGobisAqueousMattFinish = (productData.brand === "Gobi's" || productData.brand === 'Gobis') && productData.name?.toLowerCase().includes('aqueous matt finish');
                 const defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
                     : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
                         : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
