@@ -987,3 +987,83 @@ export const GOBIS_GOLD_WALL_EMULSION_SHADES: Shade[] = [
   { id: 'gg-1461', product_id: '', name: 'Wood Berry', code: '1461', hex: '#966D5B', is_drum_available: false },
   { id: 'gg-1460', product_id: '', name: 'Red', code: '1460', hex: '#FF0000', is_drum_available: false },
 ];
+
+export const GOBIS_SILKSHEEN_EMULSION_SHADES: Shade[] = [
+  // Whites & Neutrals
+  { id: 'gs-8801', product_id: '', name: 'Off White', code: '8801', hex: '#FAF9F6', is_drum_available: false },
+  { id: 'gs-8846', product_id: '', name: 'Beige White', code: '8846', hex: '#F5F5DC', is_drum_available: false },
+  { id: 'gs-8826', product_id: '', name: 'Ash White', code: '8826', hex: '#B2BEB5', is_drum_available: false },
+  { id: 'gs-8885', product_id: '', name: 'Antique White', code: '8885', hex: '#FAEBD7', is_drum_available: false },
+  { id: 'gs-8886', product_id: '', name: 'White Ice', code: '8886', hex: '#F0F8FF', is_drum_available: false },
+  { id: 'gs-8891', product_id: '', name: 'Kitten White', code: '8891', hex: '#F1E9D2', is_drum_available: false },
+  { id: 'gs-8849', product_id: '', name: 'Apple White', code: '8849', hex: '#F0FFF0', is_drum_available: false },
+  { id: 'gs-8827', product_id: '', name: 'Rose White', code: '8827', hex: '#FFF0F5', is_drum_available: false },
+  { id: 'gs-8876', product_id: '', name: 'Puff', code: '8876', hex: '#EAE0C8', is_drum_available: false },
+  { id: 'gs-8850', product_id: '', name: 'Cockleshell', code: '8850', hex: '#FFCBA4', is_drum_available: false },
+  { id: 'gs-8832', product_id: '', name: 'Whisper', code: '8832', hex: '#F2F0E6', is_drum_available: false },
+  { id: 'gs-8873', product_id: '', name: 'Moon Shade', code: '8873', hex: '#F8F8FF', is_drum_available: false },
+  { id: 'gs-8840', product_id: '', name: 'Lavender White', code: '8840', hex: '#E6E6FA', is_drum_available: false },
+  { id: 'gs-8897', product_id: '', name: 'Chandni', code: '8897', hex: '#FAF9F6', is_drum_available: false },
+
+  // Creams & Browns
+  { id: 'gs-8834', product_id: '', name: 'Sahara Sand', code: '8834', hex: '#F4A460', is_drum_available: false },
+  { id: 'gs-8804', product_id: '', name: 'Pale Cream', code: '8804', hex: '#FFFDD0', is_drum_available: false },
+  { id: 'gs-8863', product_id: '', name: 'Hopsack', code: '8863', hex: '#B08D57', is_drum_available: false },
+  { id: 'gs-8882', product_id: '', name: 'New Sand Stone', code: '8882', hex: '#C2B280', is_drum_available: false },
+  { id: 'gs-8816', product_id: '', name: 'Sand Stone', code: '8816', hex: '#C2B280', is_drum_available: false },
+  { id: 'gs-8883', product_id: '', name: 'Desert Dawn', code: '8883', hex: '#EDC9AF', is_drum_available: false },
+  { id: 'gs-8875', product_id: '', name: 'Camel Coat', code: '8875', hex: '#C19A6B', is_drum_available: false },
+  { id: 'gs-8833', product_id: '', name: 'Moorland', code: '8833', hex: '#A39274', is_drum_available: false },
+  { id: 'gs-8871', product_id: '', name: 'Sugar Cane', code: '8871', hex: '#F5F5DC', is_drum_available: false },
+  { id: 'gs-8851', product_id: '', name: 'Cameo', code: '8851', hex: '#EFDECD', is_drum_available: false },
+  { id: 'gs-8831', product_id: '', name: 'Spice', code: '8831', hex: '#7B3F00', is_drum_available: false },
+  { id: 'gs-8888', product_id: '', name: 'Beige', code: '8888', hex: '#F5F5DC', is_drum_available: false },
+  { id: 'gs-8838', product_id: '', name: 'Light Mashroom', code: '8838', hex: '#D2B48C', is_drum_available: false },
+
+  // Pinks & Reds
+  { id: 'gs-8072', product_id: '', name: 'Tea Rose', code: '8072', hex: '#F4C2C2', is_drum_available: false },
+  { id: 'gs-8818', product_id: '', name: 'Summer Pink', code: '8818', hex: '#FFC0CB', is_drum_available: false },
+  { id: 'gs-8819', product_id: '', name: 'Deep Rose', code: '8819', hex: '#FF1493', is_drum_available: false },
+  { id: 'gs-8852', product_id: '', name: 'Terracotta', code: '8852', hex: '#E2725B', is_drum_available: false },
+  { id: 'gs-8884', product_id: '', name: 'Cherry', code: '8884', hex: '#DE3163', is_drum_available: false },
+  { id: 'gs-8898', product_id: '', name: 'Carnival Pink', code: '8898', hex: '#FF69B4', is_drum_available: false },
+  { id: 'gs-8896', product_id: '', name: 'Pink Violet', code: '8896', hex: '#E0B0FF', is_drum_available: false },
+  { id: 'gs-8901', product_id: '', name: 'Iced Pink', code: '8901', hex: '#FBD7D1', is_drum_available: false },
+
+  // Blues & Greens
+  { id: 'gs-8880', product_id: '', name: 'Sky Grey', code: '8880', hex: '#B2C2D1', is_drum_available: false },
+  { id: 'gs-8843', product_id: '', name: 'Torress Blue', code: '8843', hex: '#007FFF', is_drum_available: false },
+  { id: 'gs-8821', product_id: '', name: 'Summer Blue', code: '8821', hex: '#ADD8E6', is_drum_available: false },
+  { id: 'gs-8823', product_id: '', name: 'Bright Blue', code: '8823', hex: '#0000FF', is_drum_available: false },
+  { id: 'gs-8825', product_id: '', name: 'Grey Blue', code: '8825', hex: '#5E81AC', is_drum_available: false },
+  { id: 'gs-8829', product_id: '', name: 'Goose Wing', code: '8829', hex: '#BAC4C8', is_drum_available: false },
+  { id: 'gs-8868', product_id: '', name: 'Indigo', code: '8868', hex: '#4B0082', is_drum_available: false },
+  { id: 'gs-8867', product_id: '', name: 'Sweet Blue', code: '8867', hex: '#87CEEB', is_drum_available: false },
+  { id: 'gs-8814', product_id: '', name: 'Light Green', code: '8814', hex: '#90EE90', is_drum_available: false },
+  { id: 'gs-8812', product_id: '', name: 'Spring Green', code: '8812', hex: '#00FF7F', is_drum_available: false },
+  { id: 'gs-8853', product_id: '', name: 'Green Smoke', code: '8853', hex: '#5E7D7E', is_drum_available: false },
+  { id: 'gs-8815', product_id: '', name: 'Spring Leaf', code: '8815', hex: '#77DD77', is_drum_available: false },
+  { id: 'gs-8878', product_id: '', name: 'Fresh Green', code: '8878', hex: '#00FF00', is_drum_available: false },
+  { id: 'gs-8894', product_id: '', name: 'Woven Green', code: '8894', hex: '#556B2F', is_drum_available: false },
+
+  // Yellows & Oranges
+  { id: 'gs-8889', product_id: '', name: 'Mango Yellow', code: '8889', hex: '#FFCC00', is_drum_available: false },
+  { id: 'gs-8870', product_id: '', name: 'Flame Orange', code: '8870', hex: '#FF8C00', is_drum_available: false },
+  { id: 'gs-8893', product_id: '', name: 'Cozy', code: '8893', hex: '#FFDAB9', is_drum_available: false },
+  { id: 'gs-8892', product_id: '', name: 'Marsh Merigold', code: '8892', hex: '#FFFFE0', is_drum_available: false },
+  { id: 'gs-8900', product_id: '', name: 'Lime Yellow', code: '8900', hex: '#F0E130', is_drum_available: false },
+
+  // Greys & Purples
+  { id: 'gs-8874', product_id: '', name: 'Ice Grey', code: '8874', hex: '#D3D3D3', is_drum_available: false },
+  { id: 'gs-8855', product_id: '', name: 'French Silver', code: '8855', hex: '#C0C0C0', is_drum_available: false },
+  { id: 'gs-8860', product_id: '', name: 'Armor Grey', code: '8860', hex: '#708090', is_drum_available: false },
+  { id: 'gs-8806', product_id: '', name: 'Purple Dawn', code: '8806', hex: '#800080', is_drum_available: false },
+  { id: 'gs-8842', product_id: '', name: 'Opal Lilac', code: '8842', hex: '#E6E6FA', is_drum_available: false },
+  { id: 'gs-8866', product_id: '', name: 'Muave', code: '8866', hex: '#E0B0FF', is_drum_available: false },
+
+  // Other Shades
+  { id: 'gs-8879', product_id: '', name: 'Parasol', code: '8879', hex: '#EFDECD', is_drum_available: false },
+  { id: 'gs-8877', product_id: '', name: 'Classical', code: '8877', hex: '#FDF5E6', is_drum_available: false },
+  { id: 'gs-8890', product_id: '', name: 'Copper Tone', code: '8890', hex: '#B87333', is_drum_available: false },
+  { id: 'gs-8817', product_id: '', name: 'Tile Red', code: '8817', hex: '#B22222', is_drum_available: false },
+];
