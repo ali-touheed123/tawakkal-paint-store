@@ -926,7 +926,7 @@ export const GOBIS_SILVERLINE_EMULSION_SHADES: Shade[] = [
   { id: 'gse-1421s', product_id: '', name: 'Chocolate', code: '1421-S', hex: '#7B3F00', is_drum_available: false },
 ];
 
-export const GOBIS_GOLD_WALL_EMULSION_SHADES: Shade[] = [
+export const GOBIS_GOLD_LUXURIOUS_WALL_EMULSION_SHADES: Shade[] = [
   { id: 'gg-1404', product_id: '', name: 'White', code: '1404', hex: '#FFFFFF', is_drum_available: false },
   { id: 'gg-1402', product_id: '', name: 'Magnolia', code: '1402', hex: '#F3E5AB', is_drum_available: false },
   { id: 'gg-1452', product_id: '', name: 'Moon Flower', code: '1452', hex: '#F8F8FF', is_drum_available: false },
