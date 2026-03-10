@@ -1676,3 +1676,84 @@ export const RELIABLE_ENAMEL_SHADES: Shade[] = [
   { id: 're-247', product_id: '', name: 'Grey White', code: '247', hex: '#6F7373', is_drum_available: false },
 ];
 
+export const RELIABLE_WATER_MATT_SHADES: Shade[] = [
+  { id: 'rwm-500', product_id: '', name: 'White', code: '500', hex: '#FFFFFF', is_drum_available: false },
+
+  // Page 1 - Column 1
+  { id: 'rwm-501', product_id: '', name: 'Off White', code: '501', hex: '#FBE8C9', is_drum_available: false },
+  { id: 'rwm-509', product_id: '', name: 'Country Rose', code: '509', hex: '#F7F6E4', is_drum_available: false },
+  { id: 'rwm-557', product_id: '', name: 'Ash White New', code: '557', hex: '#EBE0CC', is_drum_available: false },
+  { id: 'rwm-521', product_id: '', name: 'Ash White', code: '521', hex: '#EBEBEB', is_drum_available: false },
+  { id: 'rwm-536', product_id: '', name: 'Antique White', code: '536', hex: '#FADFA4', is_drum_available: false },
+  { id: 'rwm-537', product_id: '', name: 'Chandni', code: '537', hex: '#F9ECD3', is_drum_available: false },
+  { id: 'rwm-547', product_id: '', name: 'Fresh Pasta', code: '547', hex: '#DED687', is_drum_available: false },
+
+  // Page 1 - Column 2
+  { id: 'rwm-552', product_id: '', name: 'Badami New', code: '552', hex: '#FCE7DF', is_drum_available: false },
+  { id: 'rwm-553', product_id: '', name: 'Cockle Shell New', code: '553', hex: '#FACBB2', is_drum_available: false },
+  { id: 'rwm-506', product_id: '', name: 'Evening Tea', code: '506', hex: '#FCD8AD', is_drum_available: false },
+  { id: 'rwm-502', product_id: '', name: 'Orion', code: '502', hex: '#FACEA3', is_drum_available: false },
+  { id: 'rwm-513', product_id: '', name: 'Puff', code: '513', hex: '#FDE4D3', is_drum_available: false },
+  { id: 'rwm-508', product_id: '', name: 'Cameo', code: '508', hex: '#FBBF8C', is_drum_available: false },
+  { id: 'rwm-507', product_id: '', name: 'Peach Goddess', code: '507', hex: '#E1B481', is_drum_available: false },
+
+  // Page 1 - Column 3
+  { id: 'rwm-554', product_id: '', name: 'Silver White New', code: '554', hex: '#EBEBEB', is_drum_available: false },
+  { id: 'rwm-522', product_id: '', name: 'Lavender White', code: '522', hex: '#DFDFDF', is_drum_available: false },
+  { id: 'rwm-555', product_id: '', name: 'Snowfield New', code: '555', hex: '#DEDEDE', is_drum_available: false },
+  { id: 'rwm-556', product_id: '', name: 'Soft Grey New', code: '556', hex: '#C6C8CA', is_drum_available: false },
+  { id: 'rwm-539', product_id: '', name: 'Snow Mountain', code: '539', hex: '#BABEC3', is_drum_available: false },
+  { id: 'rwm-551', product_id: '', name: 'Silver Grey', code: '551', hex: '#A3A6B4', is_drum_available: false },
+  { id: 'rwm-549', product_id: '', name: 'Frosted Steel', code: '549', hex: '#77797C', is_drum_available: false },
+
+  // Page 1 - Column 4
+  { id: 'rwm-505', product_id: '', name: 'Kitten White', code: '505', hex: '#FBE6E4', is_drum_available: false },
+  { id: 'rwm-510', product_id: '', name: 'Pink Bonnet', code: '510', hex: '#FADAD9', is_drum_available: false },
+  { id: 'rwm-511', product_id: '', name: 'Bliss', code: '511', hex: '#FBADBC', is_drum_available: false },
+  { id: 'rwm-519', product_id: '', name: 'Reliable Pink', code: '519', hex: '#F8A5B6', is_drum_available: false },
+  { id: 'rwm-517', product_id: '', name: 'Purple White', code: '517', hex: '#F3CDE4', is_drum_available: false },
+  { id: 'rwm-514', product_id: '', name: 'Classical Depleted', code: '514', hex: '#E0BCE4', is_drum_available: false },
+  { id: 'rwm-523', product_id: '', name: 'Lilac Time', code: '523', hex: '#ECBFF3', is_drum_available: false },
+
+  // Page 2 - Column 1
+  { id: 'rwm-525', product_id: '', name: 'Light Green', code: '525', hex: '#EFFDF2', is_drum_available: false },
+  { id: 'rwm-526', product_id: '', name: 'Grape', code: '526', hex: '#DAFFDA', is_drum_available: false },
+  { id: 'rwm-544', product_id: '', name: 'Soft Green', code: '544', hex: '#B8EFA8', is_drum_available: false },
+  { id: 'rwm-527', product_id: '', name: 'Fresh Lime Special', code: '527', hex: '#BBEA4D', is_drum_available: false },
+  { id: 'rwm-528', product_id: '', name: 'Leaf Green', code: '528', hex: '#789553', is_drum_available: false },
+  { id: 'rwm-543', product_id: '', name: 'Woven Green', code: '543', hex: '#C2BA6B', is_drum_available: false },
+  { id: 'rwm-545', product_id: '', name: 'Lemon', code: '545', hex: '#FFF252', is_drum_available: false },
+  { id: 'rwm-558', product_id: '', name: 'Charcoal New', code: '558', hex: '#585959', is_drum_available: false },
+
+  // Page 2 - Column 2
+  { id: 'rwm-503', product_id: '', name: 'Zenta', code: '503', hex: '#FCCDBE', is_drum_available: false },
+  { id: 'rwm-533', product_id: '', name: 'Hot Sunset', code: '533', hex: '#FC9C81', is_drum_available: false },
+  { id: 'rwm-520', product_id: '', name: 'Layricat Pink', code: '520', hex: '#EF9FB2', is_drum_available: false },
+  { id: 'rwm-541', product_id: '', name: 'Cherry', code: '541', hex: '#FB7EA2', is_drum_available: false },
+  { id: 'rwm-516', product_id: '', name: 'Alpine Red Special Depleted', code: '516', hex: '#DF515E', is_drum_available: false },
+  { id: 'rwm-518', product_id: '', name: 'Swiss Miss', code: '518', hex: '#FE9BD1', is_drum_available: false },
+  { id: 'rwm-512', product_id: '', name: 'Carnival Pink Special', code: '512', hex: '#D25AAD', is_drum_available: false },
+  { id: 'rwm-548', product_id: '', name: 'Tile Red Special', code: '548', hex: '#D82F3A', is_drum_available: false },
+
+  // Page 2 - Column 3
+  { id: 'rwm-531', product_id: '', name: 'Cool Blue', code: '531', hex: '#A1D9FA', is_drum_available: false },
+  { id: 'rwm-529', product_id: '', name: 'Torres Blue', code: '529', hex: '#AAC1F1', is_drum_available: false },
+  { id: 'rwm-559', product_id: '', name: 'Elegant Blue New', code: '559', hex: '#7791D6', is_drum_available: false },
+  { id: 'rwm-532', product_id: '', name: 'Sweet Blue Special', code: '532', hex: '#4173DF', is_drum_available: false },
+  { id: 'rwm-550', product_id: '', name: 'Ocean Dip Special', code: '550', hex: '#2F7EA0', is_drum_available: false },
+  { id: 'rwm-515', product_id: '', name: 'Bik Riding Special', code: '515', hex: '#ACAAEC', is_drum_available: false },
+  { id: 'rwm-524', product_id: '', name: 'Mauve Special', code: '524', hex: '#7A6FD1', is_drum_available: false },
+  { id: 'rwm-535', product_id: '', name: 'Red Purple Special', code: '535', hex: '#944C6A', is_drum_available: false },
+
+  // Page 2 - Column 4
+  { id: 'rwm-530', product_id: '', name: 'Marsh Marigold Special', code: '530', hex: '#FABA5F', is_drum_available: false },
+  { id: 'rwm-534', product_id: '', name: 'Orange Special', code: '534', hex: '#FB864B', is_drum_available: false },
+  { id: 'rwm-538', product_id: '', name: 'Butter Scotch', code: '538', hex: '#E79D6D', is_drum_available: false },
+  { id: 'rwm-540', product_id: '', name: 'Aberdeen', code: '540', hex: '#B2765A', is_drum_available: false },
+  { id: 'rwm-546', product_id: '', name: 'Sheesham Special', code: '546', hex: '#765942', is_drum_available: false },
+  { id: 'rwm-504', product_id: '', name: 'Chilli Red Special', code: '504', hex: '#73333E', is_drum_available: false },
+  { id: 'rwm-542', product_id: '', name: 'Emerald Special', code: '542', hex: '#489F70', is_drum_available: false },
+  { id: 'rwm-560', product_id: '', name: 'Black New', code: '560', hex: '#0B0D0F', is_drum_available: false },
+];
+
+
