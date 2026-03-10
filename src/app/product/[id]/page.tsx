@@ -69,6 +69,11 @@ export default function ProductDetailPage() {
     const isChoiceSyntheticEnamel = (product?.brand === 'Choice' && product?.name?.toLowerCase().includes('synthetic enamel')) || product?.name?.toLowerCase().includes('choice synthetic enamel');
     const isChoiceWeatherSealer = product?.brand === 'Choice' && product?.name?.toLowerCase().includes('weather sealer');
     const isRelianceStainlessMatt = product?.brand === 'Reliance' && product?.name?.toLowerCase().includes('stainless matt');
+    const isRelianceSemiPlasticEmulsion = product?.brand === 'Reliance' && product?.name?.toLowerCase().includes('semi plastic emulsion');
+    const isRelianceMattEnamel = product?.brand === 'Reliance' && product?.name?.toLowerCase().includes('matt enamel');
+    const isRelianceWeatherGuard = product?.brand === 'Reliance' && product?.name?.toLowerCase().includes('weather guard');
+    const isRelianceSyntheticEnamel = product?.brand === 'Reliance' && product?.name?.toLowerCase().includes('synthetic enamel');
+    const isBergerWeatherPro = product?.brand === 'Berger' && product?.name?.toLowerCase().includes('weather pro');
     const isBergerNuEnamel = product?.brand === 'Berger' && product?.name?.toLowerCase().includes('nu enamel');
     const isBergerNuEmulsion = product?.brand === 'Berger' && product?.name?.toLowerCase().includes('nu emulsion');
     const hasShadeCard = isBrightoSuperEmulsion || isBrightoSyntheticEnamel || isBrightoPlasticEmulsion || isBrightoAllWeather || isSaasiHydrous || isSaasiMattEnamel || isSaasiPlasticEmulsion || isSaasiSuperGlossEnamel || isSaasiWeatherSafe || isBrightoStainFree || isGobisIndustrialEnamel || isGobisStovingPaint || isGobisCarmanSeries || isGobisSilverlineEnamel || isGobisSilverlineEmulsion || isGobisGoldLuxuriousWallEmulsion || isGobisSilksheenEmulsion || isGobisGoldEnamel || isGobisAqueousMattFinish || isGobisGoldAqueousMattFinish || isGobisGoldEggshellMattFinish || isGobisGlossEnamel || isGobisEggshellMattEnamel || isReliableWeatherProtector || isReliableMattEnamel || isReliableEmulsion || isReliableEnamel || isReliableWaterMatt || isChoiceSyntheticEnamel || isChoiceWeatherSealer || isRelianceStainlessMatt || isRelianceSemiPlasticEmulsion || isRelianceMattEnamel || isRelianceWeatherGuard || isRelianceSyntheticEnamel || isBergerWeatherPro || isBergerNuEnamel || isBergerNuEmulsion;
