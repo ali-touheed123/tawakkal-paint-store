@@ -2049,6 +2049,109 @@ export const RELIANCE_SEMI_PLASTIC_EMULSION_SHADES: Shade[] = [
   { id: 'rspm-045', product_id: '', name: 'Moon Flower', code: '045', hex: '#FCEFD8', is_drum_available: false },
 ];
 
+export const RELIANCE_MATT_ENAMEL_SHADES: Shade[] = [
+  // Page 1 - Large Swatches
+  { id: 'rme-271', product_id: '', name: 'Cockleshell', code: '271', hex: '#E9E1CD', is_drum_available: false },
+  { id: 'rme-240', product_id: '', name: 'Peach Goddess', code: '240', hex: '#F6CAA9', is_drum_available: false },
+  { id: 'rme-275', product_id: '', name: 'Apple Green', code: '275', hex: '#EFF6DC', is_drum_available: false },
+  { id: 'rme-258', product_id: '', name: 'Snow White', code: '258', hex: '#E9E6D9', is_drum_available: false },
+  { id: 'rme-207', product_id: '', name: 'Rose White New', code: '207', hex: '#F9E1C3', is_drum_available: false },
+  { id: 'rme-282', product_id: '', name: 'Mint Green', code: '282', hex: '#E3EFD4', is_drum_available: false },
+
+  // Page 1 - Grid Row 1
+  { id: 'rme-270', product_id: '', name: 'New Off White', code: '270', hex: '#F9F2DE', is_drum_available: false },
+  { id: 'rme-268', product_id: '', name: 'Antique White', code: '268', hex: '#F8EDD9', is_drum_available: false },
+  { id: 'rme-212', product_id: '', name: 'Orion', code: '212', hex: '#E3DEC3', is_drum_available: false },
+  { id: 'rme-232', product_id: '', name: 'Zenta', code: '232', hex: '#DFAB90', is_drum_available: false },
+  { id: 'rme-279', product_id: '', name: 'Lime Twist', code: '279', hex: '#E7E9BC', is_drum_available: false },
+
+  // Page 1 - Grid Row 2
+  { id: 'rme-262', product_id: '', name: 'Walden White', code: '262', hex: '#FBF4D8', is_drum_available: false },
+  { id: 'rme-253', product_id: '', name: 'Apple White', code: '253', hex: '#F9F3C6', is_drum_available: false },
+  { id: 'rme-227', product_id: '', name: 'Cameo', code: '227', hex: '#D9C39B', is_drum_available: false },
+  { id: 'rme-238', product_id: '', name: 'Go Fish', code: '238', hex: '#F1A467', is_drum_available: false },
+  { id: 'rme-245', product_id: '', name: 'Green Grapes', code: '245', hex: '#C8D17B', is_drum_available: false },
+
+  // Page 1 - Grid Row 3
+  { id: 'rme-263', product_id: '', name: 'Pink Cloud', code: '263', hex: '#FBF2D7', is_drum_available: false },
+  { id: 'rme-264', product_id: '', name: 'Snow Bell', code: '264', hex: '#EFE9D1', is_drum_available: false },
+  { id: 'rme-233', product_id: '', name: 'Autumn Clay', code: '233', hex: '#C2B49E', is_drum_available: false },
+  { id: 'rme-290', product_id: '', name: 'Pumpkin New', code: '290', hex: '#CB5E46', is_drum_available: false },
+  { id: 'rme-246', product_id: '', name: 'Fresh Lime', code: '246', hex: '#C3CB77', is_drum_available: false },
+
+  // Page 1 - Grid Row 4
+  { id: 'rme-249', product_id: '', name: 'Almond White', code: '249', hex: '#F9EDD6', is_drum_available: false },
+  { id: 'rme-269', product_id: '', name: 'Ivory Silk', code: '269', hex: '#ECE5CE', is_drum_available: false },
+  { id: 'rme-213', product_id: '', name: 'Beige White', code: '213', hex: '#C8B9A9', is_drum_available: false },
+  { id: 'rme-293', product_id: '', name: 'Golden Brown New', code: '293', hex: '#75412F', is_drum_available: false },
+  { id: 'rme-254', product_id: '', name: 'Merry Gold', code: '254', hex: '#C1B47C', is_drum_available: false },
+
+  // Page 1 - Grid Row 5
+  { id: 'rme-250', product_id: '', name: 'Badami', code: '250', hex: '#F9ECCC', is_drum_available: false },
+  { id: 'rme-276', product_id: '', name: 'Brazil Nut', code: '276', hex: '#E7E1C7', is_drum_available: false },
+  { id: 'rme-205', product_id: '', name: 'Kitten White', code: '205', hex: '#F9DCC6', is_drum_available: false },
+  { id: 'rme-295', product_id: '', name: 'Polish Brown New', code: '295', hex: '#A07450', is_drum_available: false },
+  { id: 'rme-277', product_id: '', name: 'Green Mile', code: '277', hex: '#8E8A5E', is_drum_available: false },
+
+  // Page 1 - Grid Row 6
+  { id: 'rme-202', product_id: '', name: 'Old Off White', code: '202', hex: '#FBF0D1', is_drum_available: false },
+  { id: 'rme-273', product_id: '', name: 'Oyster White', code: '273', hex: '#E7DDBC', is_drum_available: false },
+  { id: 'rme-251', product_id: '', name: 'Soft Peach', code: '251', hex: '#F9CCAD', is_drum_available: false },
+  { id: 'rme-289', product_id: '', name: 'Sheesham', code: '289', hex: '#514038', is_drum_available: false },
+  { id: 'rme-235', product_id: '', name: 'Citrus Yellow', code: '235', hex: '#FFDA85', is_drum_available: false },
+
+  // Page 2 - Column 1
+  { id: 'rme-280', product_id: '', name: 'New Ash White', code: '280', hex: '#E7E5D6', is_drum_available: false },
+  { id: 'rme-286', product_id: '', name: 'Grey Touch', code: '286', hex: '#F4EEDC', is_drum_available: false },
+  { id: 'rme-265', product_id: '', name: 'Lilac White', code: '265', hex: '#DEDDD4', is_drum_available: false },
+  { id: 'rme-210', product_id: '', name: 'Lavender White', code: '210', hex: '#DDDEC9', is_drum_available: false },
+  { id: 'rme-274', product_id: '', name: 'Pink', code: '274', hex: '#F9E0D4', is_drum_available: false },
+  { id: 'rme-204', product_id: '', name: 'Shingle', code: '204', hex: '#F8C3BF', is_drum_available: false },
+  { id: 'rme-206', product_id: '', name: 'R.P Moon Flower New', code: '206', hex: '#F8B4BA', is_drum_available: false },
+  { id: 'rme-237', product_id: '', name: 'Layricat Pink', code: '237', hex: '#DF897E', is_drum_available: false },
+
+  // Page 2 - Column 2
+  { id: 'rme-285', product_id: '', name: 'Purple White', code: '285', hex: '#EBDFE3', is_drum_available: false },
+  { id: 'rme-221', product_id: '', name: 'Lilac', code: '221', hex: '#C6A3A3', is_drum_available: false },
+  { id: 'rme-255', product_id: '', name: 'Lilac Time', code: '255', hex: '#DED4DE', is_drum_available: false },
+  { id: 'rme-267', product_id: '', name: 'Purple Touch', code: '267', hex: '#9A89A8', is_drum_available: false },
+  { id: 'rme-266', product_id: '', name: 'Bringal', code: '266', hex: '#684F59', is_drum_available: false },
+  { id: 'rme-272', product_id: '', name: 'Red Lobster', code: '272', hex: '#753E3E', is_drum_available: false },
+  { id: 'rme-292', product_id: '', name: 'Alpine Red New', code: '292', hex: '#B34444', is_drum_available: false },
+  { id: 'rme-244', product_id: '', name: 'Carnival Pink', code: '244', hex: '#C36D8E', is_drum_available: false },
+
+  // Page 2 - Column 3
+  { id: 'rme-209', product_id: '', name: 'Old Ash White', code: '209', hex: '#A7A99D', is_drum_available: false },
+  { id: 'rme-252', product_id: '', name: 'Snowfield', code: '252', hex: '#CCC9C1', is_drum_available: false },
+  { id: 'rme-287', product_id: '', name: 'Violet Touch', code: '287', hex: '#DED9D6', is_drum_available: false },
+  { id: 'rme-296', product_id: '', name: 'Silver Grey New', code: '296', hex: '#BDBDB9', is_drum_available: false },
+  { id: 'rme-222', product_id: '', name: 'Cloud Blue', code: '222', hex: '#9FA19F', is_drum_available: false },
+
+  // Page 2 - Column 4
+  { id: 'rme-281', product_id: '', name: 'Baby Blue', code: '281', hex: '#E7F1E7', is_drum_available: false },
+  { id: 'rme-283', product_id: '', name: 'Sky Blue', code: '283', hex: '#D0DDE5', is_drum_available: false },
+  { id: 'rme-260', product_id: '', name: 'Torres Blue', code: '260', hex: '#BDC8D4', is_drum_available: false },
+  { id: 'rme-217', product_id: '', name: 'R.P Cool Blue New', code: '217', hex: '#9BD3F3', is_drum_available: false },
+  { id: 'rme-278', product_id: '', name: 'Blue Horizon', code: '278', hex: '#4C5D72', is_drum_available: false },
+  { id: 'rme-239', product_id: '', name: 'Sweet Blue', code: '239', hex: '#2A548E', is_drum_available: false },
+  { id: 'rme-291', product_id: '', name: 'Navy Blue New', code: '291', hex: '#2E3E72', is_drum_available: false },
+  { id: 'rme-284', product_id: '', name: 'Steel Grey', code: '284', hex: '#646460', is_drum_available: false },
+
+  // Page 2 - Column 5 (Depleted)
+  { id: 'rme-247', product_id: '', name: 'Ocean Dip', code: '247', hex: '#447C85', is_drum_available: false },
+  { id: 'rme-216', product_id: '', name: 'Cool Blue', code: '216', hex: '#A1D4D7', is_drum_available: false },
+  { id: 'rme-259', product_id: '', name: 'Moon Flower', code: '259', hex: '#FBD5D6', is_drum_available: false },
+  { id: 'rme-257', product_id: '', name: 'R.P Rose White', code: '257', hex: '#F9E7D1', is_drum_available: false },
+
+  // Page 2 - Column 5 (Below Depleted)
+  { id: 'rme-288', product_id: '', name: 'Coffee', code: '288', hex: '#443730', is_drum_available: false },
+  { id: 'rme-214', product_id: '', name: 'R.P Ocean Dip New', code: '214', hex: '#197C91', is_drum_available: false },
+  { id: 'rme-294', product_id: '', name: 'Marsh Merigold New', code: '294', hex: '#FFBE41', is_drum_available: false },
+
+  // Special Request
+  { id: 'rme-201', product_id: '', name: 'White', code: '201', hex: '#FFFFFF', is_drum_available: false },
+];
+
 
 
 
