@@ -2286,6 +2286,50 @@ export const RELIANCE_SYNTHETIC_ENAMEL_SHADES: Shade[] = [
   { id: 'rse-110', product_id: '', name: 'Black', code: '110', hex: '#000000', is_drum_available: false },
 ];
 
+export const BERGER_WEATHER_PRO_SHADES: Shade[] = [
+  // Creams & Beiges
+  { id: 'bwp-wp10', product_id: '', name: 'Off White', code: 'WP10', hex: '#FDFDF5', is_drum_available: false },
+  { id: 'bwp-wp11', product_id: '', name: 'Almond', code: 'WP11', hex: '#F8F1E5', is_drum_available: false },
+  { id: 'bwp-wp12', product_id: '', name: 'Silk Stone', code: 'WP12', hex: '#E1DACD', is_drum_available: false },
+  { id: 'bwp-wp29', product_id: '', name: 'Hopsack', code: 'WP29', hex: '#CDCDB8', is_drum_available: false },
+  { id: 'bwp-wp13', product_id: '', name: 'Magnolia', code: 'WP13', hex: '#F6E1CD', is_drum_available: false },
+  { id: 'bwp-wp14', product_id: '', name: 'Sugar Cane', code: 'WP14', hex: '#F8E8D5', is_drum_available: false },
+  { id: 'bwp-wp15', product_id: '', name: 'Beige', code: 'WP15', hex: '#C8B39B', is_drum_available: false },
+  { id: 'bwp-wp16', product_id: '', name: 'Cameo', code: 'WP16', hex: '#EAC9B5', is_drum_available: false },
+  { id: 'bwp-wp34', product_id: '', name: 'Thar Desert', code: 'WP34', hex: '#D2B79A', is_drum_available: false },
+  { id: 'bwp-wp17', product_id: '', name: 'Sweet Jewel', code: 'WP17', hex: '#EABCAE', is_drum_available: false },
+  { id: 'bwp-wp18', product_id: '', name: 'Terracotta', code: 'WP18', hex: '#B97F70', is_drum_available: false },
+
+  // Yellows & Oranges
+  { id: 'bwp-wp30', product_id: '', name: 'Vanilla', code: 'WP30', hex: '#FFF9D5', is_drum_available: false },
+  { id: 'bwp-wp31', product_id: '', name: 'Wild Daffodil', code: 'WP31', hex: '#FFED9F', is_drum_available: false },
+  { id: 'bwp-wp32', product_id: '', name: 'Mustard Field', code: 'WP32', hex: '#FFB36D', is_drum_available: false },
+  { id: 'bwp-wp33', product_id: '', name: 'Fresh Orange', code: 'WP33', hex: '#E88E6D', is_drum_available: false },
+
+  // Greys & Violets
+  { id: 'bwp-wp19', product_id: '', name: 'Ash White', code: 'WP19', hex: '#F5F5F0', is_drum_available: false },
+  { id: 'bwp-wp20', product_id: '', name: 'Smoke Grey', code: 'WP20', hex: '#CFD8DC', is_drum_available: false },
+  { id: 'bwp-wp21', product_id: '', name: 'Sky Grey', code: 'WP21', hex: '#E0E0E8', is_drum_available: false },
+  { id: 'bwp-wp22', product_id: '', name: 'Goose Wing', code: 'WP22', hex: '#B0B0B0', is_drum_available: false },
+  { id: 'bwp-wp23', product_id: '', name: 'Charcoal', code: 'WP23', hex: '#5B5F5D', is_drum_available: false },
+  { id: 'bwp-wp28', product_id: '', name: 'Orchard Lane', code: 'WP28', hex: '#E0E4F5', is_drum_available: false },
+
+  // Greens & Blues
+  { id: 'bwp-wp26', product_id: '', name: 'Mint Green', code: 'WP26', hex: '#F0F5E0', is_drum_available: false },
+  { id: 'bwp-wp27', product_id: '', name: 'Leaf Green', code: 'WP27', hex: '#787D54', is_drum_available: false },
+  { id: 'bwp-wp24', product_id: '', name: 'Monsoon Breeze', code: 'WP24', hex: '#E0F5F8', is_drum_available: false },
+  { id: 'bwp-wp25', product_id: '', name: 'Mughal Blue', code: 'WP25', hex: '#3F5F9F', is_drum_available: false },
+
+  // Reds & Browns
+  { id: 'bwp-wp35', product_id: '', name: 'Multani Tile', code: 'WP35', hex: '#B05F4D', is_drum_available: false },
+  { id: 'bwp-wp37', product_id: '', name: 'Red Chilli', code: 'WP37', hex: '#D85F54', is_drum_available: false },
+  { id: 'bwp-wp38', product_id: '', name: 'Tile Red', code: 'WP38', hex: '#B74F4D', is_drum_available: false },
+  { id: 'bwp-wp36', product_id: '', name: 'Rock Wall', code: 'WP36', hex: '#7D7068', is_drum_available: false },
+
+  // White Request
+  { id: 'bwp-wp39', product_id: '', name: 'White', code: 'WP39', hex: '#FFFFFF', is_drum_available: false },
+];
+
 
 
 
