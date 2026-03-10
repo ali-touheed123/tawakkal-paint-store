@@ -2330,6 +2330,79 @@ export const BERGER_WEATHER_PRO_SHADES: Shade[] = [
   { id: 'bwp-wp39', product_id: '', name: 'White', code: 'WP39', hex: '#FFFFFF', is_drum_available: false },
 ];
 
+export const BERGER_NU_ENAMEL_SHADES: Shade[] = [
+  // Creams & Beiges
+  { id: 'bne-nu10', product_id: '', name: 'Off White', code: 'NU10', hex: '#FDFDF0', is_drum_available: false },
+  { id: 'bne-nu11', product_id: '', name: 'New Cream', code: 'NU11', hex: '#F8E5CD', is_drum_available: false },
+  { id: 'bne-nu30', product_id: '', name: 'Fresh Cream', code: 'NU30', hex: '#F8E8D5', is_drum_available: false },
+  { id: 'bne-nu12', product_id: '', name: 'New Dyar', code: 'NU12', hex: '#D2A888', is_drum_available: false },
+  { id: 'bne-nu13', product_id: '', name: 'Beige', code: 'NU13', hex: '#C8B39B', is_drum_available: false },
+  { id: 'bne-nu50', product_id: '', name: 'Clay', code: 'NU50', hex: '#B2A28C', is_drum_available: false },
+  { id: 'bne-nu31', product_id: '', name: 'Coriander', code: 'NU31', hex: '#A8988C', is_drum_available: false },
+  { id: 'bne-nu51', product_id: '', name: 'Terracotta', code: 'NU51', hex: '#B58475', is_drum_available: false },
+  { id: 'bne-nu32', product_id: '', name: 'Copper Canyon', code: 'NU32', hex: '#C89578', is_drum_available: false },
+  { id: 'bne-nu37', product_id: '', name: 'Windmill', code: 'NU37', hex: '#5D5448', is_drum_available: false },
+
+  // Greens & Blues
+  { id: 'bne-nu47', product_id: '', name: 'Adam Green', code: 'NU47', hex: '#4FAF8F', is_drum_available: false },
+  { id: 'bne-nu39', product_id: '', name: 'Eau-di-Nil', code: 'NU39', hex: '#93C47D', is_drum_available: false },
+  { id: 'bne-nu48', product_id: '', name: 'Spring Green', code: 'NU48', hex: '#6AA84F', is_drum_available: false },
+  { id: 'bne-nu21', product_id: '', name: 'Scarab', code: 'NU21', hex: '#2D4344', is_drum_available: false },
+  { id: 'bne-nu22', product_id: '', name: 'Signal Green', code: 'NU22', hex: '#1D3524', is_drum_available: false },
+  { id: 'bne-nu46', product_id: '', name: 'Comet Blue', code: 'NU46', hex: '#C9E5E5', is_drum_available: false },
+  { id: 'bne-nu40', product_id: '', name: 'Cool Blue', code: 'NU40', hex: '#66A3B5', is_drum_available: false },
+  { id: 'bne-nu27', product_id: '', name: 'New Bright Blue', code: 'NU27', hex: '#3D72A1', is_drum_available: false },
+  { id: 'bne-nu67', product_id: '', name: 'Middle Blue', code: 'NU67', hex: '#2B456C', is_drum_available: false },
+  { id: 'bne-nu29', product_id: '', name: 'New Royal Blue', code: 'NU29', hex: '#1A1F3A', is_drum_available: false },
+
+  // Browns & Pinks
+  { id: 'bne-nu52', product_id: '', name: 'Brown', code: 'NU52', hex: '#924335', is_drum_available: false },
+  { id: 'bne-nu14', product_id: '', name: 'Golden Brown', code: 'NU14', hex: '#7D4C3A', is_drum_available: false },
+  { id: 'bne-nu19', product_id: '', name: 'New Brown', code: 'NU19', hex: '#3E2F29', is_drum_available: false },
+  { id: 'bne-nu66', product_id: '', name: 'Leather Brown', code: 'NU66', hex: '#2F241F', is_drum_available: false },
+  { id: 'bne-nu38', product_id: '', name: 'Red Oxide', code: 'NU38', hex: '#74342C', is_drum_available: false },
+  { id: 'bne-nu24', product_id: '', name: 'New Blush Pink', code: 'NU24', hex: '#FDE2D8', is_drum_available: false },
+  { id: 'bne-nu33', product_id: '', name: 'Pink', code: 'NU33', hex: '#F9C8C0', is_drum_available: false },
+  { id: 'bne-nu44', product_id: '', name: 'Rose Bouquet', code: 'NU44', hex: '#F5A9A4', is_drum_available: false },
+  { id: 'bne-nu34', product_id: '', name: 'Hot Pink', code: 'NU34', hex: '#C86C85', is_drum_available: false },
+  { id: 'bne-nu26', product_id: '', name: 'Signal Red', code: 'NU26', hex: '#B72B28', is_drum_available: false },
+
+  // Yellows & Oranges
+  { id: 'bne-nu43', product_id: '', name: 'Cameo', code: 'NU43', hex: '#F9C8A9', is_drum_available: false },
+  { id: 'bne-nu23', product_id: '', name: 'Orange', code: 'NU23', hex: '#E85E32', is_drum_available: false },
+  { id: 'bne-nu36', product_id: '', name: 'Deep Orange', code: 'NU36', hex: '#E84E26', is_drum_available: false },
+  { id: 'bne-nu49', product_id: '', name: 'Lemon', code: 'NU49', hex: '#F9B824', is_drum_available: false },
+  { id: 'bne-nu25', product_id: '', name: 'Golden Yellow', code: 'NU25', hex: '#F99824', is_drum_available: false },
+
+  // Greys & Purples
+  { id: 'bne-nu15', product_id: '', name: 'Ash White', code: 'NU15', hex: '#F5F5E5', is_drum_available: false },
+  { id: 'bne-nu28', product_id: '', name: 'Oyster', code: 'NU28', hex: '#C0C0B0', is_drum_available: false },
+  { id: 'bne-nu20', product_id: '', name: 'New Pumice', code: 'NU20', hex: '#CFD8D0', is_drum_available: false },
+  { id: 'bne-nu17', product_id: '', name: 'New Court Grey', code: 'NU17', hex: '#A2B2AB', is_drum_available: false },
+  { id: 'bne-nu16', product_id: '', name: 'Smoke Grey', code: 'NU16', hex: '#788484', is_drum_available: false },
+  { id: 'bne-nu18', product_id: '', name: 'New Smoke Grey', code: 'NU18', hex: '#54646C', is_drum_available: false },
+  { id: 'bne-nu45', product_id: '', name: 'Dark Grey', code: 'NU45', hex: '#505858', is_drum_available: false },
+  { id: 'bne-nu53', product_id: '', name: 'Champagne', code: 'NU53', hex: '#585444', is_drum_available: false },
+  { id: 'bne-nu35', product_id: '', name: 'Soft Violet', code: 'NU35', hex: '#B0A2C9', is_drum_available: false },
+
+  // Metallic Shades
+  { id: 'bne-nu54', product_id: '', name: 'Sparkling Silver', code: 'NU54', hex: '#A0A0A0', is_drum_available: false },
+  { id: 'bne-nu58', product_id: '', name: 'Champagne Metallic', code: 'NU58', hex: '#A8988C', is_drum_available: false },
+  { id: 'bne-nu57', product_id: '', name: 'Gold Dust', code: 'NU57', hex: '#9D8A68', is_drum_available: false },
+  { id: 'bne-nu59', product_id: '', name: 'Green Shimmer', code: 'NU59', hex: '#8CA08C', is_drum_available: false },
+  { id: 'bne-nu55', product_id: '', name: 'Bright Gold', code: 'NU55', hex: '#98784D', is_drum_available: false },
+  { id: 'bne-nu64', product_id: '', name: 'Jeep Green', code: 'NU64', hex: '#1D543A', is_drum_available: false },
+  { id: 'bne-nu60', product_id: '', name: 'Copper', code: 'NU60', hex: '#845F4D', is_drum_available: false },
+  { id: 'bne-nu56', product_id: '', name: 'Ocean Blue', code: 'NU56', hex: '#4D7D8C', is_drum_available: false },
+  { id: 'bne-nu61', product_id: '', name: 'Brown Sheen', code: 'NU61', hex: '#544D44', is_drum_available: false },
+  { id: 'bne-nu63', product_id: '', name: 'Sparkling Blue', code: 'NU63', hex: '#3A648C', is_drum_available: false },
+  { id: 'bne-nu62', product_id: '', name: 'Chocolate Brown', code: 'NU62', hex: '#3F332E', is_drum_available: false },
+  { id: 'bne-nu65', product_id: '', name: 'Black Pearl', code: 'NU65', hex: '#212428', is_drum_available: false },
+
+  // White Request
+  { id: 'bne-9207', product_id: '', name: 'White', code: '9207', hex: '#FFFFFF', is_drum_available: false },
+];
+
 
 
 
