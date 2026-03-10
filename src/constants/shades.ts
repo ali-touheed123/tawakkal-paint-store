@@ -2403,6 +2403,60 @@ export const BERGER_NU_ENAMEL_SHADES: Shade[] = [
   { id: 'bne-9207', product_id: '', name: 'White', code: '9207', hex: '#FFFFFF', is_drum_available: false },
 ];
 
+export const BERGER_NU_EMULSION_SHADES: Shade[] = [
+  // Whites & Beiges
+  { id: 'bnu-3121', product_id: '', name: 'Pale White', code: '3121', hex: '#F8F8F0', is_drum_available: false },
+  { id: 'bnu-0482', product_id: '', name: 'Badami', code: '0482', hex: '#F8F4E5', is_drum_available: false },
+  { id: 'bnu-1121', product_id: '', name: 'Apple White', code: '1121', hex: '#F5FBE0', is_drum_available: false },
+  { id: 'bnu-2141', product_id: '', name: 'Off White', code: '2141', hex: '#FDFDF5', is_drum_available: false },
+  { id: 'bnu-0392', product_id: '', name: 'Magnolia', code: '0392', hex: '#F6E1CD', is_drum_available: false },
+  { id: 'bnu-0393', product_id: '', name: 'Cream', code: '0393', hex: '#F8E8D5', is_drum_available: false },
+  { id: 'bnu-1015', product_id: '', name: 'Cockleshell', code: '1015', hex: '#F5DEC9', is_drum_available: false },
+  { id: 'bnu-0383', product_id: '', name: 'Mushroom', code: '0383', hex: '#E1DACD', is_drum_available: false },
+  { id: 'bnu-0373', product_id: '', name: 'Cameo', code: '0373', hex: '#EDC9B5', is_drum_available: false },
+
+  // Greens & Blues
+  { id: 'bnu-1241', product_id: '', name: 'Bluebell White', code: '1241', hex: '#F0F5E0', is_drum_available: false },
+  { id: 'bnu-4182', product_id: '', name: 'Soft Green', code: '4182', hex: '#E0F5D5', is_drum_available: false },
+  { id: 'bnu-1233', product_id: '', name: 'Light Green', code: '1233', hex: '#C9E5C9', is_drum_available: false },
+  { id: 'bnu-1244', product_id: '', name: 'Fresh Green', code: '1244', hex: '#93C47D', is_drum_available: false },
+  { id: 'bnu-1265', product_id: '', name: 'Deep Green', code: '1265', hex: '#6AA84F', is_drum_available: false },
+  { id: 'bnu-5186', product_id: '', name: 'Spring Leaf', code: '5186', hex: '#667C4D', is_drum_available: false },
+  { id: 'bnu-1343', product_id: '', name: 'Sea Blue', code: '1343', hex: '#C9E5F5', is_drum_available: false },
+  { id: 'bnu-2353', product_id: '', name: 'Heaven Blue', code: '2353', hex: '#B5D5F5', is_drum_available: false },
+  { id: 'bnu-5191', product_id: '', name: 'Bright Blue', code: '5191', hex: '#66A3D2', is_drum_available: false },
+  { id: 'bnu-4306', product_id: '', name: 'Deep Blue', code: '4306', hex: '#4D728C', is_drum_available: false },
+
+  // Yellows & Browns
+  { id: 'bnu-2102', product_id: '', name: 'Corn', code: '2102', hex: '#FFF9D5', is_drum_available: false },
+  { id: 'bnu-1104', product_id: '', name: 'Banana Peel', code: '1104', hex: '#FFD578', is_drum_available: false },
+  { id: 'bnu-5114', product_id: '', name: 'Sand Stone', code: '5114', hex: '#C8B39B', is_drum_available: false },
+  { id: 'bnu-0585', product_id: '', name: 'Copper', code: '0585', hex: '#98785D', is_drum_available: false },
+
+  // Pinks & Oranges
+  { id: 'bnu-0162', product_id: '', name: 'Rose White', code: '0162', hex: '#FFF5F0', is_drum_available: false },
+  { id: 'bnu-0252', product_id: '', name: 'Blush White', code: '0252', hex: '#F8E5E5', is_drum_available: false },
+  { id: 'bnu-0213', product_id: '', name: 'Moon Flower', code: '0213', hex: '#FDE2D8', is_drum_available: false },
+  { id: 'bnu-1493', product_id: '', name: 'Pink', code: '1493', hex: '#F9E5F5', is_drum_available: false },
+  { id: 'bnu-0414', product_id: '', name: 'Tea Rose', code: '0414', hex: '#E1C4C4', is_drum_available: false },
+  { id: 'bnu-0245', product_id: '', name: 'Continental Spice', code: '0245', hex: '#F9A48C', is_drum_available: false },
+  { id: 'bnu-0354', product_id: '', name: 'Oriental Spice', code: '0354', hex: '#E1957D', is_drum_available: false },
+  { id: 'bnu-0156', product_id: '', name: 'Peach', code: '0156', hex: '#F9A878', is_drum_available: false },
+  { id: 'bnu-0116', product_id: '', name: 'Light Red', code: '0116', hex: '#F57866', is_drum_available: false },
+  { id: 'bnu-0227', product_id: '', name: 'Poppy', code: '0227', hex: '#D85454', is_drum_available: false },
+
+  // Greys & Purples
+  { id: 'bnu-9001', product_id: '', name: 'Ash White', code: '9001', hex: '#F5F5F0', is_drum_available: false },
+  { id: 'bnu-5201', product_id: '', name: 'Dove White', code: '5201', hex: '#EBEBEB', is_drum_available: false },
+  { id: 'bnu-7047', product_id: '', name: 'Dove Grey', code: '7047', hex: '#D5D5D5', is_drum_available: false },
+  { id: 'bnu-0592', product_id: '', name: 'Lavender White', code: '0592', hex: '#FFF5F5', is_drum_available: false },
+  { id: 'bnu-1413', product_id: '', name: 'Violet', code: '1413', hex: '#D5D5F5', is_drum_available: false },
+  { id: 'bnu-3425', product_id: '', name: 'Mauve', code: '3425', hex: '#A293B0', is_drum_available: false },
+
+  // Pure White Request
+  { id: 'bnu-9207', product_id: '', name: 'Pure White', code: '9207', hex: '#FFFFFF', is_drum_available: false },
+];
+
 
 
 
