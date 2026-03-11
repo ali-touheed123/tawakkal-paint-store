@@ -2735,6 +2735,89 @@ export const DIAMOND_ACE_ACRYLIC_PLASTIC_EMULSION_SHADES: Shade[] = [
   { id: 'dae-0591', product_id: '', name: 'Grey Dawning', code: '0591', hex: '#B5BAB9', is_drum_available: false },
 ];
 
+export const DIAMOND_ACE_MATT_ENAMEL_SHADES: Shade[] = [
+  // Row 1
+  { id: 'dam-1029', product_id: '', name: 'Pumpkin', code: '1029', hex: '#CF7B3D', is_drum_available: false },
+  { id: 'dam-1058', product_id: '', name: 'Angel', code: '1058', hex: '#E4C4CC', is_drum_available: false },
+  { id: 'dam-1007', product_id: '', name: 'Off White', code: '1007', hex: '#F9F8E4', is_drum_available: false },
+  { id: 'dam-1050', product_id: '', name: 'Mustard', code: '1050', hex: '#C4935D', is_drum_available: false },
+  { id: 'dam-1062', product_id: '', name: 'Cinnamon', code: '1062', hex: '#C48982', is_drum_available: false },
+  { id: 'dam-1402', product_id: '', name: 'Harbor Blue', code: '1402', hex: '#3D7D9D', is_drum_available: false },
+  { id: 'dam-1405', product_id: '', name: 'Golden Brown', code: '1405', hex: '#896D58', is_drum_available: false },
+  { id: 'dam-1016', product_id: '', name: 'Black', code: '1016', hex: '#2E3131', is_drum_available: false },
+  { id: 'dam-1051', product_id: '', name: 'Havana', code: '1051', hex: '#896D5D', is_drum_available: false },
+  { id: 'dam-1031', product_id: '', name: 'Reflection', code: '1031', hex: '#F9F5E1', is_drum_available: false },
+
+  // Row 2
+  { id: 'dam-1061', product_id: '', name: 'Yarn Beige', code: '1061', hex: '#D4C7B5', is_drum_available: false },
+  { id: 'dam-1041', product_id: '', name: 'Antique White', code: '1041', hex: '#D1D4C1', is_drum_available: false },
+  { id: 'dam-1045', product_id: '', name: 'Fresh Lime', code: '1045', hex: '#C1C458', is_drum_available: false },
+  { id: 'dam-1074', product_id: '', name: 'Ocean Blue', code: '1074', hex: '#B5D9D4', is_drum_available: false },
+  { id: 'dam-1072', product_id: '', name: 'Light Green', code: '1072', hex: '#CBE6BD', is_drum_available: false },
+  { id: 'dam-1015', product_id: '', name: 'Halo', code: '1015', hex: '#D1CEBD', is_drum_available: false },
+  { id: 'dam-1030', product_id: '', name: 'Rose Lemon', code: '1030', hex: '#FCDB63', is_drum_available: false },
+  { id: 'dam-1013', product_id: '', name: 'Ash White', code: '1013', hex: '#D9DED4', is_drum_available: false },
+  { id: 'dam-1004', product_id: '', name: 'Rose White', code: '1004', hex: '#FDF4E1', is_drum_available: false },
+  { id: 'dam-1071', product_id: '', name: 'Lime Twist', code: '1071', hex: '#E1E6A9', is_drum_available: false },
+
+  // Row 3
+  { id: 'dam-1413', product_id: '', name: 'Terra Rose', code: '1413', hex: '#C1A396', is_drum_available: false },
+  { id: 'dam-1022', product_id: '', name: 'Soft Peach', code: '1022', hex: '#E1C7A9', is_drum_available: false },
+  { id: 'dam-1039', product_id: '', name: 'Torres Blue', code: '1039', hex: '#BBD6E1', is_drum_available: false },
+  { id: 'dam-1408', product_id: '', name: 'Cockleshell', code: '1408', hex: '#FBD9B5', is_drum_available: false },
+  { id: 'dam-1006', product_id: '', name: 'Vintage', code: '1006', hex: '#E1D9C1', is_drum_available: false },
+  { id: 'dam-1017', product_id: '', name: 'Lavender White', code: '1017', hex: '#D9DEDF', is_drum_available: false },
+  { id: 'dam-1019', product_id: '', name: 'Yellow Glove', code: '1019', hex: '#FCED9D', is_drum_available: false },
+  { id: 'dam-1005', product_id: '', name: 'Spoonbread', code: '1005', hex: '#FDE9C4', is_drum_available: false },
+  { id: 'dam-1033', product_id: '', name: 'Peach Whisper', code: '1033', hex: '#F9E1CD', is_drum_available: false },
+  { id: 'dam-1012', product_id: '', name: 'Light Lime', code: '1012', hex: '#E1E69D', is_drum_available: false },
+
+  // Row 4
+  { id: 'dam-1076', product_id: '', name: 'Zinnia Scarlet', code: '1076', hex: '#C46368', is_drum_available: false },
+  { id: 'dam-1412', product_id: '', name: 'Honey Frost', code: '1412', hex: '#D9D4B5', is_drum_available: false },
+  { id: 'dam-1035', product_id: '', name: 'Kitten White', code: '1035', hex: '#F1EED9', is_drum_available: false },
+  { id: 'dam-1044', product_id: '', name: 'White Ice', code: '1044', hex: '#E4ECE1', is_drum_available: false },
+  { id: 'dam-1082', product_id: '', name: 'Woven Green', code: '1082', hex: '#A3A97D', is_drum_available: false },
+  { id: 'dam-1025', product_id: '', name: 'Moon Shadow', code: '1025', hex: '#CBD9D6', is_drum_available: false },
+  { id: 'dam-1026', product_id: '', name: 'Utopia', code: '1026', hex: '#C1A989', is_drum_available: false },
+  { id: 'dam-1078', product_id: '', name: 'Desire', code: '1078', hex: '#A9A9C1', is_drum_available: false },
+  { id: 'dam-1057', product_id: '', name: 'Light Pink', code: '1057', hex: '#ECD9CD', is_drum_available: false },
+  { id: 'dam-1410', product_id: '', name: 'Shallow', code: '1410', hex: '#7DC4C1', is_drum_available: false },
+
+  // Row 5
+  { id: 'dam-1053', product_id: '', name: 'Jade', code: '1053', hex: '#487D7D', is_drum_available: false },
+  { id: 'dam-1055', product_id: '', name: 'First Dawn', code: '1055', hex: '#93BBD1', is_drum_available: false },
+  { id: 'dam-1403', product_id: '', name: 'Layricat Pink', code: '1403', hex: '#D99D9D', is_drum_available: false },
+  { id: 'dam-1415', product_id: '', name: 'Clear Sky', code: '1415', hex: '#A3C1C4', is_drum_available: false },
+  { id: 'dam-1414', product_id: '', name: 'Onyx', code: '1414', hex: '#B5BEA9', is_drum_available: false },
+  { id: 'dam-1065', product_id: '', name: 'Blue Street', code: '1065', hex: '#587DA9', is_drum_available: false },
+  { id: 'dam-1407', product_id: '', name: 'Ocean Dip', code: '1407', hex: '#488996', is_drum_available: false },
+  { id: 'dam-1010', product_id: '', name: 'Cockleshell', code: '1010', hex: '#F1E1BD', is_drum_available: false },
+  { id: 'dam-1070', product_id: '', name: 'Sheesham', code: '1070', hex: '#68584D', is_drum_available: false },
+  { id: 'dam-1069', product_id: '', name: 'Puff', code: '1069', hex: '#F9D9B5', is_drum_available: false },
+
+  // Row 6
+  { id: 'dam-1404', product_id: '', name: 'Bike Riding', code: '1404', hex: '#969DBC', is_drum_available: false },
+  { id: 'dam-1409', product_id: '', name: 'Cherry', code: '1409', hex: '#C14863', is_drum_available: false },
+  { id: 'dam-1401', product_id: '', name: 'Patina Pink', code: '1401', hex: '#934863', is_drum_available: false },
+  { id: 'dam-1032', product_id: '', name: 'Pebble Grey', code: '1032', hex: '#96A3AD', is_drum_available: false },
+  { id: 'dam-1406', product_id: '', name: 'Bubble Gum', code: '1406', hex: '#E69D89', is_drum_available: false },
+  { id: 'dam-1075', product_id: '', name: 'Shingle', code: '1075', hex: '#FBDEDA', is_drum_available: false },
+  { id: 'dam-1420', product_id: '', name: 'Chandni', code: '1420', hex: '#FDFBF0', is_drum_available: false },
+  { id: 'dam-1421', product_id: '', name: 'Bone White', code: '1421', hex: '#FDF2DA', is_drum_available: false },
+  { id: 'dam-1422', product_id: '', name: 'Grey Touch', code: '1422', hex: '#CED6D6', is_drum_available: false },
+  { id: 'dam-1423', product_id: '', name: 'Cozy', code: '1423', hex: '#FCEBD4', is_drum_available: false },
+
+  // Row 7
+  { id: 'dam-1008', product_id: '', name: 'Apricot', code: '1008', hex: '#F9B57D', is_drum_available: false },
+  { id: 'dam-1054', product_id: '', name: 'Cool Blue', code: '1054', hex: '#A3D9E6', is_drum_available: false },
+  { id: 'dam-1049', product_id: '', name: 'Buff', code: '1049', hex: '#CBA389', is_drum_available: false },
+  { id: 'dam-1077', product_id: '', name: 'Dawn Glow', code: '1077', hex: '#B9BDD9', is_drum_available: false },
+  { id: 'dam-1048', product_id: '', name: 'Peach Goddess', code: '1048', hex: '#E6C7AE', is_drum_available: false },
+  { id: 'dam-1424', product_id: '', name: 'Light Grey', code: '1424', hex: '#D1D9D4', is_drum_available: false },
+  { id: 'dam-1001', product_id: '', name: 'Brilliant White', code: '1001', hex: '#FFFFFF', is_drum_available: false },
+];
+
 
 
 
