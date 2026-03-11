@@ -3449,6 +3449,9 @@ export const DIAMOND_OVERALL_AQUAMAX_WATER_MATT_SHADES: Shade[] = [
   { id: 'doawm-8342', product_id: '', name: 'Black', code: '8342', hex: '#2D2D2D', is_drum_available: true },
 ];
 
-
-
-
+export const DIAMOND_ACE_TIMBERLAC_WOOD_STAINS_SHADES: Shade[] = [
+  { id: 'datwss-3402', product_id: '', name: 'Walnut', code: '3402', hex: '#5C3A1E', image_url: '/images/products/diamond/walnut 3402.png', is_drum_available: false },
+  { id: 'datwss-3408', product_id: '', name: 'Teak', code: '3408', hex: '#8B5E3C', image_url: '/images/products/diamond/teak 3408.png', is_drum_available: false },
+  { id: 'datwss-3409', product_id: '', name: 'Mocha Latte', code: '3409', hex: '#7A5C48', image_url: '/images/products/diamond/mocha latte 3409.png', is_drum_available: false },
+  { id: 'datwss-3410', product_id: '', name: 'Diyar', code: '3410', hex: '#A0785A', image_url: '/images/products/diamond/diyar 3410.png', is_drum_available: false },
+];

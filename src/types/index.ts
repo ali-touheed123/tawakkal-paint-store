@@ -351,6 +351,7 @@ export interface Shade {
   name: string;
   code: string;
   hex: string;
+  image_url?: string;
   is_drum_available: boolean;
   created_at?: string;
 }

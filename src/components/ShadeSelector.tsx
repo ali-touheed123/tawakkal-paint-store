@@ -44,13 +44,14 @@ export function ShadeSelector({ shades, selectedSize, onSelect }: ShadeSelectorP
     };
 
     const selectedShade = shades.find(s => s.id === selectedShadeId);
+    const isImageBased = shades.some(s => s.image_url);
 
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-baseline gap-2">
                     <h3 className="text-sm font-bold text-navy uppercase tracking-widest">
-                        Choose Color
+                        {isImageBased ? 'Choose Shade' : 'Choose Color'}
                     </h3>
                     {selectedShade && (
                         <span className="text-sm font-medium text-gray-500">: {selectedShade.name}</span>
@@ -63,59 +64,102 @@ export function ShadeSelector({ shades, selectedSize, onSelect }: ShadeSelectorP
                 )}
             </div>
 
-            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2.5 max-h-[400px] overflow-y-auto pr-2 scrollbar-hide py-2 aspect-square sm:aspect-auto">
-                <AnimatePresence mode="popLayout">
-                    {filteredShades.map((shade) => (
-                        <motion.button
-                            key={shade.id}
-                            layout
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
-                            onClick={() => handleSelect(shade)}
-                            className={`relative aspect-square rounded-full border-2 transition-all p-0.5 ${selectedShadeId === shade.id
-                                ? 'border-navy shadow-lg scale-110 z-10'
-                                : 'border-transparent hover:border-navy/20'
-                                }`}
-                            title={`${shade.name} (${shade.code})`}
-                        >
-                            <div
-                                className="w-full h-full rounded-full flex items-center justify-center"
-                                style={{ backgroundColor: shade.hex }}
+            {isImageBased ? (
+                /* Image-based swatches — larger rectangular tiles */
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-hide py-2">
+                    <AnimatePresence mode="popLayout">
+                        {filteredShades.map((shade) => (
+                            <motion.button
+                                key={shade.id}
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                onClick={() => handleSelect(shade)}
+                                className={`relative rounded-xl overflow-hidden border-2 transition-all ${selectedShadeId === shade.id
+                                    ? 'border-navy shadow-lg scale-[1.03] z-10'
+                                    : 'border-transparent hover:border-navy/30'
+                                    }`}
+                                title={`${shade.name} (${shade.code})`}
                             >
+                                <img
+                                    src={shade.image_url}
+                                    alt={shade.name}
+                                    className="w-full aspect-square object-cover"
+                                />
                                 {selectedShadeId === shade.id && (
-                                    <Check
-                                        size={12}
-                                        className={`drop-shadow-md ${isLightColor(shade.hex) ? 'text-navy' : 'text-white'}`}
-                                    />
+                                    <div className="absolute inset-0 bg-navy/20 flex items-center justify-center">
+                                        <div className="bg-white rounded-full p-1 shadow-md">
+                                            <Check size={14} className="text-navy" />
+                                        </div>
+                                    </div>
                                 )}
-                            </div>
-                        </motion.button>
-                    ))}
-                </AnimatePresence>
-            </div>
+                                <div className="bg-white/90 backdrop-blur-sm px-2 py-1.5 text-center absolute bottom-0 left-0 right-0">
+                                    <p className="text-[11px] font-bold text-navy leading-tight">{shade.name}</p>
+                                    <p className="text-[10px] text-gray-500">{shade.code}</p>
+                                </div>
+                            </motion.button>
+                        ))}
+                    </AnimatePresence>
+                </div>
+            ) : (
+                /* Hex color swatches — original round circles */
+                <>
+                    <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2.5 max-h-[400px] overflow-y-auto pr-2 scrollbar-hide py-2 aspect-square sm:aspect-auto">
+                        <AnimatePresence mode="popLayout">
+                            {filteredShades.map((shade) => (
+                                <motion.button
+                                    key={shade.id}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    onClick={() => handleSelect(shade)}
+                                    className={`relative aspect-square rounded-full border-2 transition-all p-0.5 ${selectedShadeId === shade.id
+                                        ? 'border-navy shadow-lg scale-110 z-10'
+                                        : 'border-transparent hover:border-navy/20'
+                                        }`}
+                                    title={`${shade.name} (${shade.code})`}
+                                >
+                                    <div
+                                        className="w-full h-full rounded-full flex items-center justify-center"
+                                        style={{ backgroundColor: shade.hex }}
+                                    >
+                                        {selectedShadeId === shade.id && (
+                                            <Check
+                                                size={12}
+                                                className={`drop-shadow-md ${isLightColor(shade.hex) ? 'text-navy' : 'text-white'}`}
+                                            />
+                                        )}
+                                    </div>
+                                </motion.button>
+                            ))}
+                        </AnimatePresence>
+                    </div>
 
-            <AnimatePresence>
-                {selectedShade && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        className="bg-gray-50 rounded-xl p-4 border border-gray-100 shadow-sm"
-                    >
-                        <div className="flex items-center gap-4">
-                            <div
-                                className="w-12 h-12 rounded-lg border border-gray-200 shadow-inner"
-                                style={{ backgroundColor: selectedShade.hex }}
-                            />
-                            <div>
-                                <p className="text-sm font-bold text-navy">{selectedShade.name}</p>
-                                <p className="text-xs text-gray-500 font-medium">{selectedShade.code}</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                    <AnimatePresence>
+                        {selectedShade && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 10 }}
+                                className="bg-gray-50 rounded-xl p-4 border border-gray-100 shadow-sm"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div
+                                        className="w-12 h-12 rounded-lg border border-gray-200 shadow-inner"
+                                        style={{ backgroundColor: selectedShade.hex }}
+                                    />
+                                    <div>
+                                        <p className="text-sm font-bold text-navy">{selectedShade.name}</p>
+                                        <p className="text-xs text-gray-500 font-medium">{selectedShade.code}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </>
+            )}
         </div>
     );
 }
