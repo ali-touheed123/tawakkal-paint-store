@@ -138,6 +138,9 @@ INSERT INTO products (name, brand, category, sub_category, description, image_ur
 ('Diamond Varnish', 'Diamond', 'decorative', 'wood_metal', 'Durable high gloss varnish', '/images/products/diamond/Warnish-630x630.png', 1900, 6500, 0, true),
 ('Diamond Water Matt', 'Diamond', 'decorative', 'wood_metal', 'Water based matt wood finish', '/images/products/diamond/Water-Matt-1-1024x657-removebg-preview.png', 1550, 5300, 0, true),
 ('Diamond Weather Protector', 'Diamond', 'decorative', 'exterior', 'All-weather exterior protector', '/images/products/diamond/weather protector.png', 1700, 5800, 27000, true),
+('Diamond Overall Aquamax Water Matt', 'Diamond', 'decorative', 'wood_metal', 'High quality water-based matt finish', '/images/products/diamond/diamond_overall_aquamax_water_matt.png', 1550, 5300, 0, true),
+('Diamond Overall Matt Enamel', 'Diamond', 'decorative', 'wood_metal', 'Durable matt enamel finish for multiple surfaces', '/images/products/diamond/diamond_overall_matt_enamel.png', 1700, 5800, 27000, true),
+('Diamond Value Emulsion', 'Diamond', 'decorative', 'interior', 'Cost-effective high quality wall emulsion', '/images/products/diamond/diamond_value_emulsion.png', 1500, 5150, 24000, true);
 
 -- ------------------------------------------------------------------------------------------------
 -- RELIANCE PRODUCTS (8)
