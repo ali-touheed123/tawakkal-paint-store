@@ -45,7 +45,7 @@ export function SearchOverlay() {
         .from('products')
         .select('*')
         .ilike('name', `%${query}%`)
-        .limit(10);
+        .limit(20);
       
       if (data) setResults(data as Product[]);
       setLoading(false);
@@ -62,7 +62,7 @@ export function SearchOverlay() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-navy/95 backdrop-blur-lg"
+          className="fixed inset-0 z-50 bg-navy/95 backdrop-blur-lg overflow-y-auto pb-20"
         >
           <div className="max-w-4xl mx-auto px-4 pt-24">
             <div className="relative">
@@ -95,7 +95,7 @@ export function SearchOverlay() {
                 {results.map((product) => (
                   <Link
                     key={product.id}
-                    href={`/category/${product.category}`}
+                    href={`/product/${product.id}`}
                     onClick={() => {
                       setSearchOpen(false);
                       setQuery('');
