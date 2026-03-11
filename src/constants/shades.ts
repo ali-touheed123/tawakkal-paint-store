@@ -2915,6 +2915,91 @@ export const DIAMOND_ACE_SUPER_GLOSS_ENAMEL_SHADES: Shade[] = [
   { id: 'dsg-0004', product_id: '', name: 'Brilliant Green (Hammer)', code: '0004', hex: '#006348', is_drum_available: false },
 ];
 
+export const DIAMOND_OVERALL_SUPER_EMULSION_SHADES: Shade[] = [
+  // Image 1 - Top Row
+  { id: 'dos-7064', product_id: '', name: 'Hot Sunset', code: '7064', hex: '#D6896D', is_drum_available: false },
+  { id: 'dos-7029', product_id: '', name: 'Rose White', code: '7029', hex: '#FDFCEB', is_drum_available: false },
+  { id: 'dos-7008', product_id: '', name: 'Summer Pink', code: '7008', hex: '#FDE4DC', is_drum_available: false },
+  { id: 'dos-7013', product_id: '', name: 'Light Green', code: '7013', hex: '#E4EED9', is_drum_available: false },
+  { id: 'dos-7099', product_id: '', name: 'Iris Pink', code: '7099', hex: '#FDBDC1', is_drum_available: false },
+  { id: 'dos-7002', product_id: '', name: 'Ash White', code: '7002', hex: '#F1F1E4', is_drum_available: false },
+  { id: 'dos-7098', product_id: '', name: 'Deep Green', code: '7098', hex: '#58A98E', is_drum_available: false },
+  { id: 'dos-7065', product_id: '', name: 'Marry Gold', code: '7065', hex: '#D9B563', is_drum_available: false },
+
+  // Image 1 - Middle Row
+  { id: 'dos-7062', product_id: '', name: 'Swiss Miss', code: '7062', hex: '#E6BDCE', is_drum_available: false },
+  { id: 'dos-7033', product_id: '', name: 'Peach', code: '7033', hex: '#F9AC8E', is_drum_available: false },
+  { id: 'dos-7004', product_id: '', name: 'Moon Flower', code: '7004', hex: '#FDF4ED', is_drum_available: false },
+  { id: 'dos-7014', product_id: '', name: 'Lemon Green', code: '7014', hex: '#B5D193', is_drum_available: false },
+  { id: 'dos-7016', product_id: '', name: 'Palm Green', code: '7016', hex: '#898963', is_drum_available: false },
+  { id: 'dos-7038', product_id: '', name: 'Royal Blue', code: '7038', hex: '#5889B5', is_drum_available: false },
+  { id: 'dos-7050', product_id: '', name: 'Whisper', code: '7050', hex: '#C1CED1', is_drum_available: false },
+  { id: 'dos-7067', product_id: '', name: 'Princess Bride', code: '7067', hex: '#E1C7BE', is_drum_available: false },
+
+  // Image 1 - Bottom Row
+  { id: 'dos-7025', product_id: '', name: 'Mushroom', code: '7025', hex: '#D9C7AC', is_drum_available: false },
+  { id: 'dos-7063', product_id: '', name: 'Apricot', code: '7063', hex: '#F9C793', is_drum_available: false },
+  { id: 'dos-7040', product_id: '', name: 'Moon Light', code: '7040', hex: '#F1F4E4', is_drum_available: false },
+  { id: 'dos-7015', product_id: '', name: 'Emerald', code: '7015', hex: '#A3D1B5', is_drum_available: false },
+  { id: 'dos-7034', product_id: '', name: 'Parasol', code: '7034', hex: '#CED4E6', is_drum_available: false },
+  { id: 'dos-7080', product_id: '', name: 'Ferozee', code: '7080', hex: '#48A3A9', is_drum_available: false },
+  { id: 'dos-7044', product_id: '', name: 'Coca Milk', code: '7044', hex: '#E6D9B5', is_drum_available: false },
+  { id: 'dos-7023', product_id: '', name: 'Canvas Mauve', code: '7023', hex: '#9689A9', is_drum_available: false },
+
+  // Image 2 - Row 1
+  { id: 'dos-7003', product_id: '', name: 'Off White', code: '7003', hex: '#FDFCEC', is_drum_available: false },
+  { id: 'dos-7039', product_id: '', name: 'Star Dust', code: '7039', hex: '#D1E1E1', is_drum_available: false },
+  { id: 'dos-7024', product_id: '', name: 'Zephyr', code: '7024', hex: '#E4DED1', is_drum_available: false },
+  { id: 'dos-7094', product_id: '', name: 'Harvest Orange', code: '7094', hex: '#E18948', is_drum_available: false },
+  { id: 'dos-7026', product_id: '', name: 'Shell Grey', code: '7026', hex: '#A3A9A9', is_drum_available: false },
+  { id: 'dos-7011', product_id: '', name: 'Orange', code: '7011', hex: '#F1AC7D', is_drum_available: false },
+  { id: 'dos-7093', product_id: '', name: 'Pastel Blue', code: '7093', hex: '#BBDEDF', is_drum_available: false },
+  { id: 'dos-7037', product_id: '', name: 'Jewel Blue', code: '7037', hex: '#7DC1DC', is_drum_available: false },
+  { id: 'dos-7045', product_id: '', name: 'Ruby Red', code: '7045', hex: '#D96D6D', is_drum_available: false },
+  { id: 'dos-7095', product_id: '', name: 'Golf Green', code: '7095', hex: '#2E7D58', is_drum_available: false },
+
+  // Image 2 - Row 2
+  { id: 'dos-7018', product_id: '', name: 'Lemon', code: '7018', hex: '#FCDF6D', is_drum_available: false },
+  { id: 'dos-7019', product_id: '', name: 'Sunny Blue', code: '7019', hex: '#9DBBD9', is_drum_available: false },
+  { id: 'dos-7028', product_id: '', name: 'Peach Goddess', code: '7028', hex: '#F1E1BD', is_drum_available: false },
+  { id: 'dos-7043', product_id: '', name: 'Pale Peach', code: '7043', hex: '#FDE9C4', is_drum_available: false },
+  { id: 'dos-7020', product_id: '', name: 'Silver Grey', code: '7020', hex: '#CED4D4', is_drum_available: false },
+  { id: 'dos-7027', product_id: '', name: 'Sakura Sand', code: '7027', hex: '#B5B5A3', is_drum_available: false },
+  { id: 'dos-7046', product_id: '', name: 'Pine Apple Twist', code: '7046', hex: '#FDF1BD', is_drum_available: false },
+  { id: 'dos-7058', product_id: '', name: 'Tea Rose', code: '7058', hex: '#D1C4BD', is_drum_available: false },
+  { id: 'dos-7021', product_id: '', name: 'Mauve', code: '7021', hex: '#A3A3B5', is_drum_available: false },
+  { id: 'dos-7048', product_id: '', name: 'Green Summit', code: '7048', hex: '#7DC47D', is_drum_available: false },
+
+  // Image 2 - Row 3
+  { id: 'dos-7056', product_id: '', name: 'Cockleshell', code: '7056', hex: '#F1EEDB', is_drum_available: false },
+  { id: 'dos-7005', product_id: '', name: 'Cream', code: '7005', hex: '#FDF1CB', is_drum_available: false },
+  { id: 'dos-7022', product_id: '', name: 'Honey Dew', code: '7022', hex: '#E6D4B5', is_drum_available: false },
+  { id: 'dos-7031', product_id: '', name: 'Lavender White', code: '7031', hex: '#E4E6E4', is_drum_available: false },
+  { id: 'dos-7012', product_id: '', name: 'Apple Green', code: '7012', hex: '#BDD9B5', is_drum_available: false },
+  { id: 'dos-7042', product_id: '', name: 'Orchid Shadow', code: '7042', hex: '#D9DEDF', is_drum_available: false },
+  { id: 'dos-7097', product_id: '', name: 'Canvas Pink', code: '7097', hex: '#C47D96', is_drum_available: false },
+  { id: 'dos-7006', product_id: '', name: 'Sandstone', code: '7006', hex: '#D9D1BD', is_drum_available: false },
+  { id: 'dos-7017', product_id: '', name: 'Black', code: '7017', hex: '#212121', is_drum_available: false },
+  { id: 'dos-7001', product_id: '', name: 'White', code: '7001', hex: '#FFFFFF', is_drum_available: false },
+
+  // Image 2 - Row 4
+  { id: 'dos-7059', product_id: '', name: 'Terracotta', code: '7059', hex: '#936D5D', is_drum_available: false },
+  { id: 'dos-7061', product_id: '', name: 'Zenia', code: '7061', hex: '#E4C4AE', is_drum_available: false },
+  { id: 'dos-7066', product_id: '', name: 'Mustard', code: '7066', hex: '#C49D63', is_drum_available: false },
+  { id: 'dos-7030', product_id: '', name: 'Badami', code: '7030', hex: '#FDF1D9', is_drum_available: false },
+  { id: 'dos-7086', product_id: '', name: 'Melody Green', code: '7086', hex: '#CBE6D1', is_drum_available: false },
+  { id: 'dos-7047', product_id: '', name: 'Cameo', code: '7047', hex: '#E6C7A3', is_drum_available: false },
+  { id: 'dos-7009', product_id: '', name: 'Lilac', code: '7009', hex: '#E6E4F1', is_drum_available: false },
+
+  // Image 3
+  { id: 'dos-7032', product_id: '', name: 'Captivate', code: '7032', hex: '#D9E6ED', is_drum_available: false },
+  { id: 'dos-7007', product_id: '', name: 'Cool Blue', code: '7007', hex: '#C4EEDF', is_drum_available: false },
+  { id: 'dos-7010', product_id: '', name: 'Spice', code: '7010', hex: '#89755D', is_drum_available: false },
+  { id: 'dos-7041', product_id: '', name: 'Tile Red', code: '7041', hex: '#9D4D4D', is_drum_available: false },
+  { id: 'dos-7096', product_id: '', name: 'Fresh Green', code: '7096', hex: '#D9E6A9', is_drum_available: false },
+  { id: 'dos-7049', product_id: '', name: 'Dove Grey', code: '7049', hex: '#A3AD9D', is_drum_available: false },
+];
+
 
 
 
