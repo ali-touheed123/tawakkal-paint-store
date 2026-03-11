@@ -2678,6 +2678,63 @@ export const DIAMOND_OVERALL_PLASTICCOAT_EMULSION_SHADES: Shade[] = [
   { id: 'dop-7838', product_id: '', name: 'Ribbon Yellow', code: '7838', hex: '#FEED8D', is_drum_available: false },
 ];
 
+export const DIAMOND_ACE_ACRYLIC_PLASTIC_EMULSION_SHADES: Shade[] = [
+  // Row 1
+  { id: 'dae-0550', product_id: '', name: 'Brilliant White', code: '0550', hex: '#FFFFFF', is_drum_available: false },
+  { id: 'dae-0513', product_id: '', name: 'Off White', code: '0513', hex: '#FDFDF2', is_drum_available: false },
+  { id: 'dae-0553', product_id: '', name: 'Henna', code: '0553', hex: '#B59D68', is_drum_available: false },
+  { id: 'dae-0509', product_id: '', name: 'Cockleshell', code: '0509', hex: '#F1E1D1', is_drum_available: false },
+  { id: 'dae-0530', product_id: '', name: 'Peach Cream', code: '0530', hex: '#FDF2E1', is_drum_available: false },
+  { id: 'dae-0535', product_id: '', name: 'Rose White', code: '0535', hex: '#FDFBF0', is_drum_available: false },
+  { id: 'dae-0541', product_id: '', name: 'Brown Stone', code: '0541', hex: '#E1D9CD', is_drum_available: false },
+  { id: 'dae-0561', product_id: '', name: 'Mid Blue', code: '0561', hex: '#A9D1E6', is_drum_available: false },
+  { id: 'dae-0501', product_id: '', name: 'Nursery Pink', code: '0501', hex: '#F9D9D9', is_drum_available: false },
+  { id: 'dae-0516', product_id: '', name: 'Cream', code: '0516', hex: '#EED9B5', is_drum_available: false },
+  { id: 'dae-0556', product_id: '', name: 'Monsoon', code: '0556', hex: '#BBDDEE', is_drum_available: false },
+
+  // Row 2
+  { id: 'dae-0528', product_id: '', name: 'Cocoa Bean', code: '0528', hex: '#A99382', is_drum_available: false },
+  { id: 'dae-0517', product_id: '', name: 'Kitten White', code: '0517', hex: '#F1ECD9', is_drum_available: false },
+  { id: 'dae-0538', product_id: '', name: 'Peach', code: '0538', hex: '#F9E5D4', is_drum_available: false },
+  { id: 'dae-0562', product_id: '', name: 'Ivory', code: '0562', hex: '#F9F1D9', is_drum_available: false },
+  { id: 'dae-0505', product_id: '', name: 'Antique White', code: '0505', hex: '#E9E5D4', is_drum_available: false },
+  { id: 'dae-0523', product_id: '', name: 'Cloudy White', code: '0523', hex: '#E9EDF0', is_drum_available: false },
+  { id: 'dae-0511', product_id: '', name: 'Blue Street', code: '0511', hex: '#3168B0', is_drum_available: false },
+  { id: 'dae-0552', product_id: '', name: 'Snowfall', code: '0552', hex: '#EDF4F5', is_drum_available: false },
+  { id: 'dae-0581', product_id: '', name: 'Brazil Nut', code: '0581', hex: '#D9C4A9', is_drum_available: false },
+  { id: 'dae-0582', product_id: '', name: 'Diamond Red', code: '0582', hex: '#C14842', is_drum_available: false },
+
+  // Row 3
+  { id: 'dae-0554', product_id: '', name: 'Tea Pink', code: '0554', hex: '#EBD9CD', is_drum_available: false },
+  { id: 'dae-0539', product_id: '', name: 'Fresh Orange', code: '0539', hex: '#F9A373', is_drum_available: false },
+  { id: 'dae-0512', product_id: '', name: 'Spice', code: '0512', hex: '#896D5D', is_drum_available: false },
+  { id: 'dae-0533', product_id: '', name: 'Crown Gold', code: '0533', hex: '#EBD193', is_drum_available: false },
+  { id: 'dae-0565', product_id: '', name: 'Green Mist', code: '0565', hex: '#D1DFC9', is_drum_available: false },
+  { id: 'dae-0583', product_id: '', name: 'Smoke Sky', code: '0583', hex: '#636D6D', is_drum_available: false },
+  { id: 'dae-0584', product_id: '', name: 'Black', code: '0584', hex: '#212121', is_drum_available: false },
+  { id: 'dae-0585', product_id: '', name: 'Shadow Rose', code: '0585', hex: '#F4ECE4', is_drum_available: false },
+  { id: 'dae-0586', product_id: '', name: 'Pressed Rose', code: '0586', hex: '#D1C4BC', is_drum_available: false },
+  { id: 'dae-0587', product_id: '', name: 'Egg Shell', code: '0587', hex: '#FDFDF5', is_drum_available: false },
+
+  // Row 4
+  { id: 'dae-0504', product_id: '', name: 'Honey Dew', code: '0504', hex: '#EEDCBD', is_drum_available: false },
+  { id: 'dae-0506', product_id: '', name: 'Charisma', code: '0506', hex: '#D9E5ED', is_drum_available: false },
+  { id: 'dae-0532', product_id: '', name: 'Tile Red', code: '0532', hex: '#893D38', is_drum_available: false },
+  { id: 'dae-0508', product_id: '', name: 'Pastel Blue', code: '0508', hex: '#C4E9F1', is_drum_available: false },
+  { id: 'dae-0546', product_id: '', name: 'Jade', code: '0546', hex: '#3D7373', is_drum_available: false },
+  { id: 'dae-0588', product_id: '', name: 'Lavender White', code: '0588', hex: '#F4F4ED', is_drum_available: false },
+  { id: 'dae-0589', product_id: '', name: 'Ice Grey', code: '0589', hex: '#D6DCDD', is_drum_available: false },
+
+  // Row 5
+  { id: 'dae-0537', product_id: '', name: 'Ash White', code: '0537', hex: '#EDF0EB', is_drum_available: false },
+  { id: 'dae-0515', product_id: '', name: 'Classical', code: '0515', hex: '#C1A3B9', is_drum_available: false },
+  { id: 'dae-0536', product_id: '', name: 'Apple White', code: '0536', hex: '#F9FDE9', is_drum_available: false },
+  { id: 'dae-0544', product_id: '', name: 'Zephyr', code: '0544', hex: '#F1E1CD', is_drum_available: false },
+  { id: 'dae-0527', product_id: '', name: 'Fawn', code: '0527', hex: '#E5D6C1', is_drum_available: false },
+  { id: 'dae-0590', product_id: '', name: 'Garden Patch', code: '0590', hex: '#89919D', is_drum_available: false },
+  { id: 'dae-0591', product_id: '', name: 'Grey Dawning', code: '0591', hex: '#B5BAB9', is_drum_available: false },
+];
+
 
 
 
