@@ -2457,6 +2457,51 @@ export const BERGER_NU_EMULSION_SHADES: Shade[] = [
   { id: 'bnu-9207', product_id: '', name: 'Pure White', code: '9207', hex: '#FFFFFF', is_drum_available: false },
 ];
 
+export const BERGER_ELEGANCE_SILK_EMULSION_SHADES: Shade[] = [
+  // Whites, Beiges & Peaches
+  { id: 'ese-9215', product_id: '', name: 'Off White', code: '9215', hex: '#FDFDF5', is_drum_available: false },
+  { id: 'ese-9493', product_id: '', name: 'Lavendar White', code: '9493', hex: '#F0F5F5', is_drum_available: false },
+  { id: 'ese-9278', product_id: '', name: 'Antique White', code: '9278', hex: '#FAF9F5', is_drum_available: false },
+  { id: 'ese-9219', product_id: '', name: 'Cotton Ball', code: '9219', hex: '#FFFFFF', is_drum_available: false },
+  { id: 'ese-9286', product_id: '', name: 'Off White Plus', code: '9286', hex: '#FDFCEE', is_drum_available: false },
+  { id: 'ese-1184', product_id: '', name: 'Ivory Silk', code: '1184', hex: '#F5EDDF', is_drum_available: false },
+  { id: 'ese-1343', product_id: '', name: 'Cockleshell', code: '1343', hex: '#EBD9C6', is_drum_available: false },
+  { id: 'ese-1160', product_id: '', name: 'Sand Dune', code: '1160', hex: '#E6D0B9', is_drum_available: false },
+  { id: 'ese-9288', product_id: '', name: 'Pearl', code: '9288', hex: '#E0E4E5', is_drum_available: false },
+  { id: 'ese-4062', product_id: '', name: 'Pearl Glow', code: '4062', hex: '#E9EAF5', is_drum_available: false },
+  { id: 'ese-3081', product_id: '', name: 'Pink Violet', code: '3081', hex: '#FBF0F9', is_drum_available: false },
+  { id: 'ese-3080', product_id: '', name: 'Jasmine Scent', code: '3080', hex: '#FFFFFF', is_drum_available: false },
+  { id: 'ese-7801', product_id: '', name: 'Kitten White', code: '7801', hex: '#F5F1E9', is_drum_available: false },
+  { id: 'ese-3127', product_id: '', name: 'Rose Petal', code: '3127', hex: '#FDEEE9', is_drum_available: false },
+  { id: 'ese-1157', product_id: '', name: 'Peach Goddess', code: '1157', hex: '#F9DEC9', is_drum_available: false },
+
+  // Greys & Purples
+  { id: 'ese-9279', product_id: '', name: 'Ash White', code: '9279', hex: '#F5F5F0', is_drum_available: false },
+  { id: 'ese-5183', product_id: '', name: 'Dove White', code: '5183', hex: '#EBEBEB', is_drum_available: false },
+  { id: 'ese-7180', product_id: '', name: 'Grey Blue', code: '7180', hex: '#C9D8E1', is_drum_available: false },
+  { id: 'ese-7136', product_id: '', name: 'Dove Grey', code: '7136', hex: '#B5B9BA', is_drum_available: false },
+  { id: 'ese-7186', product_id: '', name: 'Thunder Grey', code: '7186', hex: '#8E98A5', is_drum_available: false },
+  { id: 'ese-8051', product_id: '', name: 'Lace', code: '8051', hex: '#F5EBF5', is_drum_available: false },
+  { id: 'ese-4046', product_id: '', name: 'Orchard Lane', code: '4046', hex: '#E0D5F5', is_drum_available: false },
+  { id: 'ese-8065', product_id: '', name: 'Elegance', code: '8065', hex: '#937DB0', is_drum_available: false },
+
+  // Blues, Greens & Yellows
+  { id: 'ese-5135', product_id: '', name: 'Lake Blue', code: '5135', hex: '#93C9DB', is_drum_available: false },
+  { id: 'ese-5129', product_id: '', name: 'Celestial', code: '5129', hex: '#AFDAF5', is_drum_available: false },
+  { id: 'ese-5136', product_id: '', name: 'Ocean Blue', code: '5136', hex: '#A3C4F5', is_drum_available: false },
+  { id: 'ese-5124', product_id: '', name: 'Blue Street', code: '5124', hex: '#2E5894', is_drum_available: false },
+  { id: 'ese-6391', product_id: '', name: 'Spring Blossom', code: '6391', hex: '#F5FBE0', is_drum_available: false },
+  { id: 'ese-1302', product_id: '', name: 'Lemon Grass', code: '1302', hex: '#EDF3D1', is_drum_available: false },
+  { id: 'ese-6136', product_id: '', name: 'Mint Leaf', code: '6136', hex: '#E0F5E0', is_drum_available: false },
+  { id: 'ese-1161', product_id: '', name: 'Mango Mood', code: '1161', hex: '#FFD27D', is_drum_available: false },
+
+  // Oranges, Reds & Browns
+  { id: 'ese-3113', product_id: '', name: 'Fresh Orange', code: '3113', hex: '#FF8D4F', is_drum_available: false },
+  { id: 'ese-1162', product_id: '', name: 'Gold Mist', code: '1162', hex: '#B5935D', is_drum_available: false },
+  { id: 'ese-3122', product_id: '', name: 'Tile Red', code: '3122', hex: '#9F4D4D', is_drum_available: false },
+  { id: 'ese-3090', product_id: '', name: 'Chocolate', code: '3090', hex: '#5D4D48', is_drum_available: false },
+];
+
 
 
 
