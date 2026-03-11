@@ -124,7 +124,7 @@ INSERT INTO products (name, brand, category, sub_category, description, image_ur
 ('Diamond Overall High Gloss Enamel', 'Diamond', 'decorative', 'wood_metal', 'Professional high gloss enamel', '/images/products/diamond/overall high gloss enamel.webp', 1800, 6150, 28500, true),
 ('Diamond Overall Metallic', 'Diamond', 'decorative', 'interior', 'Metallic series decorative finish', '/images/products/diamond/overall Metallic_4a2aed52-6c7c-4333-8fd4-6b9a28539b5b.webp', 1700, 5800, 0, true),
 ('Diamond Overall Paint Remover', 'Diamond', 'decorative', 'accessories', 'Strong stripping paint remover', '/images/products/diamond/overall paintremover_c194d12d-0970-4148-b03f-8f5c667d2d40.webp', 1500, 5100, 0, true),
-('Diamond Overall Plasticcoat Special Shade', 'Diamond', 'decorative', 'interior', 'Special shade plasticcoat emulsion', '/images/products/diamond/overall plasticcoat emulsion speciel shade.webp', 1450, 4900, 22800, true),
+
 ('Diamond Overall Plasticcoat Emulsion', 'Diamond', 'decorative', 'interior', 'Standard plasticcoat wall emulsion', '/images/products/diamond/overall plasticcoat emulsion.webp', 1350, 4600, 21500, true),
 ('Diamond Overall Primer Filler Putty', 'Diamond', 'decorative', 'accessories', 'Dual purpose primer and filler', '/images/products/diamond/overall primerfiller putty_e88f82b7-caf7-4294-b7af-f487bd48bf35.webp', 850, 2900, 0, true),
 ('Diamond Overall Super Emulsion', 'Diamond', 'decorative', 'interior', 'Performance super wall emulsion', '/images/products/diamond/overall super emulsion.webp', 1500, 5150, 24000, true),
