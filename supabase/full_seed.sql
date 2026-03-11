@@ -26,7 +26,7 @@ INSERT INTO products (name, brand, category, sub_category, description, image_ur
 ('Berger Allrounder Matt Enamel', 'Berger', 'decorative', 'wood_metal', 'Multi-surface matt enamel finish', '/images/products/berger/allrounder matt enamel (wood, metal & wall).webp', 1850, 6400, 29000, true),
 ('Berger Elegance Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion for elegant walls', '/images/products/berger/elegance emulsion.png', 1650, 5600, 26000, true),
 ('Berger Elegance Interior Putty', 'Berger', 'decorative', 'accessories', 'Finely textured interior wall putty', '/images/products/berger/elegance enterior putty.webp', 720, 2500, 0, true),
-('Berger Elegance Silk Finish', 'Berger', 'decorative', 'interior', 'Luxurious silk-like finish for interiors', '/images/products/berger/elegance silk finish.png', 1800, 6200, 28500, true),
+('Berger Elegance Silk Emulsion', 'Berger', 'decorative', 'interior', 'Luxurious silk-like finish for interiors', '/images/products/berger/elegance silk emulsion.png', 1800, 6200, 28500, true),
 ('Berger Elegance Water Base Primer', 'Berger', 'decorative', 'accessories', 'Breathable water based primer', '/images/products/berger/elegance water base priemer.webp', 600, 2100, 9500, true),
 ('Berger NU Emulsion', 'Berger', 'decorative', 'interior', 'Standard quality wall emulsion', '/images/products/berger/nu emulsion.png', 1350, 4600, 21500, true),
 ('Berger NU Enamel', 'Berger', 'decorative', 'wood_metal', 'Durable enamel for wood and metal', '/images/products/berger/nu enamel.png', 1700, 5800, 27000, true),
