@@ -3241,6 +3241,83 @@ export const DIAMOND_EVERLAST_HIGH_GLOSS_ENAMEL_SHADES: Shade[] = [
   { id: 'dee-1612', product_id: '', name: 'Black Pearl (Metallic)', code: '1612', hex: '#1A1A1A', is_drum_available: false },
 ];
 
+export const DIAMOND_ACE_DURASILK_EMULSION_SHADES: Shade[] = [
+  // Page 1
+  { id: 'dad-8578', product_id: '', name: 'Egg White', code: '8578', hex: '#FFFFFF', is_drum_available: true },
+  { id: 'dad-8504', product_id: '', name: 'Antique White', code: '8504', hex: '#F2F1E6', is_drum_available: true },
+  { id: 'dad-8555', product_id: '', name: 'Cloud Grey', code: '8555', hex: '#EAEAE2', is_drum_available: true },
+  { id: 'dad-8553', product_id: '', name: 'Shadow Rose', code: '8553', hex: '#DAE0E0', is_drum_available: true },
+  { id: 'dad-8584', product_id: '', name: 'Snowdrop', code: '8584', hex: '#F5F9F1', is_drum_available: true },
+  { id: 'dad-8571', product_id: '', name: 'Warm Stone', code: '8571', hex: '#EBE6D9', is_drum_available: true },
+  { id: 'dad-8583', product_id: '', name: 'Dove White', code: '8583', hex: '#F2F1E6', is_drum_available: true },
+  { id: 'dad-8509', product_id: '', name: 'Candle Wax', code: '8509', hex: '#EAE6D6', is_drum_available: true },
+  { id: 'dad-8505', product_id: '', name: 'Snow White', code: '8505', hex: '#E6EAEB', is_drum_available: true },
+  { id: 'dad-8585', product_id: '', name: 'Cockleshell', code: '8585', hex: '#E6E3D1', is_drum_available: true },
+  { id: 'dad-8561', product_id: '', name: 'Off White', code: '8561', hex: '#FCF9E6', is_drum_available: true },
+  { id: 'dad-8503', product_id: '', name: 'Apricot White', code: '8503', hex: '#EFE9D8', is_drum_available: true },
+  { id: 'dad-8580', product_id: '', name: 'Reflection', code: '8580', hex: '#F0EFE6', is_drum_available: true },
+  { id: 'dad-8552', product_id: '', name: 'Ash Grey', code: '8552', hex: '#B5BCB5', is_drum_available: true },
+  { id: 'dad-8587', product_id: '', name: 'Chandni', code: '8587', hex: '#E9E9D8', is_drum_available: true },
+  { id: 'dad-8572', product_id: '', name: 'Gentle White', code: '8572', hex: '#FCFBFA', is_drum_available: true },
+  { id: 'dad-8573', product_id: '', name: 'Kitten White', code: '8573', hex: '#ECE8D9', is_drum_available: true },
+  { id: 'dad-8507', product_id: '', name: 'Creamy White', code: '8507', hex: '#FDFBE6', is_drum_available: true },
+  { id: 'dad-8586', product_id: '', name: 'Ice Star', code: '8586', hex: '#585E60', is_drum_available: true },
+  { id: 'dad-8506', product_id: '', name: 'Egg Shell', code: '8506', hex: '#EBE9D9', is_drum_available: true },
+  { id: 'dad-8502', product_id: '', name: 'Pearl White', code: '8502', hex: '#FDFCEB', is_drum_available: true },
+  { id: 'dad-8568', product_id: '', name: 'Snow Cotton', code: '8568', hex: '#F2F1ED', is_drum_available: true },
+  { id: 'dad-8562', product_id: '', name: 'Ash White', code: '8562', hex: '#EAECE6', is_drum_available: true },
+  { id: 'dad-8564', product_id: '', name: 'Black', code: '8564', hex: '#2A2D2D', is_drum_available: true },
+  { id: 'dad-8511', product_id: '', name: 'Sugar Cane', code: '8511', hex: '#E6D9B5', is_drum_available: true },
+
+  // Page 2
+  { id: 'dad-8516', product_id: '', name: 'Cheese Cake', code: '8516', hex: '#FCF3C2', is_drum_available: true },
+  { id: 'dad-8576', product_id: '', name: 'Cameo', code: '8576', hex: '#F2D9A9', is_drum_available: true },
+  { id: 'dad-8512', product_id: '', name: 'Beige', code: '8512', hex: '#D1BD8F', is_drum_available: true },
+  { id: 'dad-8544', product_id: '', name: 'Polar Adventure', code: '8544', hex: '#E1F2F5', is_drum_available: true },
+  { id: 'dad-8547', product_id: '', name: 'Precious Green', code: '8547', hex: '#C2D9B5', is_drum_available: true },
+  { id: 'dad-8517', product_id: '', name: 'Fresh Pasta', code: '8517', hex: '#E9E3B5', is_drum_available: true },
+  { id: 'dad-8574', product_id: '', name: 'African Orange', code: '8574', hex: '#F19E45', is_drum_available: true },
+  { id: 'dad-8521', product_id: '', name: 'Coppertone', code: '8521', hex: '#C7AC8F', is_drum_available: true },
+  { id: 'dad-8548', product_id: '', name: 'Summer Day', code: '8548', hex: '#D9E9E6', is_drum_available: true },
+  { id: 'dad-8569', product_id: '', name: 'Pacific Ocean', code: '8569', hex: '#58BDB5', is_drum_available: true },
+  { id: 'dad-8518', product_id: '', name: 'Buttermilk', code: '8518', hex: '#F2DF9E', is_drum_available: true },
+  { id: 'dad-8526', product_id: '', name: 'Salmon', code: '8526', hex: '#E6B99E', is_drum_available: true },
+  { id: 'dad-8523', product_id: '', name: 'Red Haze', code: '8523', hex: '#A99381', is_drum_available: true },
+  { id: 'dad-8543', product_id: '', name: 'Clear Sky', code: '8543', hex: '#B5D1E1', is_drum_available: true },
+  { id: 'dad-8545', product_id: '', name: 'Blue Flame', code: '8545', hex: '#7DA9CF', is_drum_available: true },
+  { id: 'dad-8514', product_id: '', name: 'Sweet Cream', code: '8514', hex: '#FBC381', is_drum_available: true },
+  { id: 'dad-8528', product_id: '', name: 'Arizona Sunset', code: '8528', hex: '#E69363', is_drum_available: true },
+  { id: 'dad-8525', product_id: '', name: 'Trondheim', code: '8525', hex: '#B58C63', is_drum_available: true },
+  { id: 'dad-8541', product_id: '', name: 'Ice Turquoise', code: '8541', hex: '#B5E1E6', is_drum_available: true },
+  { id: 'dad-8542', product_id: '', name: 'Bluebell', code: '8542', hex: '#7DBCDC', is_drum_available: true },
+  { id: 'dad-8513', product_id: '', name: 'Week Tea', code: '8513', hex: '#F9D9A3', is_drum_available: true },
+  { id: 'dad-8529', product_id: '', name: 'Fire Bush', code: '8529', hex: '#BC7D58', is_drum_available: true },
+  { id: 'dad-8522', product_id: '', name: 'Havana', code: '8522', hex: '#8C6E58', is_drum_available: true },
+  { id: 'dad-8577', product_id: '', name: 'Royal Blue', code: '8577', hex: '#32588C', is_drum_available: true },
+  { id: 'dad-8570', product_id: '', name: 'Peacock Blue', code: '8570', hex: '#317181', is_drum_available: true },
+
+  // Page 3
+  { id: 'dad-8539', product_id: '', name: 'Snow Bell', code: '8539', hex: '#51BDC7', is_drum_available: true },
+  { id: 'dad-8532', product_id: '', name: 'Coral Pink', code: '8532', hex: '#FCE6D9', is_drum_available: true },
+  { id: 'dad-8534', product_id: '', name: 'Cherry Blossom', code: '8534', hex: '#F9CFD2', is_drum_available: true },
+  { id: 'dad-8508', product_id: '', name: 'Gardenia', code: '8508', hex: '#EAF1D9', is_drum_available: true },
+  { id: 'dad-8510', product_id: '', name: 'Manila Tan', code: '8510', hex: '#CEC7AD', is_drum_available: true },
+  { id: 'dad-8538', product_id: '', name: 'Plum Frost', code: '8538', hex: '#C2C2D1', is_drum_available: true },
+  { id: 'dad-8533', product_id: '', name: 'Petal Pink', code: '8533', hex: '#F9E1D9', is_drum_available: true },
+  { id: 'dad-8537', product_id: '', name: 'Festive Pink', code: '8537', hex: '#BC7D96', is_drum_available: true },
+  { id: 'dad-8546', product_id: '', name: 'Lime Twist', code: '8546', hex: '#F1F9BC', is_drum_available: true },
+  { id: 'dad-8530', product_id: '', name: 'Strawberry Jam', code: '8530', hex: '#A3423D', is_drum_available: true },
+  { id: 'dad-8540', product_id: '', name: 'Purple Heather', code: '8540', hex: '#A9ACCC', is_drum_available: true },
+  { id: 'dad-8535', product_id: '', name: 'Bubble Gum', code: '8535', hex: '#EEA99E', is_drum_available: true },
+  { id: 'dad-8515', product_id: '', name: 'Caramel Cream', code: '8515', hex: '#FBC78C', is_drum_available: true },
+  { id: 'dad-8551', product_id: '', name: 'Herbal Fusion', code: '8551', hex: '#E6EDC2', is_drum_available: true },
+  { id: 'dad-8501', product_id: '', name: 'Brilliant White', code: '8501', hex: '#F2F9FD', is_drum_available: true },
+
+  // Page 4
+  { id: 'dad-8536', product_id: '', name: 'Dolly', code: '8536', hex: '#CF8C93', is_drum_available: true },
+  { id: 'dad-8567', product_id: '', name: 'Purple Velvet', code: '8567', hex: '#584D58', is_drum_available: true },
+];
+
 
 
 
