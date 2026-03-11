@@ -3361,6 +3361,48 @@ export const DIAMOND_VALUE_EMULSION_SHADES: Shade[] = [
   { id: 'dve-7575', product_id: '', name: 'Royal Blue', code: '7575', hex: '#457DA9', is_drum_available: true },
 ];
 
+export const DIAMOND_OVERALL_MATT_ENAMEL_SHADES: Shade[] = [
+  // Page 1
+  { id: 'dome-1705', product_id: '', name: 'Honey White', code: '1705', hex: '#FCF5D9', is_drum_available: true },
+  { id: 'dome-1707', product_id: '', name: 'Off White', code: '1707', hex: '#FDFCEB', is_drum_available: true },
+  { id: 'dome-1717', product_id: '', name: 'Lavender White', code: '1717', hex: '#EBEBEB', is_drum_available: true },
+  { id: 'dome-1713', product_id: '', name: 'Ash White', code: '1713', hex: '#E6EAEB', is_drum_available: true },
+  { id: 'dome-1772', product_id: '', name: 'Light Green', code: '1772', hex: '#DAE9D2', is_drum_available: true },
+  { id: 'dome-1782', product_id: '', name: 'Woven Green', code: '1782', hex: '#BDBE9E', is_drum_available: true },
+  { id: 'dome-1721', product_id: '', name: 'Emerald', code: '1721', hex: '#5FA374', is_drum_available: true },
+  { id: 'dome-1722', product_id: '', name: 'Forest Green', code: '1722', hex: '#2A5E42', is_drum_available: true },
+  { id: 'dome-1704', product_id: '', name: 'Light Peach', code: '1704', hex: '#FDF1E6', is_drum_available: true },
+  { id: 'dome-1735', product_id: '', name: 'Kitten White', code: '1735', hex: '#FDFCEB', is_drum_available: true },
+  { id: 'dome-1708', product_id: '', name: 'Cozy', code: '1708', hex: '#FCE6D1', is_drum_available: true },
+  { id: 'dome-1709', product_id: '', name: 'Baby Pink', code: '1709', hex: '#FCE9DE', is_drum_available: true },
+  { id: 'dome-1723', product_id: '', name: 'Stone Grey', code: '1723', hex: '#CED9D9', is_drum_available: true },
+  { id: 'dome-1724', product_id: '', name: 'Light Grey', code: '1724', hex: '#BDBEBC', is_drum_available: true },
+  { id: 'dome-1725', product_id: '', name: 'Steel Grey', code: '1725', hex: '#7D8E8E', is_drum_available: true },
+  { id: 'dome-1726', product_id: '', name: 'Honey Dew', code: '1726', hex: '#FDF6E6', is_drum_available: true },
+  { id: 'dome-1733', product_id: '', name: 'Peach Whisper', code: '1733', hex: '#F2E3D1', is_drum_available: true },
+  { id: 'dome-1710', product_id: '', name: 'Lime Yellow', code: '1710', hex: '#FBD981', is_drum_available: true },
+  { id: 'dome-1711', product_id: '', name: 'Mango Yellow', code: '1711', hex: '#F9AC45', is_drum_available: true },
+  { id: 'dome-1715', product_id: '', name: 'Classical Orange', code: '1715', hex: '#F9BD8C', is_drum_available: true },
+  { id: 'dome-1727', product_id: '', name: 'Sea Blue', code: '1727', hex: '#A9D1E6', is_drum_available: true },
+  { id: 'dome-1728', product_id: '', name: 'Royal Blue', code: '1728', hex: '#3271A3', is_drum_available: true },
+  { id: 'dome-1729', product_id: '', name: 'Canvas', code: '1729', hex: '#BDB69E', is_drum_available: true },
+  { id: 'dome-1714', product_id: '', name: 'Lake Water', code: '1714', hex: '#B5BEB5', is_drum_available: true },
+
+  // Page 2
+  { id: 'dome-1718', product_id: '', name: 'Bubble Gum', code: '1718', hex: '#E9AC8C', is_drum_available: true },
+  { id: 'dome-1719', product_id: '', name: 'Paprika', code: '1719', hex: '#D18E6E', is_drum_available: true },
+  { id: 'dome-1720', product_id: '', name: 'Candy Pink', code: '1720', hex: '#F2D1D9', is_drum_available: true },
+  { id: 'dome-1759', product_id: '', name: 'Carnival Pink', code: '1759', hex: '#D17181', is_drum_available: true },
+  { id: 'dome-1730', product_id: '', name: 'Diyar', code: '1730', hex: '#E6C29E', is_drum_available: true },
+  { id: 'dome-1731', product_id: '', name: 'Polish Brown', code: '1731', hex: '#A98163', is_drum_available: true },
+  { id: 'dome-1781', product_id: '', name: 'Classical', code: '1781', hex: '#EBD1D9', is_drum_available: true },
+  { id: 'dome-1783', product_id: '', name: 'Lilac Time', code: '1783', hex: '#D9DCF1', is_drum_available: true },
+  { id: 'dome-1756', product_id: '', name: 'Purple Passion', code: '1756', hex: '#8C7D9E', is_drum_available: true },
+  { id: 'dome-1712', product_id: '', name: 'Lime Light', code: '1712', hex: '#EAF1C2', is_drum_available: true },
+  { id: 'dome-1716', product_id: '', name: 'Black', code: '1716', hex: '#2A2D2D', is_drum_available: true },
+  { id: 'dome-1701', product_id: '', name: 'Brilliant White', code: '1701', hex: '#FDFDFD', is_drum_available: true },
+];
+
 
 
 
