@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { MessageCircle, Instagram, Facebook, Phone, MapPin } from 'lucide-react';
+import { MessageCircle, Instagram, Facebook, Phone, MapPin, Music2 } from 'lucide-react';
 import { useLocationStore, useUIStore } from '@/lib/store';
 import { useSettings } from '@/lib/hooks/useSettings';
 
@@ -60,6 +60,15 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
+              </a>
+              <a
+                href={settings?.socials?.tiktok || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gold transition-colors"
+                aria-label="TikTok"
+              >
+                <Music2 size={20} />
               </a>
             </div>
           </div>

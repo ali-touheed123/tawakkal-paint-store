@@ -13,7 +13,8 @@ import {
     Globe,
     Loader2,
     Plus,
-    X
+    X,
+    Music2
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
@@ -21,7 +22,7 @@ export default function SettingsPage() {
     const [settings, setSettings] = useState<any>({
         logo: '',
         contact: { phone: '', email: '', whatsapp: '' },
-        socials: { facebook: '', instagram: '' },
+        socials: { facebook: '', instagram: '', tiktok: '' },
         banners: [] as string[],
         deals_base_pricing: {
             local: 50000,
@@ -187,6 +188,16 @@ export default function SettingsPage() {
                                     onChange={(e) => handleNestedUpdate('socials', 'instagram', e.target.value)}
                                     className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg outline-none focus:border-gold text-sm"
                                     placeholder="Instagram URL"
+                                />
+                            </div>
+                            <div className="relative">
+                                <Music2 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                                <input
+                                    type="text"
+                                    value={settings.socials?.tiktok}
+                                    onChange={(e) => handleNestedUpdate('socials', 'tiktok', e.target.value)}
+                                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg outline-none focus:border-gold text-sm"
+                                    placeholder="TikTok URL"
                                 />
                             </div>
                         </div>

@@ -108,6 +108,7 @@ export interface SiteSettings {
   socials?: {
     facebook: string;
     instagram: string;
+    tiktok?: string;
   };
   banners?: string[];
   deals_base_pricing?: {
