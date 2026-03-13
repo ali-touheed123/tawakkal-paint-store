@@ -1,6 +1,6 @@
 -- Minimal seed with no images first
 INSERT INTO products (name, brand, category, sub_category, description, price_quarter, price_gallon, price_drum, in_stock) VALUES
-('Weather Coat Elegance Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion', 1450, 4900, 22800, true),
+('Weather Coat Elegance Matt Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion', 1450, 4900, 22800, true),
 ('Weather Coat Silk Finish', 'Berger', 'decorative', 'interior', 'Luxurious silk finish', 1600, 5500, 25500, true),
 ('Weather Coat NU Emulsion', 'Berger', 'decorative', 'interior', 'Premium quality emulsion', 1350, 4600, 21400, true),
 ('Weather Coat Super Gloss Enamel', 'Berger', 'decorative', 'wood_metal', 'Super gloss enamel', 1750, 6000, 27900, true),

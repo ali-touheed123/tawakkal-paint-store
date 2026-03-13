@@ -9,7 +9,7 @@ DELETE FROM users;
 -- Berger's Products
 INSERT INTO products (name, brand, category, sub_category, description, image_url, price_quarter, price_gallon, price_drum, in_stock) VALUES
 -- Berger Interior
-('Weather Coat Elegance Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion with elegant finish', '/images/products/berger/elegance emulsion.png', 1450, 4900, 22800, true),
+('Weather Coat Elegance Matt Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion with elegant finish', '/images/products/berger/elegance emulsion.png', 1450, 4900, 22800, true),
 ('Weather Coat Silk Finish', 'Berger', 'decorative', 'interior', 'Luxurious silk finish for interior walls', '/images/products/berger/elegance silk finish.png', 1600, 5500, 25500, true),
 ('Weather Coat NU Emulsion', 'Berger', 'decorative', 'interior', 'Premium quality emulsion paint', '/images/products/berger/nu emulsion.png', 1350, 4600, 21400, true),
 ('Weather Coat Semi Plastic Emulsion', 'Berger', 'decorative', 'interior', 'Semi plastic emulsion for walls', '/images/products/berger/semi plastic emulsion.png', 1200, 4100, 19000, true),

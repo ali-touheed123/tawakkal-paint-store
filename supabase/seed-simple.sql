@@ -1,6 +1,6 @@
 -- Berger Products
 INSERT INTO products (name, brand, category, sub_category, description, image_url, price_quarter, price_gallon, price_drum, in_stock) VALUES
-('Weather Coat Elegance Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion', '/images/products/berger/elegance emulsion.png', 1450, 4900, 22800, true);
+('Weather Coat Elegance Matt Emulsion', 'Berger', 'decorative', 'interior', 'Premium interior emulsion', '/images/products/berger/elegance emulsion.png', 1450, 4900, 22800, true);
 
 INSERT INTO products (name, brand, category, sub_category, description, image_url, price_quarter, price_gallon, price_drum, in_stock) VALUES
 ('Weather Coat Silk Finish', 'Berger', 'decorative', 'interior', 'Luxurious silk finish', '/images/products/berger/elegance silk finish.png', 1600, 5500, 25500, true);
