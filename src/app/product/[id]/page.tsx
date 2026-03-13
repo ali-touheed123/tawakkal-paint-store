@@ -256,58 +256,67 @@ export default function ProductDetailPage() {
                 const isDiamondOverallMattEnamel = productData.brand === 'Diamond' && productData.name?.toLowerCase().includes('overall matt enamel');
                 const isDiamondOverallAquamaxWaterMatt = productData.brand === 'Diamond' && productData.name?.toLowerCase().includes('aquamax');
                 const isDiamondAceTimberlacWoodStains = productData.brand === 'Diamond' && productData.name?.toLowerCase().includes('timberlac wood stain');
-                let defaultShades = isSuperEmulsion ? BRIGHTO_SHADES
-                    : isSyntheticEnamel ? BRIGHTO_ENAMEL_SHADES
-                        : isPlasticEmulsion ? BRIGHTO_PLASTIC_EMULSION_SHADES
-                            : isAllWeather ? BRIGHTO_ALL_WEATHER_SHADES
-                                : isSaasiHydrous ? SAASI_HYDROUS_SHADES
-                                    : isSaasiMattEnamel ? SAASI_MATT_ENAMEL_SHADES
-                                        : isSaasiPlasticEmulsion ? SAASI_PLASTIC_EMULSION_SHADES
-                                            : isSaasiSuperGlossEnamel ? SAASI_SUPER_GLOSS_ENAMEL_SHADES
-                                                : isSaasiWeatherSafe ? SAASI_WEATHER_SAFE_SHADES
-                                                    : isBrightoStainFree ? BRIGHTO_PLASTIC_EMULSION_SHADES
-                                                        : isGobisIndustrialEnamel ? GOBIS_INDUSTRIAL_ENAMEL_SHADES
-                                                            : isGobisStovingPaint ? GOBIS_STOVING_PAINT_SHADES
-                                                                : isGobisCarmanSeries ? GOBIS_CARMAN_SERIES_SHADES
-                                                                    : isGobisSilverlineEnamel ? GOBIS_SILVERLINE_ENAMEL_SHADES
-                                                                        : isGobisSilverlineEmulsion ? GOBIS_SILVERLINE_EMULSION_SHADES
-                                                                            : isGobisGoldLuxuriousWallEmulsion ? GOBIS_GOLD_LUXURIOUS_WALL_EMULSION_SHADES
-                                                                                : isGobisSilksheenEmulsion ? GOBIS_SILKSHEEN_EMULSION_SHADES
-                                                                                    : isGobisGoldEnamel ? GOBIS_GOLD_ENAMEL_SHADES
-                                                                                        : isGobisAqueousMattFinish ? GOBIS_AQUEOUS_MATT_FINISH_SHADES
-                                                                                            : isGobisGoldAqueousMattFinish ? GOBIS_GOLD_AQUEOUS_MATT_FINISH_SHADES
-                                                                                                : isGobisGoldEggshellMattFinish ? GOBIS_GOLD_EGGSHELL_MATT_FINISH_SHADES
-                                                                                                    : isGobisGlossEnamel ? GOBIS_GLOSS_ENAMEL_SHADES
-                                                                                                        : isGobisEggshellMattEnamel ? GOBIS_EGGSHELL_MATT_ENAMEL_SHADES
-                                                                                                            : isReliableWeatherProtector ? RELIABLE_WEATHER_PROTECTOR_SHADES
-                                                                                                                : (isReliableMattEnamel || productData.name === 'Reliable Matt Enamel') ? RELIABLE_MATT_ENAMEL_SHADES
-                                                                                                                    : isReliableEmulsion ? RELIABLE_EMULSION_SHADES
-                                                                                                                        : isReliableWaterMatt ? RELIABLE_WATER_MATT_SHADES
-                                                                                                                            : isReliableEnamel ? RELIABLE_ENAMEL_SHADES
-                                                                                                                                : isChoiceSyntheticEnamel ? CHOICE_SYNTHETIC_ENAMEL_SHADES
-                                                                                                                                    : isChoiceWeatherSealer ? CHOICE_WEATHER_SEALER_SHADES
-                                                                                                                                        : isRelianceStainlessMatt ? RELIANCE_STAINLESS_MATT_SHADES
-                                                                                                                                            : isRelianceSemiPlasticEmulsion ? RELIANCE_SEMI_PLASTIC_EMULSION_SHADES
-                                                                                                                                                : isRelianceMattEnamel ? RELIANCE_MATT_ENAMEL_SHADES
-                                                                                                                                                    : isRelianceWeatherGuard ? RELIANCE_WEATHER_GUARD_SHADES
-                                                                                                                                                        : isRelianceSyntheticEnamel ? RELIANCE_SYNTHETIC_ENAMEL_SHADES
-                                                                                                                                                            : isBergerWeatherPro ? BERGER_WEATHER_PRO_SHADES
-                                                                                                                                                                : isBergerNuEnamel ? BERGER_NU_ENAMEL_SHADES
-                                                                                                                                                                    : isBergerNuEmulsion ? BERGER_NU_EMULSION_SHADES
-                                                                                                                                                                        : isBergerEleganceSilkEmulsion ? BERGER_ELEGANCE_SILK_EMULSION_SHADES
-                                                                                                                                                                            : isBergerSuperiorMattFinish ? BERGER_SUPERIOR_MATT_FINISH_SHADES
-                                                                                                                                                                                : isBergerWeatherCoatGlow365 ? BERGER_WEATHER_COAT_GLOW_365_SHADES
-                                                                                                                                                                                    : isBergerVipWeatherCoat ? BERGER_VIP_WEATHER_COAT_SHADES
-                                                                                                                                                                                        : isBergerAllrounderMattEnamel ? BERGER_ALLROUNDER_MATT_ENAMEL_SHADES
-                                                                                                                                                                                                            : isDiamondOverallHighGlossEnamel ? DIAMOND_OVERALL_HIGH_GLOSS_ENAMEL_SHADES
-                                                                                                                                                                                                            : isDiamondOverallWeatherMax ? DIAMOND_OVERALL_WEATHER_MAX_SHADES
-                                                                                                                                                                                                    : isDiamondEverlastHighGlossEnamel ? DIAMOND_EVERLAST_HIGH_GLOSS_ENAMEL_SHADES
-                                                                                                                                                                                                    : isDiamondAceDurasilkEmulsion ? DIAMOND_ACE_DURASILK_EMULSION_SHADES
-                                                                                                                                                                                                    : isDiamondValueEmulsion ? DIAMOND_VALUE_EMULSION_SHADES
-                                                                                                                                                                                                    : isDiamondOverallMattEnamel ? DIAMOND_OVERALL_MATT_ENAMEL_SHADES
-                                                                                                                                                                                                    : isDiamondOverallAquamaxWaterMatt ? DIAMOND_OVERALL_AQUAMAX_WATER_MATT_SHADES
-                                                                                                                                                                                                    : isDiamondAceTimberlacWoodStains ? DIAMOND_ACE_TIMBERLAC_WOOD_STAINS_SHADES
-                                                                                                                                                                                                    : [];
+                let defaultShades: Shade[] = [];
+                if (isSuperEmulsion) defaultShades = BRIGHTO_SHADES;
+                else if (isSyntheticEnamel) defaultShades = BRIGHTO_ENAMEL_SHADES;
+                else if (isPlasticEmulsion) defaultShades = BRIGHTO_PLASTIC_EMULSION_SHADES;
+                else if (isAllWeather) defaultShades = BRIGHTO_ALL_WEATHER_SHADES;
+                else if (isSaasiHydrous) defaultShades = SAASI_HYDROUS_SHADES;
+                else if (isSaasiMattEnamel) defaultShades = SAASI_MATT_ENAMEL_SHADES;
+                else if (isSaasiPlasticEmulsion) defaultShades = SAASI_PLASTIC_EMULSION_SHADES;
+                else if (isSaasiSuperGlossEnamel) defaultShades = SAASI_SUPER_GLOSS_ENAMEL_SHADES;
+                else if (isSaasiWeatherSafe) defaultShades = SAASI_WEATHER_SAFE_SHADES;
+                else if (isBrightoStainFree) defaultShades = BRIGHTO_PLASTIC_EMULSION_SHADES;
+                else if (isGobisIndustrialEnamel) defaultShades = GOBIS_INDUSTRIAL_ENAMEL_SHADES;
+                else if (isGobisStovingPaint) defaultShades = GOBIS_STOVING_PAINT_SHADES;
+                else if (isGobisCarmanSeries) defaultShades = GOBIS_CARMAN_SERIES_SHADES;
+                else if (isGobisSilverlineEnamel) defaultShades = GOBIS_SILVERLINE_ENAMEL_SHADES;
+                else if (isGobisSilverlineEmulsion) defaultShades = GOBIS_SILVERLINE_EMULSION_SHADES;
+                else if (isGobisGoldLuxuriousWallEmulsion) defaultShades = GOBIS_GOLD_LUXURIOUS_WALL_EMULSION_SHADES;
+                else if (isGobisSilksheenEmulsion) defaultShades = GOBIS_SILKSHEEN_EMULSION_SHADES;
+                else if (isGobisGoldEnamel) defaultShades = GOBIS_GOLD_ENAMEL_SHADES;
+                else if (isGobisAqueousMattFinish) defaultShades = GOBIS_AQUEOUS_MATT_FINISH_SHADES;
+                else if (isGobisGoldAqueousMattFinish) defaultShades = GOBIS_GOLD_AQUEOUS_MATT_FINISH_SHADES;
+                else if (isGobisGoldEggshellMattFinish) defaultShades = GOBIS_GOLD_EGGSHELL_MATT_FINISH_SHADES;
+                else if (isGobisGlossEnamel) defaultShades = GOBIS_GLOSS_ENAMEL_SHADES;
+                else if (isGobisEggshellMattEnamel) defaultShades = GOBIS_EGGSHELL_MATT_ENAMEL_SHADES;
+                else if (isReliableWeatherProtector) defaultShades = RELIABLE_WEATHER_PROTECTOR_SHADES;
+                else if (isReliableMattEnamel || productData.name === 'Reliable Matt Enamel') defaultShades = RELIABLE_MATT_ENAMEL_SHADES;
+                else if (isReliableEmulsion) defaultShades = RELIABLE_EMULSION_SHADES;
+                else if (isReliableWaterMatt) defaultShades = RELIABLE_WATER_MATT_SHADES;
+                else if (isReliableEnamel) defaultShades = RELIABLE_ENAMEL_SHADES;
+                else if (isChoiceSyntheticEnamel) defaultShades = CHOICE_SYNTHETIC_ENAMEL_SHADES;
+                else if (isChoiceWeatherSealer) defaultShades = CHOICE_WEATHER_SEALER_SHADES;
+                else if (isRelianceStainlessMatt) defaultShades = RELIANCE_STAINLESS_MATT_SHADES;
+                else if (isRelianceSemiPlasticEmulsion) defaultShades = RELIANCE_SEMI_PLASTIC_EMULSION_SHADES;
+                else if (isRelianceMattEnamel) defaultShades = RELIANCE_MATT_ENAMEL_SHADES;
+                else if (isRelianceWeatherGuard) defaultShades = RELIANCE_WEATHER_GUARD_SHADES;
+                else if (isRelianceSyntheticEnamel) defaultShades = RELIANCE_SYNTHETIC_ENAMEL_SHADES;
+                else if (isBergerWeatherPro) defaultShades = BERGER_WEATHER_PRO_SHADES;
+                else if (isBergerNuEnamel) defaultShades = BERGER_NU_ENAMEL_SHADES;
+                else if (isBergerNuEmulsion) defaultShades = BERGER_NU_EMULSION_SHADES;
+                else if (isBergerEleganceSilkEmulsion) defaultShades = BERGER_ELEGANCE_SILK_EMULSION_SHADES;
+                else if (isBergerSuperiorMattFinish) defaultShades = BERGER_SUPERIOR_MATT_FINISH_SHADES;
+                else if (isBergerWeatherCoatGlow365) defaultShades = BERGER_WEATHER_COAT_GLOW_365_SHADES;
+                else if (isBergerVipWeatherCoat) defaultShades = BERGER_VIP_WEATHER_COAT_SHADES;
+                else if (isBergerAllrounderMattEnamel) defaultShades = BERGER_ALLROUNDER_MATT_ENAMEL_SHADES;
+                else if (isBergerTopSuperEmulsion) defaultShades = BERGER_TOP_SUPER_EMULSION_SHADES;
+                else if (isBergerSuperGlossEnamel) defaultShades = BERGER_SUPER_GLOSS_ENAMEL_SHADES;
+                else if (isDiamondAceWeatherDefender) defaultShades = DIAMOND_ACE_WEATHER_DEFENDER_SHADES;
+                else if (isDiamondOverallPlasticcoatEmulsion) defaultShades = DIAMOND_OVERALL_PLASTICCOAT_EMULSION_SHADES;
+                else if (isDiamondAceAcrylicPlasticEmulsion) defaultShades = DIAMOND_ACE_ACRYLIC_PLASTIC_EMULSION_SHADES;
+                else if (isDiamondAceMattEnamel) defaultShades = DIAMOND_ACE_MATT_ENAMEL_SHADES;
+                else if (isDiamondAceSuperGlossEnamel) defaultShades = DIAMOND_ACE_SUPER_GLOSS_ENAMEL_SHADES;
+                else if (isDiamondOverallSuperEmulsion) defaultShades = DIAMOND_OVERALL_SUPER_EMULSION_SHADES;
+                else if (isDiamondOverallHighGlossEnamel) defaultShades = DIAMOND_OVERALL_HIGH_GLOSS_ENAMEL_SHADES;
+                else if (isDiamondOverallWeatherMax) defaultShades = DIAMOND_OVERALL_WEATHER_MAX_SHADES;
+                else if (isDiamondEverlastHighGlossEnamel) defaultShades = DIAMOND_EVERLAST_HIGH_GLOSS_ENAMEL_SHADES;
+                else if (isDiamondAceDurasilkEmulsion) defaultShades = DIAMOND_ACE_DURASILK_EMULSION_SHADES;
+                else if (isDiamondValueEmulsion) defaultShades = DIAMOND_VALUE_EMULSION_SHADES;
+                else if (isDiamondOverallMattEnamel) defaultShades = DIAMOND_OVERALL_MATT_ENAMEL_SHADES;
+                else if (isDiamondOverallAquamaxWaterMatt) defaultShades = DIAMOND_OVERALL_AQUAMAX_WATER_MATT_SHADES;
+                else if (isDiamondAceTimberlacWoodStains) defaultShades = DIAMOND_ACE_TIMBERLAC_WOOD_STAINS_SHADES;
+
 
                 // Fetch shades from DB, fallback to local constants
                 const { data: shadeData } = await supabase
