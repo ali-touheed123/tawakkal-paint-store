@@ -3735,3 +3735,53 @@ export const BERGER_SUPER_GLOSS_ENAMEL_SHADES: Shade[] = [
   { id: "bsge85", product_id: "", name: "Cherry", code: "5129", hex: "#D2042D", is_drum_available: true },
   { id: "bsge86", product_id: "", name: "Jeep Green", code: "2189", hex: "#2E4630", is_drum_available: true }
 ];
+
+export const BERGER_SEMI_PLASTIC_EMULSION_SHADES: Shade[] = [
+  // Whites & Beiges
+  { id: "bspe1", product_id: "", name: "Horizon White", code: "0332", hex: "#F8F9F7", is_drum_available: true },
+  { id: "bspe2", product_id: "", name: "Mid Off White", code: "0020", hex: "#FDFDF0", is_drum_available: true },
+  { id: "bspe3", product_id: "", name: "Magnolia", code: "3250", hex: "#FDEED7", is_drum_available: true },
+  { id: "bspe4", product_id: "", name: "Cockleshell", code: "3442", hex: "#FEE8D8", is_drum_available: true },
+  { id: "bspe5", product_id: "", name: "Ivory Silk", code: "3179", hex: "#FDEBCE", is_drum_available: true },
+  { id: "bspe6", product_id: "", name: "Badami", code: "6450", hex: "#F7E1D2", is_drum_available: true },
+  { id: "bspe7", product_id: "", name: "Spanish Clay", code: "0182", hex: "#C7AB88", is_drum_available: true },
+  { id: "bspe8", product_id: "", name: "Off White", code: "0010", hex: "#FFFCE3", is_drum_available: true },
+  { id: "bspe9", product_id: "", name: "Ivory", code: "3030", hex: "#FEE68C", is_drum_available: true },
+  { id: "bspe10", product_id: "", name: "Pale Cream", code: "3060", hex: "#FEE26F", is_drum_available: true },
+  { id: "bspe11", product_id: "", name: "Soft Beige", code: "4131", hex: "#B7AB91", is_drum_available: true },
+  { id: "bspe12", product_id: "", name: "Bone", code: "3010", hex: "#BFB4A1", is_drum_available: true },
+  { id: "bspe13", product_id: "", name: "Sand Stone", code: "3870", hex: "#A58C7C", is_drum_available: true },
+  { id: "bspe14", product_id: "", name: "Cameo", code: "1447", hex: "#CE9D62", is_drum_available: true },
+  { id: "bspe15", product_id: "", name: "Light Mushroom", code: "3500", hex: "#9E7B54", is_drum_available: true },
+
+  // Pinks & Purples
+  { id: "bspe16", product_id: "", name: "Peach Silk", code: "3141", hex: "#F9DFC2", is_drum_available: true },
+  { id: "bspe17", product_id: "", name: "Rose Petal", code: "5220", hex: "#FEE2D8", is_drum_available: true },
+  { id: "bspe18", product_id: "", name: "Rose Pink", code: "4800", hex: "#FDBF9D", is_drum_available: true },
+  { id: "bspe19", product_id: "", name: "Summer Pink", code: "4790", hex: "#FDA89D", is_drum_available: true },
+  { id: "bspe20", product_id: "", name: "Peach Country", code: "3082", hex: "#F1652E", is_drum_available: true },
+  { id: "bspe21", product_id: "", name: "Swiss Miss", code: "7237", hex: "#F7B8EA", is_drum_available: true },
+  { id: "bspe22", product_id: "", name: "Vogue Violet", code: "7208", hex: "#E9D9FA", is_drum_available: true },
+  { id: "bspe23", product_id: "", name: "Light Mulberry", code: "7097", hex: "#D6C2D6", is_drum_available: true },
+  { id: "bspe24", product_id: "", name: "Parasol", code: "7085", hex: "#B99CE0", is_drum_available: true },
+  { id: "bspe25", product_id: "", name: "Elegance", code: "4070", hex: "#4E2F77", is_drum_available: true },
+
+  // Greys & Greens
+  { id: "bspe26", product_id: "", name: "Lavender White", code: "0474", hex: "#F3F4F4", is_drum_available: true },
+  { id: "bspe27", product_id: "", name: "Ash White", code: "0110", hex: "#F3EFE7", is_drum_available: true },
+  { id: "bspe28", product_id: "", name: "Clifton Grey", code: "5161", hex: "#F9FAF0", is_drum_available: true },
+  { id: "bspe29", product_id: "", name: "Dove Grey", code: "6100", hex: "#D4DEE0", is_drum_available: true },
+  { id: "bspe30", product_id: "", name: "Shell Grey", code: "6550", hex: "#A8ACAA", is_drum_available: true },
+  { id: "bspe31", product_id: "", name: "Kunhar", code: "2984", hex: "#F2FBDD", is_drum_available: true },
+  { id: "bspe32", product_id: "", name: "Pastel Green", code: "2740", hex: "#DEF7D2", is_drum_available: true },
+  { id: "bspe33", product_id: "", name: "Light Green", code: "2030", hex: "#95D154", is_drum_available: true },
+  { id: "bspe34", product_id: "", name: "Apple Green", code: "2420", hex: "#56C142", is_drum_available: true },
+  { id: "bspe35", product_id: "", name: "Fresh Orange", code: "5170", hex: "#FF5E1E", is_drum_available: true },
+
+  // Blues & Reds
+  { id: "bspe36", product_id: "", name: "Charisma", code: "1270", hex: "#C5D9F1", is_drum_available: true },
+  { id: "bspe37", product_id: "", name: "Celestial", code: "1119", hex: "#7EACFF", is_drum_available: true },
+  { id: "bspe38", product_id: "", name: "Cool Blue", code: "1550", hex: "#9BD3D9", is_drum_available: true },
+  { id: "bspe39", product_id: "", name: "Vintage Coat", code: "5981", hex: "#632C34", is_drum_available: true },
+  { id: "bspe40", product_id: "", name: "Salsa", code: "4605", hex: "#B3211D", is_drum_available: true }
+];
