@@ -48,7 +48,6 @@ export interface User {
   phone: string | null;
   email: string | null;
   area: string | null;
-  is_admin: boolean;
   created_at: string;
 }
 
