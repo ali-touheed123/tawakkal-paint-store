@@ -8,12 +8,13 @@ import { useCartStore } from '@/lib/store';
 import { useDiscountRules } from '@/lib/hooks/useSettings';
 
 export default function CartPage() {
-  const { items, updateQuantity, removeItem, getTotal } = useCartStore();
+  const { items, updateQuantity, removeItem, getTotal, refreshItems } = useCartStore();
   const { calculateDiscount, getNextTier } = useDiscountRules();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    refreshItems();
   }, []);
 
   if (!mounted) return null;

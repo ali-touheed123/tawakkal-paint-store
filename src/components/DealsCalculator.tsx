@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Shield, Star, Crown, Construction, Ruler, Building2, HardHat, MapPin } from 'lucide-react';
-import { useSettings } from '@/lib/hooks/useSettings';
+import { useSettings, useDiscountRules } from '@/lib/hooks/useSettings';
 
 const PROPERTY_SIZES = [
     { gaz: 80, sqft: 720 },
@@ -62,6 +62,7 @@ const PACKAGES = [
 
 export function DealsCalculator() {
     const { settings } = useSettings();
+    const { calculateDiscount } = useDiscountRules();
     const [selectedSize, setSelectedSize] = useState(PROPERTY_SIZES[0]);
     const [withLabour, setWithLabour] = useState(true);
     const [withVisit, setWithVisit] = useState(true);
@@ -87,6 +88,12 @@ export function DealsCalculator() {
         // Site Visit fee
         if (withVisit) {
             finalPrice += 1000;
+        }
+
+        // Apply site-wide discount rules if applicable
+        const discountPercent = calculateDiscount(finalPrice);
+        if (discountPercent > 0) {
+            finalPrice = finalPrice * (1 - discountPercent / 100);
         }
 
         return finalPrice;

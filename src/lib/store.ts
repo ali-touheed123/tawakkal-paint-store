@@ -10,6 +10,7 @@ interface CartStore {
   updateSize: (itemId: string, size: ItemSize) => void;
   clearCart: () => void;
   getTotal: () => number;
+  refreshItems: () => Promise<void>;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -82,6 +83,36 @@ export const useCartStore = create<CartStore>()(
               : item.product.price_drum;
           return total + (price * item.quantity);
         }, 0);
+      },
+      refreshItems: async () => {
+        const items = get().items;
+        if (items.length === 0) return;
+
+        try {
+          const { createClient } = await import('@/lib/supabase/client');
+          const supabase = createClient();
+          const productIds = Array.from(new Set(items.map(item => item.product_id)));
+
+          const { data: latestProducts, error } = await supabase
+            .from('products')
+            .select('*')
+            .in('id', productIds);
+
+          if (error) throw error;
+
+          if (latestProducts) {
+            const updatedItems = items.map(item => {
+              const latestProduct = latestProducts.find(p => p.id === item.product_id);
+              if (latestProduct) {
+                return { ...item, product: latestProduct };
+              }
+              return item;
+            });
+            set({ items: updatedItems });
+          }
+        } catch (err) {
+          console.error('Failed to refresh cart items:', err);
+        }
       }
     }),
     {

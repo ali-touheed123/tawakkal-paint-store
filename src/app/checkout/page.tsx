@@ -12,7 +12,7 @@ import { type OrderItem } from '@/types';
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, getTotal, clearCart } = useCartStore();
+  const { items, getTotal, clearCart, refreshItems } = useCartStore();
   const { area: globalArea, setArea: setGlobalArea } = useLocationStore();
 
   const [loading, setLoading] = useState(false);
@@ -33,6 +33,7 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     setMounted(true);
+    refreshItems();
   }, []);
 
   // Sync global area to form if it changes externally
