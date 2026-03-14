@@ -150,24 +150,14 @@ export default function AdminLoginPage() {
                                     <Loader2 className="animate-spin" size={20} />
                                 ) : (
                                     <span className="flex items-center gap-2">
-                                        {mode === 'login' ? <LogIn size={20} /> : <UserPlus size={20} />}
-                                        {mode === 'login' ? 'Sign In Securely' : 'Register Admin Account'}
+                                        <LogIn size={20} />
+                                        Sign In Securely
                                     </span>
                                 )}
                             </button>
                         </form>
 
                         <div className="mt-8 flex flex-col items-center gap-4">
-                            <button 
-                                onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-                                className="text-sm font-bold text-gold hover:text-gold-dark transition-colors"
-                            >
-                                {mode === 'login' 
-                                    ? "Don't have an account? Sign Up" 
-                                    : "Already have an account? Sign In"
-                                }
-                            </button>
-
                             <Link href="/" className="text-sm font-bold text-gray-400 hover:text-navy transition-colors inline-flex items-center gap-2 group">
                                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                                 Back to Website
