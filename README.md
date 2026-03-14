@@ -34,8 +34,8 @@ A luxury, mobile-first e-commerce website for a premium paint retailer in Karach
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ali-touheed123/tawakkal-paint-store.git
-cd tawakkal-paint-store
+git clone https://github.com/ali-touheed123/tawakkal-paint-house.git
+cd tawakkal-paint-house
 ```
 
 2. Install dependencies:
