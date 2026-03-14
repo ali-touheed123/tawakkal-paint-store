@@ -50,6 +50,16 @@ export default function ProductsPage() {
     setProducts(products.filter(p => p.id !== id));
   }
 
+  const [currentImageUrl, setCurrentImageUrl] = useState('');
+  const [imgError, setImgError] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      setCurrentImageUrl(editingProduct?.image_url || '');
+      setImgError(false);
+    }
+  }, [isModalOpen, editingProduct]);
+
   async function handleSave(e: React.FormEvent) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget as HTMLFormElement);
@@ -238,7 +248,38 @@ export default function ProductsPage() {
               </div>
               <div className="col-span-2">
                 <label className="block text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-wider">Image URL</label>
-                <input name="image_url" defaultValue={editingProduct?.image_url} placeholder="https://example.com/image.jpg" className="w-full p-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none text-sm" />
+                <div className="flex gap-4 items-start">
+                  <div className="flex-1">
+                    <input 
+                      name="image_url" 
+                      value={currentImageUrl}
+                      onChange={(e) => {
+                        setCurrentImageUrl(e.target.value);
+                        setImgError(false);
+                      }}
+                      placeholder="/images/products/brand/name.png" 
+                      className="w-full p-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none text-sm" 
+                    />
+                    <p className="text-[9px] text-gray-400 mt-1 italic">
+                      Filenames are case-sensitive. Path should start with /images/products/
+                    </p>
+                  </div>
+                  <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden border border-gray-100 shrink-0">
+                    {currentImageUrl && !imgError ? (
+                      <img 
+                        src={currentImageUrl} 
+                        alt="Preview" 
+                        onError={() => setImgError(true)}
+                        className="w-full h-full object-contain" 
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-[8px] text-gray-300 gap-1">
+                        <Package size={16} />
+                        <span>No Preview</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               <div className="col-span-2">
                 <label className="block text-[10px] font-bold text-gray-400 uppercase mb-1 tracking-wider">Description</label>
