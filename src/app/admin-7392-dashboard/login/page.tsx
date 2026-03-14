@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { Lock, Mail, Loader2, AlertCircle, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Lock, Mail, Loader2, AlertCircle, ArrowLeft, UserPlus, LogIn } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminLoginPage() {
@@ -12,33 +12,47 @@ export default function AdminLoginPage() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [mode, setMode] = useState<'login' | 'signup'>('login');
     const router = useRouter();
 
-    const handleLogin = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         setError(null);
 
         try {
             const supabase = createClient();
-            const { error: loginError } = await supabase.auth.signInWithPassword({
-                email,
-                password,
-            });
-
-            if (loginError) throw loginError;
+            
+            if (mode === 'login') {
+                const { error: loginError } = await supabase.auth.signInWithPassword({
+                    email,
+                    password,
+                });
+                if (loginError) throw loginError;
+            } else {
+                const { error: signUpError } = await supabase.auth.signUp({
+                    email,
+                    password,
+                });
+                if (signUpError) throw signUpError;
+                
+                // If sign up is successful, switch to login mode and show message
+                setMode('login');
+                setError('Registration successful! You will be able to log in once admin privileges are granted.');
+                return;
+            }
 
             router.push('/admin-7392-dashboard');
         } catch (err: any) {
-            console.error('Login error:', err);
-            setError(err.message || 'Invalid credentials');
+            console.error('Auth error:', err);
+            setError(err.message || 'An error occurred during authentication');
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="min-h-screen bg-navy flex items-center justify-center p-4 relative overflow-hidden">
+        <div className="min-h-screen bg-navy flex items-center justify-center p-4 relative overflow-hidden text-navy">
             {/* Background Decorative Elements */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-gold rounded-full blur-[120px]" />
@@ -53,29 +67,43 @@ export default function AdminLoginPage() {
                 <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/20">
                     <div className="p-8 md:p-10">
                         {/* Logo/Header */}
-                        <div className="text-center mb-10">
+                        <div className="text-center mb-8">
                             <motion.div 
                                 initial={{ scale: 0.5 }}
                                 animate={{ scale: 1 }}
                                 className="w-16 h-16 bg-gold flex items-center justify-center rounded-2xl mx-auto mb-6 shadow-lg shadow-gold/20"
                             >
-                                <Lock className="text-navy" size={32} />
+                                {mode === 'login' ? <Lock className="text-navy" size={32} /> : <UserPlus className="text-navy" size={32} />}
                             </motion.div>
-                            <h1 className="text-3xl font-black text-navy tracking-tight">Admin Access</h1>
-                            <p className="text-gray-400 mt-2 font-medium">Please sign in to manage Tawakkal Paint House</p>
+                            <h1 className="text-3xl font-black tracking-tight">
+                                {mode === 'login' ? 'Admin Access' : 'Initial Setup'}
+                            </h1>
+                            <p className="text-gray-400 mt-2 font-medium">
+                                {mode === 'login' 
+                                    ? 'Please sign in to manage Tawakkal Paint House' 
+                                    : 'Create your new admin account'
+                                }
+                            </p>
                         </div>
 
-                        <form onSubmit={handleLogin} className="space-y-6">
-                            {error && (
-                                <motion.div 
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    className="p-4 bg-red-50 border border-red-100 rounded-xl flex items-center gap-3 text-red-600 text-sm font-medium"
-                                >
-                                    <AlertCircle size={18} />
-                                    {error}
-                                </motion.div>
-                            )}
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <AnimatePresence mode="wait">
+                                {error && (
+                                    <motion.div 
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className={`p-4 rounded-xl flex items-center gap-3 text-sm font-medium border ${
+                                            error.includes('successful') 
+                                                ? 'bg-green-50 border-green-100 text-green-600' 
+                                                : 'bg-red-50 border-red-100 text-red-600'
+                                        }`}
+                                    >
+                                        <AlertCircle size={18} />
+                                        {error}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
 
                             <div className="space-y-4">
                                 <div>
@@ -89,7 +117,7 @@ export default function AdminLoginPage() {
                                             required
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all text-navy font-medium"
+                                            className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all font-medium"
                                             placeholder="admin@tawakkal.com"
                                         />
                                     </div>
@@ -106,7 +134,7 @@ export default function AdminLoginPage() {
                                             required
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all text-navy font-medium"
+                                            className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:border-gold focus:ring-4 focus:ring-gold/5 transition-all font-medium"
                                             placeholder="••••••••"
                                         />
                                     </div>
@@ -121,12 +149,25 @@ export default function AdminLoginPage() {
                                 {loading ? (
                                     <Loader2 className="animate-spin" size={20} />
                                 ) : (
-                                    'Sign In Securely'
+                                    <span className="flex items-center gap-2">
+                                        {mode === 'login' ? <LogIn size={20} /> : <UserPlus size={20} />}
+                                        {mode === 'login' ? 'Sign In Securely' : 'Register Admin Account'}
+                                    </span>
                                 )}
                             </button>
                         </form>
 
-                        <div className="mt-8 text-center">
+                        <div className="mt-8 flex flex-col items-center gap-4">
+                            <button 
+                                onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
+                                className="text-sm font-bold text-gold hover:text-gold-dark transition-colors"
+                            >
+                                {mode === 'login' 
+                                    ? "Don't have an account? Sign Up" 
+                                    : "Already have an account? Sign In"
+                                }
+                            </button>
+
                             <Link href="/" className="text-sm font-bold text-gray-400 hover:text-navy transition-colors inline-flex items-center gap-2 group">
                                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
                                 Back to Website
