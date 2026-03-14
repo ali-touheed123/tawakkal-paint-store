@@ -47,11 +47,15 @@ export default function DealsManagement() {
   
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [session, setSession] = useState<any>(null);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   useEffect(() => {
     async function fetchPricing() {
       const supabase = createClient();
+      
+      const { data: { session: currentSession } } = await supabase.auth.getSession();
+      setSession(currentSession);
       
       const { data: pricingData } = await supabase
         .from('site_settings')
@@ -162,7 +166,10 @@ export default function DealsManagement() {
             <Briefcase className="text-gold" />
             Full Deals Configuration
           </h1>
-          <p className="text-gray-500 mt-2">Customize pricing, labor rates, and what&apos;s included in each package.</p>
+          <p className="text-gray-500 mt-1">Customize pricing, labor rates, and what&apos;s included in each package.</p>
+          <div className="mt-2 text-[10px] text-gray-400 font-mono">
+            Logged in as: {loading ? 'Checking...' : (session?.user?.email || 'Not logged in')}
+          </div>
         </div>
         <button
           onClick={handleSave}
