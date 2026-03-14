@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Shield, Star, Crown, Construction, Ruler, Building2, HardHat, MapPin } from 'lucide-react';
 import { useSettings, useDiscountRules } from '@/lib/hooks/useSettings';
+import { DealPackage } from '@/types';
 
 const PROPERTY_SIZES = [
     { gaz: 80, sqft: 720 },
@@ -17,7 +18,7 @@ const PROPERTY_SIZES = [
     { gaz: 1000, sqft: 9000 },
 ];
 
-const PACKAGES = [
+const DEFAULT_PACKAGES: DealPackage[] = [
     {
         id: 'local',
         name: 'Local Quality',
@@ -67,6 +68,21 @@ export function DealsCalculator() {
     const [withLabour, setWithLabour] = useState(true);
     const [withVisit, setWithVisit] = useState(true);
 
+    // Get dynamic config from settings or use defaults
+    const rawPackages = (settings?.deals_packages_config || DEFAULT_PACKAGES) as DealPackage[];
+    const labourDiscount = Number(settings?.deals_labour_discount || 25);
+    const visitFee = Number(settings?.deals_visit_fee || 1000);
+
+    // Merge dynamic config with static UI properties (icons/colors)
+    const PACKAGES: DealPackage[] = rawPackages.map((pkg: DealPackage) => {
+        const defaultPkg = DEFAULT_PACKAGES.find(p => p.id === pkg.id) || DEFAULT_PACKAGES[0];
+        return {
+            ...defaultPkg,
+            ...pkg,
+            icon: defaultPkg.icon // Keep icons static as they can't be stored easily in JSON
+        };
+    });
+
     // Fallback prices if settings aren't loaded or set yet
     const defaultBasePricing = {
         local: 50000,
@@ -77,17 +93,17 @@ export function DealsCalculator() {
 
     const basePricing = settings?.deals_base_pricing || defaultBasePricing;
 
-    const calculatePrice = (packageId: keyof typeof basePricing) => {
-        const basePrice = basePricing[packageId] || 0;
+    const calculatePrice = (packageId: string) => {
+        const basePrice = (basePricing as any)[packageId] || 0;
         const sizeMultiplier = selectedSize.sqft / 720;
         const rawPrice = basePrice * sizeMultiplier;
 
-        // Labour logic: with labour = 100%, without labour = 75%
-        let finalPrice = withLabour ? rawPrice : rawPrice * 0.75;
+        // Labour logic: use dynamic discount %
+        let finalPrice = withLabour ? rawPrice : rawPrice * (1 - labourDiscount / 100);
 
-        // Site Visit fee
+        // Site Visit fee: use dynamic fee
         if (withVisit) {
-            finalPrice += 1000;
+            finalPrice += visitFee;
         }
 
         // Apply site-wide discount rules if applicable
@@ -150,7 +166,7 @@ export function DealsCalculator() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="font-bold text-navy">With Labour & Material</div>
-                                    <div className="text-xs text-gray-500">Uncheck for material only (-25%)</div>
+                                    <div className="text-xs text-gray-500">Uncheck for material only (-{labourDiscount}%)</div>
                                 </div>
                                 <div className="relative">
                                     <div className={`w-12 h-6 rounded-full transition-colors ${withLabour ? 'bg-gold' : 'bg-gray-300'}`}>
@@ -171,7 +187,7 @@ export function DealsCalculator() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="font-bold text-navy">Site Visit & Measurement</div>
-                                    <div className="text-xs text-gray-500">Professional inspection (+Rs. 1,000)</div>
+                                    <div className="text-xs text-gray-500">Professional inspection (+Rs. {visitFee.toLocaleString()})</div>
                                 </div>
                                 <div className="relative">
                                     <div className={`w-12 h-6 rounded-full transition-colors ${withVisit ? 'bg-gold' : 'bg-gray-300'}`}>
@@ -194,7 +210,7 @@ export function DealsCalculator() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {PACKAGES.map((pkg, index) => {
                     const Icon = pkg.icon;
-                    const price = calculatePrice(pkg.id as keyof typeof basePricing);
+                    const price = calculatePrice(pkg.id);
 
                     return (
                         <motion.div
@@ -205,11 +221,11 @@ export function DealsCalculator() {
                             className={`bg-white rounded-3xl p-6 shadow-sm border ${pkg.border} flex flex-col relative overflow-hidden group hover:shadow-lg transition-all`}
                         >
                             {/* Decorative Background Blob */}
-                            <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10 blur-2xl transition-transform group-hover:scale-150 ${pkg.bg.replace('bg-', 'bg-')}`} />
+                            <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10 blur-2xl transition-transform group-hover:scale-150 ${pkg.bg?.replace('bg-', 'bg-')}`} />
 
                             <div className="space-y-4 mb-8 relative">
                                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${pkg.bg} ${pkg.color}`}>
-                                    <Icon size={24} />
+                                    {Icon && <Icon size={24} />}
                                 </div>
 
                                 <div>

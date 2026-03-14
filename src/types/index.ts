@@ -90,6 +90,17 @@ export interface Order {
   created_at: string;
 }
 
+export interface DealPackage {
+  id: string;
+  name: string;
+  description: string;
+  includes: string[];
+  icon?: any;
+  color?: string;
+  bg?: string;
+  border?: string;
+}
+
 export interface SiteSettings {
   logo?: string;
   contact?: {
@@ -109,6 +120,9 @@ export interface SiteSettings {
     best: number;
     premium: number;
   };
+  deals_packages_config?: DealPackage[];
+  deals_labour_discount?: number;
+  deals_visit_fee?: number;
 }
 
 export interface DiscountRule {
