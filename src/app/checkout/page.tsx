@@ -133,7 +133,8 @@ export default function CheckoutPage() {
           : item.size === 'gallon'
             ? item.product?.price_gallon || 0
             : item.product?.price_drum || 0,
-        image_url: item.product?.image_url || null
+        image_url: item.product?.image_url || null,
+        selectedShade: item.selectedShade
       }));
 
       const { data, error } = await supabase
