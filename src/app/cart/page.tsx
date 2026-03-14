@@ -76,7 +76,20 @@ export default function CartPage() {
                     <h3 className="font-heading text-base font-semibold text-navy truncate">
                       {item.product?.name}
                     </h3>
-                    <p className="text-gray-500 text-sm capitalize mb-2">{item.size}</p>
+                    <div className="flex items-center gap-4 text-sm mb-2">
+                      <p className="text-gray-500 capitalize">{item.size}</p>
+                      {item.selectedShade && (
+                        <div className="flex items-center gap-1.5 border-l border-gray-200 pl-4">
+                          <div 
+                            className="w-3 h-3 rounded-full shadow-sm border border-gray-100" 
+                            style={{ backgroundColor: item.selectedShade.hex }}
+                          />
+                          <span className="text-navy font-medium text-xs">
+                            {item.selectedShade.name}
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
                     <div className="flex items-center justify-between">
                       {/* Quantity */}

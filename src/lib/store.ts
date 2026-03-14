@@ -4,7 +4,7 @@ import type { CartItem, ItemSize } from '@/types';
 
 interface CartStore {
   items: CartItem[];
-  addItem: (productId: string, size: ItemSize, quantity: number, product?: CartItem['product']) => void;
+  addItem: (productId: string, size: ItemSize, quantity: number, product?: CartItem['product'], selectedShade?: CartItem['selectedShade']) => void;
   removeItem: (itemId: string) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   updateSize: (itemId: string, size: ItemSize) => void;
@@ -16,10 +16,13 @@ export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
-      addItem: (productId, size, quantity, product) => {
+      addItem: (productId, size, quantity, product, selectedShade) => {
         const items = get().items;
         const existingItem = items.find(
-          item => item.product_id === productId && item.size === size
+          item => 
+            item.product_id === productId && 
+            item.size === size && 
+            JSON.stringify(item.selectedShade) === JSON.stringify(selectedShade)
         );
         if (existingItem) {
           set({
@@ -40,7 +43,8 @@ export const useCartStore = create<CartStore>()(
                 size,
                 quantity,
                 created_at: new Date().toISOString(),
-                product
+                product,
+                selectedShade
               }
             ]
           });

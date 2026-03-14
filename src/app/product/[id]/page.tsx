@@ -355,14 +355,17 @@ export default function ProductDetailPage() {
     const handleAddToCart = () => {
         if (!product) return;
         setAddingToCart(true);
-        addItem(product.id, selectedSize, quantity, {
-            ...product,
-            selectedShade: selectedShade ? {
+        addItem(
+            product.id, 
+            selectedSize, 
+            quantity, 
+            product,
+            selectedShade ? {
                 name: selectedShade.name,
                 code: selectedShade.code,
                 hex: selectedShade.hex
             } : undefined
-        });
+        );
         setTimeout(() => setAddingToCart(false), 500);
     };
 

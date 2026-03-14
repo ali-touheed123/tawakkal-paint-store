@@ -202,10 +202,19 @@ export default function OrdersPage() {
                          <Package className="text-gray-300" size={32} />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-navy">{item.product?.name || 'Unknown Product'}</h4>
-                        <div className="flex gap-4 text-xs text-gray-500 mt-1 uppercase">
+                        <h4 className="font-bold text-navy">{item.name || item.product?.name || 'Unknown Product'}</h4>
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500 mt-1 uppercase">
                           <span>Size: <b className="text-navy">{item.size}</b></span>
                           <span>Qty: <b className="text-navy">{item.quantity}</b></span>
+                          {item.selectedShade && (
+                            <div className="flex items-center gap-1.5 border-l border-gray-200 pl-4">
+                              <div 
+                                className="w-2.5 h-2.5 rounded-full shadow-sm" 
+                                style={{ backgroundColor: item.selectedShade.hex }}
+                              />
+                              <span>Shade: <b className="text-navy">{item.selectedShade.name}</b></span>
+                            </div>
+                          )}
                         </div>
                       </div>
                       <div className="text-right">

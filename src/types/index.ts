@@ -51,6 +51,11 @@ export interface CartItem {
   quantity: number;
   created_at: string;
   product?: Product;
+  selectedShade?: {
+    name: string;
+    code: string;
+    hex: string;
+  };
 }
 
 export interface OrderItem {

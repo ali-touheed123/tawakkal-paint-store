@@ -311,9 +311,22 @@ export default function CheckoutPage() {
               <div className="space-y-3 mb-6">
                 {items.map((item) => (
                   <div key={item.id} className="flex justify-between text-sm">
-                    <span className="text-gray-600">
-                      {item.product?.name} ({item.size}) x {item.quantity}
-                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-gray-600">
+                        {item.product?.name} ({item.size}) x {item.quantity}
+                      </span>
+                      {item.selectedShade && (
+                        <div className="flex items-center gap-1.5 mt-0.5">
+                          <div 
+                            className="w-2 h-2 rounded-full" 
+                            style={{ backgroundColor: item.selectedShade.hex }}
+                          />
+                          <span className="text-[10px] text-gray-400 font-bold uppercase">
+                            Shade: {item.selectedShade.name}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                     <span className="font-medium">
                       Rs. {((item.size === 'quarter'
                         ? item.product?.price_quarter
