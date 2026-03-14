@@ -1,4 +1,4 @@
--- Full Seed Data for Tawakkal Paint Store
+-- Full Seed Data for Tawakkal Paint House
 -- Clear and reset
 DELETE FROM products;
 

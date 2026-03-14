@@ -1,7 +1,7 @@
-# Tawakkal Paint Store - Technical Specification
+# Tawakkal Paint House - Technical Specification
 
 ## Project Overview
-- **Project Name**: Tawakkal Paint Store
+- **Project Name**: Tawakkal Paint House
 - **Type**: Luxury Mobile-First E-commerce Website
 - **Core Functionality**: Premium multi-brand paint retailer in Karachi, Pakistan with online catalog, cart, checkout, and WhatsApp integration
 - **Target Users**: Homeowners, contractors, businesses in Karachi seeking premium paint products

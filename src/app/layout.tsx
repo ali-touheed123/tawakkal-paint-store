@@ -9,28 +9,28 @@ import { SearchOverlay } from "@/components/SearchOverlay";
 import { AuthProvider } from "@/components/AuthProvider";
 
 export const metadata: Metadata = {
-  title: "Tawakkal Paint Store | Premium Paints in Karachi",
-  description: "Karachi's most trusted paint store since 2011. Authorized dealer for Gobi's, Berger, Diamond, Saasi, Brighto, Choice. Premium quality paints with free color consultation.",
+  title: "Tawakkal Paint House | Premium Paints in Karachi",
+  description: "Karachi's most trusted paint house since 2011. Authorized dealer for Gobi's, Berger, Diamond, Saasi, Brighto, Choice. Premium quality paints with free color consultation.",
   keywords: "paint store, Karachi paints, premium paints, Gobi's, Berger, Diamond, Saasi, Brighto, Choice, Rozzilac, industrial paints, automotive paints, decorative paints",
-  authors: [{ name: "Tawakkal Paint Store" }],
+  authors: [{ name: "Tawakkal Paint House" }],
   openGraph: {
-    title: "Tawakkal Paint Store | Premium Paints in Karachi",
-    description: "Karachi's most trusted paint store since 2011. Authorized dealer for premium paint brands.",
+    title: "Tawakkal Paint House | Premium Paints in Karachi",
+    description: "Karachi's most trusted paint house since 2011. Authorized dealer for premium paint brands.",
     type: "website",
     locale: "en_PK",
-    siteName: "Tawakkal Paint Store"
+    siteName: "Tawakkal Paint House"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tawakkal Paint Store | Premium Paints in Karachi",
-    description: "Karachi's most trusted paint store since 2011."
+    title: "Tawakkal Paint House | Premium Paints in Karachi",
+    description: "Karachi's most trusted paint house since 2011."
   },
   robots: {
     index: true,
     follow: true
   },
   alternates: {
-    canonical: "https://tawakkalpaintstore.com"
+    canonical: "https://tawakkalpainthouse.com"
   },
   icons: {
     icon: '/favicon-tph.png',
@@ -47,7 +47,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Tawakkal Paint Store",
+    "name": "Tawakkal Paint House",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Karachi",
@@ -61,8 +61,8 @@ export default function RootLayout({
     },
     "priceRange": "$$",
     "openingHours": "Mo-Sat 09:00-20:00",
-    "image": "https://tawakkalpaintstore.com/logo.png",
-    "description": "Karachi's most trusted paint store since 2011. Authorized dealer for Gobi's, Berger, Diamond, Saasi, Brighto, Choice, and exclusive distributor for Rozzilac."
+    "image": "https://tawakkalpainthouse.com/logo.png",
+    "description": "Karachi's most trusted paint house since 2011. Authorized dealer for Gobi's, Berger, Diamond, Saasi, Brighto, Choice, and exclusive distributor for Rozzilac."
   };
 
   return (

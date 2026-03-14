@@ -110,7 +110,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2">
               <img
                 src={settings?.logo || "/logo.png"}
-                alt="Tawakkal Paint Store"
+                alt="Tawakkal Paint House"
                 className="h-10 md:h-12 w-auto"
               />
             </Link>

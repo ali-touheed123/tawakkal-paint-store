@@ -1,4 +1,4 @@
--- Seed data for Tawakkal Paint Store with actual product images
+-- Seed data for Tawakkal Paint House with actual product images
 
 -- Clear existing data
 DELETE FROM cart_items;

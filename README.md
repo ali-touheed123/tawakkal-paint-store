@@ -1,4 +1,4 @@
-# Tawakkal Paint Store
+# Tawakkal Paint House
 
 A luxury, mobile-first e-commerce website for a premium paint retailer in Karachi, Pakistan.
 
@@ -74,4 +74,4 @@ Deploy to Vercel:
 
 ## License
 
-All Rights Reserved © 2025 Tawakkal Paint Store
+All Rights Reserved © 2025 Tawakkal Paint House

@@ -26,7 +26,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <img
                 src={settings?.logo || "/logo.png"}
-                alt="Tawakkal Paint Store"
+                alt="Tawakkal Paint House"
                 className="h-12 w-auto"
               />
             </div>
@@ -122,7 +122,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm">
-            © 2025 Tawakkal Paint Store. All Rights Reserved.
+            © 2025 Tawakkal Paint House. All Rights Reserved.
           </p>
           <p className="text-gray-400 text-sm">
             Made with ❤️ in Karachi

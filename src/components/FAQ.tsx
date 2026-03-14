@@ -71,7 +71,7 @@ export function FAQ() {
         className="text-center mt-12"
       >
         <a
-          href="https://wa.me/923475658761?text=Hi! I have a question about Tawakkal Paint Store."
+          href="https://wa.me/923475658761?text=Hi! I have a question about Tawakkal Paint House."
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-400 transition-colors"

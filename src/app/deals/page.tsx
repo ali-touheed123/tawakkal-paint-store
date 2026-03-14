@@ -1,7 +1,7 @@
 import { DealsCalculator } from '@/components/DealsCalculator';
 
 export const metadata = {
-    title: 'Deals & Projects | Tawakkal Paint Store',
+    title: 'Deals & Projects | Tawakkal Paint House',
     description: 'Calculate and explore comprehensive paint packages for your property. Proportional pricing for 80 Gaz to 1000 Gaz properties including Local, Normal, Best, and Premium qualities.',
 };
 

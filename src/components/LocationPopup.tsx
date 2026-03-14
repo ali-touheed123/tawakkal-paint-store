@@ -68,11 +68,11 @@ export function LocationPopup() {
               <div className="text-center flex-1">
                 <img 
                   src="/logo.png" 
-                  alt="Tawakkal Paint Store" 
+                  alt="Tawakkal Paint House" 
                   className="h-16 w-auto mx-auto mb-3"
                 />
                 <h2 className="font-heading text-2xl md:text-3xl text-white font-bold">
-                  Welcome to Tawakkal Paint Store
+                  Welcome to Tawakkal Paint House
                 </h2>
                 <p className="text-gray-300 mt-2">
                   Select your area in Karachi for delivery
