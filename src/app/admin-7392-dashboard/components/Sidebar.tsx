@@ -8,7 +8,8 @@ import {
   Package, 
   Percent, 
   LogOut,
-  Home
+  Home,
+  Briefcase
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -17,6 +18,7 @@ const navItems = [
   { name: 'Orders', href: '/admin-7392-dashboard/orders', icon: ShoppingBag },
   { name: 'Products', href: '/admin-7392-dashboard/products', icon: Package },
   { name: 'Discounts', href: '/admin-7392-dashboard/discounts', icon: Percent },
+  { name: 'Deals', href: '/admin-7392-dashboard/deals', icon: Briefcase },
 ];
 
 export function Sidebar() {
