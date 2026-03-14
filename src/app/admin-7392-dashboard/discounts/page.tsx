@@ -42,18 +42,27 @@ export default function DiscountsPage() {
       .update({ is_active: !current })
       .eq('id', id);
     
-    if (!error) {
-      setRules(rules.map(r => r.id === id ? { ...r, is_active: !current } : r));
+    if (error) {
+      console.error('Error toggling discount status:', error);
+      alert('Failed to update status: ' + error.message);
+      return;
     }
+
+    setRules(rules.map(r => r.id === id ? { ...r, is_active: !current } : r));
   }
 
   async function handleDelete(id: string) {
     if (!confirm('Delete this discount rule?')) return;
     const supabase = createClient();
     const { error } = await supabase.from('discount_rules').delete().eq('id', id);
-    if (!error) {
-      setRules(rules.filter(r => r.id !== id));
+    
+    if (error) {
+      console.error('Error deleting discount rule:', error);
+      alert('Failed to delete: ' + error.message);
+      return;
     }
+
+    setRules(rules.filter(r => r.id !== id));
   }
 
   async function handleSave(e: React.FormEvent) {
@@ -76,12 +85,24 @@ export default function DiscountsPage() {
         .from('discount_rules')
         .update(ruleData)
         .eq('id', editingRule.id);
-      if (!error) fetchRules();
+      
+      if (error) {
+        console.error('Error updating discount rule:', error);
+        alert('Failed to save changes: ' + error.message);
+        return;
+      }
+      fetchRules();
     } else {
       const { error } = await supabase
         .from('discount_rules')
         .insert([ruleData]);
-      if (!error) fetchRules();
+      
+      if (error) {
+        console.error('Error creating discount rule:', error);
+        alert('Failed to create rule: ' + error.message);
+        return;
+      }
+      fetchRules();
     }
     
     setIsModalOpen(false);

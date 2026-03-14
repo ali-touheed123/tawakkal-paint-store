@@ -40,9 +40,14 @@ export default function ProductsPage() {
     
     const supabase = createClient();
     const { error } = await supabase.from('products').delete().eq('id', id);
-    if (!error) {
-      setProducts(products.filter(p => p.id !== id));
+    
+    if (error) {
+      console.error('Error deleting product:', error);
+      alert('Failed to delete product: ' + error.message);
+      return;
     }
+
+    setProducts(products.filter(p => p.id !== id));
   }
 
   async function handleSave(e: React.FormEvent) {
@@ -67,12 +72,24 @@ export default function ProductsPage() {
         .from('products')
         .update(productData)
         .eq('id', editingProduct.id);
-      if (!error) fetchProducts();
+      
+      if (error) {
+        console.error('Error updating product:', error);
+        alert('Failed to save product: ' + error.message);
+        return;
+      }
+      fetchProducts();
     } else {
       const { error } = await supabase
         .from('products')
         .insert([productData]);
-      if (!error) fetchProducts();
+      
+      if (error) {
+        console.error('Error creating product:', error);
+        alert('Failed to create product: ' + error.message);
+        return;
+      }
+      fetchProducts();
     }
     
     setIsModalOpen(false);
