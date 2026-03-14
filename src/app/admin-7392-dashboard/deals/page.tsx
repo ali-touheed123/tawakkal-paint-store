@@ -96,7 +96,10 @@ export default function DealsManagement() {
 
       const { error } = await supabase
         .from('site_settings')
-        .upsert(updates.map(u => ({ ...u, updated_at: new Date().toISOString() })));
+        .upsert(
+          updates.map(u => ({ ...u, updated_at: new Date().toISOString() })),
+          { onConflict: 'key' }
+        );
 
       if (error) throw error;
       setMessage({ type: 'success', text: 'All settings updated successfully!' });
@@ -105,7 +108,7 @@ export default function DealsManagement() {
       setTimeout(() => setMessage(null), 3000);
     } catch (error: any) {
       console.error('Error saving deals settings:', error);
-      setMessage({ type: 'error', text: 'Failed to update settings.' });
+      setMessage({ type: 'error', text: `Failed to update settings: ${error.message || 'Unknown error'}` });
     } finally {
       setSaving(false);
     }
