@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/client';
 import { 
   Percent, 
   Plus, 
+  Edit2,
   Trash2, 
   ToggleLeft, 
   ToggleRight,
@@ -15,6 +16,7 @@ import { cn } from '@/lib/utils';
 export default function DiscountsPage() {
   const [rules, setRules] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [editingRule, setEditingRule] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -54,22 +56,32 @@ export default function DiscountsPage() {
     }
   }
 
-  async function handleAdd(e: React.FormEvent) {
+  async function handleSave(e: React.FormEvent) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget as HTMLFormElement);
-    const newRule = {
+    const ruleData = {
+      name: formData.get('name'),
       min_amount: Number(formData.get('min_amount')),
       discount_percent: Number(formData.get('discount_percent')),
       is_active: true
     };
 
     const supabase = createClient();
-    const { error } = await supabase.from('discount_rules').insert([newRule]);
-    
-    if (!error) {
-      fetchRules();
-      setIsModalOpen(false);
+    if (editingRule?.id) {
+      const { error } = await supabase
+        .from('discount_rules')
+        .update(ruleData)
+        .eq('id', editingRule.id);
+      if (!error) fetchRules();
+    } else {
+      const { error } = await supabase
+        .from('discount_rules')
+        .insert([ruleData]);
+      if (!error) fetchRules();
     }
+    
+    setIsModalOpen(false);
+    setEditingRule(null);
   }
 
   return (
@@ -80,7 +92,7 @@ export default function DiscountsPage() {
           <p className="text-gray-500">Configure automatic discounts that apply at checkout.</p>
         </div>
         <button 
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => { setEditingRule(null); setIsModalOpen(true); }}
           className="bg-gold hover:bg-gold-dark text-navy font-bold px-6 py-2.5 rounded-lg flex items-center gap-2 shadow-lg transition-all active:scale-95"
         >
           <Plus size={20} /> Add Tier
@@ -118,6 +130,12 @@ export default function DiscountsPage() {
                   {rule.is_active ? <ToggleRight size={32} /> : <ToggleLeft size={32} />}
                 </button>
                 <button 
+                  onClick={() => { setEditingRule(rule); setIsModalOpen(true); }}
+                  className="p-2 text-gray-300 hover:text-navy transition-colors"
+                >
+                  <Edit2 size={20} />
+                </button>
+                <button 
                    onClick={() => handleDelete(rule.id)}
                    className="p-2 text-gray-300 hover:text-red-500 transition-colors"
                 >
@@ -128,8 +146,9 @@ export default function DiscountsPage() {
 
             <div className="space-y-4">
               <div>
-                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Minimum Cart Value</p>
+                <p className="text-[10px] font-black text-gold uppercase tracking-widest mb-1">{rule.name || 'Discount Tier'}</p>
                 <p className="text-2xl font-bold text-navy">Rs. {Number(rule.min_amount).toLocaleString()}</p>
+                <p className="text-xs text-gray-400">Min. Shopping Amount</p>
               </div>
               <div className="pt-4 border-t border-gray-50">
                 <p className="text-xs text-gray-500 italic">
@@ -152,21 +171,33 @@ export default function DiscountsPage() {
         )}
       </div>
 
-      {/* Add Rule Modal */}
+      {/* Add/Edit Rule Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy/60 backdrop-blur-sm">
-          <form onSubmit={handleAdd} className="bg-white rounded-2xl w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-200 overflow-hidden">
+          <form onSubmit={handleSave} className="bg-white rounded-2xl w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-200 overflow-hidden">
             <div className="p-6 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-navy">Create Discount Tier</h2>
+              <h2 className="text-xl font-bold text-navy">{editingRule ? 'Edit Discount Tier' : 'Create Discount Tier'}</h2>
               <Percent className="text-gold" size={24} />
             </div>
             <div className="p-8 space-y-6">
+              <div>
+                <label className="block text-xs font-bold text-gray-400 uppercase mb-2 tracking-widest">Discount Name</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  required 
+                  defaultValue={editingRule?.name}
+                  placeholder="e.g. Ramadan Sale"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none focus:ring-4 focus:ring-gold/5 transition-all text-lg font-bold text-navy" 
+                />
+              </div>
               <div>
                 <label className="block text-xs font-bold text-gray-400 uppercase mb-2 tracking-widest">Minimum Shopping Amount (Rs.)</label>
                 <input 
                   type="number" 
                   name="min_amount" 
                   required 
+                  defaultValue={editingRule?.min_amount}
                   placeholder="e.g. 10000"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none focus:ring-4 focus:ring-gold/5 transition-all text-xl font-bold text-navy" 
                 />
@@ -178,6 +209,7 @@ export default function DiscountsPage() {
                   name="discount_percent" 
                   required 
                   max="100"
+                  defaultValue={editingRule?.discount_percent}
                   placeholder="e.g. 15"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none focus:ring-4 focus:ring-gold/5 transition-all text-xl font-bold text-gold" 
                 />
@@ -186,7 +218,7 @@ export default function DiscountsPage() {
             <div className="p-6 bg-gray-50 border-t border-gray-100 flex justify-end gap-4">
               <button 
                 type="button" 
-                onClick={() => setIsModalOpen(false)} 
+                onClick={() => { setIsModalOpen(false); setEditingRule(null); }} 
                 className="px-6 py-2 text-gray-500 font-bold hover:text-navy"
               >
                 Cancel
@@ -195,7 +227,7 @@ export default function DiscountsPage() {
                 type="submit" 
                 className="px-8 py-2 bg-navy text-white font-bold rounded-lg hover:bg-navy/90 shadow-lg active:scale-95 transition-all"
               >
-                Create Rule
+                {editingRule ? 'Save Changes' : 'Create Rule'}
               </button>
             </div>
           </form>

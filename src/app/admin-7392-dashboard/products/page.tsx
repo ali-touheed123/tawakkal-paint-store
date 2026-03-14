@@ -52,6 +52,9 @@ export default function ProductsPage() {
       name: formData.get('name'),
       brand: formData.get('brand'),
       category: formData.get('category'),
+      sub_category: formData.get('sub_category'),
+      description: formData.get('description'),
+      image_url: formData.get('image_url'),
       price_quarter: Number(formData.get('price_quarter')),
       price_gallon: Number(formData.get('price_gallon')),
       price_drum: Number(formData.get('price_drum')),
@@ -204,6 +207,25 @@ export default function ProductsPage() {
                   <option value="auto">Auto</option>
                   <option value="projects">Projects</option>
                 </select>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-400 uppercase mb-2">Sub Category</label>
+                <select name="sub_category" defaultValue={editingProduct?.sub_category || 'interior'} className="w-full p-3 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none">
+                  <option value="interior">Interior</option>
+                  <option value="exterior">Exterior</option>
+                  <option value="wood_metal">Wood & Metal</option>
+                  <option value="waterproofing">Waterproofing</option>
+                  <option value="accessories">Accessories</option>
+                  <option value="primers_fillers">Primers & Fillers</option>
+                </select>
+              </div>
+              <div className="col-span-2">
+                <label className="block text-xs font-bold text-gray-400 uppercase mb-2">Image URL</label>
+                <input name="image_url" defaultValue={editingProduct?.image_url} placeholder="https://example.com/image.jpg" className="w-full p-3 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none" />
+              </div>
+              <div className="col-span-2">
+                <label className="block text-xs font-bold text-gray-400 uppercase mb-2">Description</label>
+                <textarea name="description" defaultValue={editingProduct?.description} rows={3} className="w-full p-3 bg-gray-50 border border-gray-100 rounded-xl focus:border-gold focus:outline-none resize-none" />
               </div>
               <div>
                  <label className="block text-xs font-bold text-gray-400 uppercase mb-2">Price (Quarter)</label>
