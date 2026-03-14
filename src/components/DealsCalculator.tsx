@@ -106,12 +106,6 @@ export function DealsCalculator() {
             finalPrice += visitFee;
         }
 
-        // Apply site-wide discount rules if applicable
-        const discountPercent = calculateDiscount(finalPrice);
-        if (discountPercent > 0) {
-            finalPrice = finalPrice * (1 - discountPercent / 100);
-        }
-
         return finalPrice;
     };
 
